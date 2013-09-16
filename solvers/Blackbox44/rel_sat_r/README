@@ -1,0 +1,265 @@
+****************************************************************************
+README for rel_sat_r
+****************************************************************************
+
+rel_sat_r is a modified version of the program rel_sat, in order to
+allow parameters to be adjusted on the command line, and to perform
+restarts more efficiently.
+
+"statistics" is an awk program that computes various statistics based
+on the output of rel_sat_r.  To use it, do something like:
+	rel_sat_r foo.cnf > foo.out
+	statistics foo.out
+Statistics works properly even on incomplete output files.
+For example, you can do
+	rel_sat_r -trials 1000000 foo.cnf > foo.out &
+and then periodically check on progress by typing
+	statistics foo.out
+
+rel_sat was created by 
+Roberto Bayardo bayardo@cs.utexas.edu
+rel_sat_r was created by
+Henry Kautz kautz@research.att.com
+
+The basic command line for rel_sat_r is:
+	rel_sat_r {OPTIONS} file.cnf
+where OPTIONS are any sequence of the following:
+	-trials N	Try to solve the formula N times.  Default = 10.
+			Each trial starts with the original wff, in
+			that learned clauses are not carried over
+			between trials.
+
+	-numsol N	Stop after the formula is solved N times.
+			Default = 1.
+
+	-nosol		If set, do not print out the solution if
+			found.
+	
+	-seed N		The seed for the random
+			number generator is N.
+
+	-maxsec N	End each trial after N seconds.  If N is 0,
+			then there is no time bound.  Default = 0.
+
+	-maxbt N	End each trial after N backtracks.  N=0 just means
+			perform no backtracking.  Default = 1000000.
+
+	-learnorder N	As described below: the maximum length of
+			clauses to be "permanently" learned during
+			a trial.  Each learned clause corresponds to a
+			backtrack point, and is entailed by the
+			original wff.  See -dump below.
+			Default = 3.
+	
+	-norelevance	If set, do not perform relevance-bounded learning.
+			Otherwise, backtrack points that correspond to
+			entailed clauses that are longer than the learnorder
+			are temporarily added to the wff, until
+			backtracking unassigns the other variables in the
+			clause.  See -dump below.
+
+	-dump		If set, the learned clauses are output to two
+			files.  If the input wff is named FOO.cnf,
+			these files are named FOO-perm.f and
+			FOO-temp.f, for the size-bounded and relevance-bounded
+			clauses respectively.  If multiple trials are performed,	
+			then clauses accumulate in these files, and duplicate		
+			clauses may appear.  Clauses are printed one per
+			line, with *no* trailing 0.
+
+	-fudge N A B	The fudge-factors used to "degrade" the
+			variable choice heuristic.  In the first step
+			of choosing a branch variable, every variable
+			is scored by the number of times it appears in
+			a binary clause.  Up to N variables that are
+			within A times the BEST value are selected.
+			Then, each of these N variables is re-scored by
+			actually counting how many unit props are performed
+			if the variable is set.  During this stage, if
+			it is discovered that if setting a particular variable
+			leads to an inconsistency, then it is
+			immediately choosen.  Otherwise, the set of all
+			variables that are re-scored within B times
+			the BEST re-score is determined, and a
+			variable is randomly choosen from this set.
+			Default = 10 .8 .9
+
+
+
+
+****************************************************************************
+ORIGINAL README for rel_sat
+****************************************************************************
+
+This file describes the source code for my look-back enhanced SAT
+algorithm, as described in: Bayardo & Schrag, "Using CSP Look-Back
+Techniques to Solve Real-World SAT Instances". To appear in AAAI-97.
+
+This particular algorithm is geared towards solving "real world" sorts
+of SAT instances. It is not designed to tackle "crossover" instances,
+though it can do so with reasonable efficiency. Also, I should note
+that there is PLENTY of room for improvement in this code. It's at
+least 3 times slower (in terms of constants) than a well-optimized
+implementation of DP such as Tableau, even when all the look-back
+enhancements are disabled. It is also using a rather primitive
+branch-variable scoring metric in comparison to something like
+Freeman's POSIT (and probably Crawford's ntab, though I'm not sure
+exactly what ntab is doing). Finally, it performs absolutely NO
+instance preprocessing. The implementation should be fairly easy to
+extend along any of these dimensions.
+
+If you have comments or (especially) if you find any bugs, please let
+me know!
+
+njoy,
+
+
+Roberto Bayardo
+bayardo@cs.utexas.edu
+http://www.cs.utexas.edu/users/bayardo
+
+===============================================================================
+Compiling:
+
+The source is very typical C++ code, compiling without warnings using
+g++ v2.7.2 on SunOS, Solaris, SGI, and RS6000 systems. I suspect it
+should also compile and run on any other architecture supporting this
+version of g++, or with minimal modifications given some other up to
+date C++ compiler.
+
+Just type "make" and hopefully it will all work...
+
+===============================================================================
+Compiler flags:
+
+Here I discuss the various "#define"'s in the file "SATSolver.c"
+which you can comment / uncomment to get different algorithms. Most of
+these flags should be runtime flags, but aren't at the moment...
+
+The most important flag is "RELEVANCE_BOUNDED_LEARNING", which forces
+the algorithm to use "relevance-bounded learning". If this flag is
+commented out, the algorithm will instead use "size-bounded
+learning". I suggest always leaving the "RELEVANCE_BOUNDED_LEARNING"
+flag on for the best performance on these large instances, since the
+technique appears quite critical for good performance in many cases.
+
+If you want to disable ALL the look-back enhancements (along with all
+their overhead), then uncomment the "NAIVE_SOLVER" flag. I wouldn't
+recommend this, because then you basically end up with a poorly
+optimized "ntab" type algorithm. It's quite uesful for seeing what the
+look-back enhancements give you though. If NAIVE_SOLVER is
+uncommented, then the RELEVANCE_BOUNDED_LEARNING flag is ignored.
+
+Next there is a ISAMP flag, which, if uncommented, should also be
+accompanied with an uncommented NAIVE_SOLVER flag. This flag turns the
+algorithm into the randomized algorithm "ISAMP" defined in Crawford
+and Baker's AAAI-94 paper (though again a quite poorly optimized
+one). This algorithm only seems to work on those scheduling instances
+they talk about in their paper .. I haven't found any others it's
+useful on.
+
+Another define is "MAX_TIME", which you set to the amount of CPU time
+the algorithm will spend trying to solve an instance before giving
+up. If you never want the algorithm to give up, then uncomment
+"NO_TIME_LIMIT".
+
+When uncommented, the "OUTPUT_SOLUTION" flag will, as you probably
+have guessed, cause the algorithm to output a solution when/if one is
+found. The format of the solution output is the variable name appears
+without a dash if it is assigned true, and it appears with a dash if
+it is assigned "false".
+
+The "SKIP_PURE_LITERALS" flag makes the algorithm apply a very simple
+pure-literal rule with relatively low overhead. Basically this doesn't
+seem to help on any instance I've found so far, so I just leave it
+commented out for the most part. This flag only works correctly when
+you are applying look-back enhancements (meaning NAIVE_SOLVER is
+commented out).
+
+The "FAVOR_SMALL_CLAUSES" flag makes the algorithm favor using smaller
+clauses as "reasons" for excluding a value from some variables
+domain. When this is commented out the algorithm instead will randomly
+select from the set of clauses which could be used to exclude a value
+(though not in a uniform manner.. it favors those clauses towards the
+end of the clause list). The overhead of favoring small clauses is
+negligible so you may as well leave it uncommented. However, I haven't
+found it particularly useful in improving performance on most
+instances.
+
+The MAX_TO_TRY parameter specifies the maximum number of variables
+that will be selected as potential branch variables at each branch
+point. This is set to 10 at the moment. 
+
+A very useful flag is "PRINT_STACK", which when uncommented causes the
+algorithm to repeatedly dump out the state of the backtracking stack.
+This allows you to witness the algorithm's progress as it is solving
+an instance. I recommend uncommenting it when you are interactively
+using the algorithm. The "PRINT_FREQUENCY" flag determines the
+frequency with which the stack is printed. This is in terms of "branch
+points searched", so the actual time frequence is dependent on the
+instance.  I usually set it to 100.
+
+Example output is as follows:
+
+    [86][/home/bayardo/sat-code] rel_sat 4 problems/hanoi4.cnf
+    Instance is: problems/hanoi4.cnf
+    Random number seed: 0
+    Learn order is: 4
+    >177 
+    >184 20 29 22 6 6 6 22 16 8 2 14 4 9 82 51 44 
+    >184 20 29 22 6 6 6 22 16 8 2 14 8 9 39 
+    >184 20 29 22 6 6 6 22 16 8 2 14 27 98 
+    >184 20 29 22 6 6 6 22 16 8 2 48 32 34 
+    >184 20 29 22 6 6 6 22 16 8 2 56 4 6 4 
+    ...
+
+The numbers after each ">" result from the PRINT_STACK flag. Each
+number represents the number of "unit-domained" variables before the
+next branch point. Thus in the above case, 184 variables are labelled
+before reaching the first branch point (a point in the backtracking
+stack where both values are "open" for the selected variable). 
+
+===============================================================================
+Runtime:
+
+After executing "make", you will end up with a "rel_sat" executable.
+This executable takes 3 arguments.
+
+Assuming the algorithm was compiled with the "NAIVE_SOLVER" flag
+commented out, the first argument is a runtime paramter specifying the
+"order of learning" to apply. When using relevance-bounded learning,
+the "1" and "2" learn orders are buggy (they screw up the maintenance
+of binary clause counts), so don't use them. Without relevance-bounded
+learning, "2" should work fine.  "1" will do nothing more than "CBJ"
+since the implementation doesn't support learning unary clauses. This
+isn't much of an issue because derived unary clauses are extremely
+rare on most instances.
+
+I recommend using learn orders of "3" and "4", which work well on most
+instances. Anything over 4 causes substantial overhead, though
+sometimes for really tough instances it's still beneficial.  A learn
+order of "0" tells the algorithm to apply conflict-directed
+backjumping without any learning. 
+
+If NAIVE_SOLVER was uncommented when you compiled, then this paramter
+is still required by the executable, but its value is ignored
+completely.
+
+The second argument accepted by the executable is the filename of the
+instance to be solved. It currently accepts ".cnf" (DIMACS) formatted
+instances.
+
+The third argument is a random number seed. It is optional, and if it
+is not specified, the seed used is "0".
+
+The executable attempts to solve the instance over and over
+again. With each attempt, it reports "SAT", "UNSAT", or "TIME LIMIT
+EXPIRED", along with "branch points explored" (size of the search
+tree), "variables labelled" (another search-tree size metric), and
+"CPU time (sec)". The CPU time does not include the time to read the
+instance. Since the implementation is brain dead in many aspects at
+the time-being, it re-reads the instance from disk EVERY time it tries
+to solve it (I know this is stupid and it will be fixed soon).  After
+100 attempts at solving the instance, it reports the number of times
+it "failed" to solve it and halts. The "give up" time is specified by
+the "MAX_TIME" compiler flag which I described above.

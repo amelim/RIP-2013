@@ -1,0 +1,189 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: blackbox - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YI-CHE~1\LOCALS~1\Temp\RSP4D0.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /D "_DEBUG" /D "WIN32" /D "_CONSOLE" /D "_MBCS" /D VERSION=4.0 /D "MSDOS" /D "ADNS_MAP_UNIXAPI" /D "BBCTRL" /Fp"Debug/blackbox.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\a\blackbox\win32\adns\adns_unix_calls.cpp"
+"D:\a\blackbox\zchaff\asap_cpp_wrapper.cpp"
+"D:\a\blackbox\zchaff\asap_dbase.cpp"
+"D:\a\blackbox\zchaff\asap_solver.cpp"
+"D:\a\blackbox\zchaff\asap_utils.cpp"
+"D:\a\blackbox\bbio.cpp"
+"D:\a\blackbox\bbpddl.tab.cpp"
+"D:\a\blackbox\rel_sat_r\Clause.cpp"
+"D:\a\blackbox\rel_sat_r\ClauseList.cpp"
+"D:\a\blackbox\compact\compact.cpp"
+"D:\a\blackbox\control.cpp"
+"D:\a\blackbox\dummy.cpp"
+"D:\a\blackbox\graph2wff.cpp"
+"D:\a\blackbox\graphplan.cpp"
+"D:\a\blackbox\hash.cpp"
+"D:\a\blackbox\compact\input.cpp"
+"D:\a\blackbox\justify.cpp"
+"D:\a\blackbox\learn.cpp"
+"D:\a\blackbox\lex.yy.cpp"
+"D:\a\blackbox\rel_sat_r\LoadCnf.cpp"
+"D:\a\blackbox\planner.cpp"
+"D:\a\blackbox\rel_sat_r\Random.cpp"
+"D:\a\blackbox\rel_sat_r\sat_solve.cpp"
+"D:\a\blackbox\sat_solver.cpp"
+"D:\a\blackbox\rel_sat_r\SATInstance.cpp"
+"D:\a\blackbox\rel_sat_r\SATSolver.cpp"
+"D:\a\blackbox\satz-rand\satz-rand.cpp"
+"D:\a\blackbox\compact\stack.cpp"
+"D:\a\blackbox\tim.cpp"
+"D:\a\blackbox\compact\ur.cpp"
+"D:\a\blackbox\utilities.cpp"
+"D:\a\blackbox\verify.cpp"
+"D:\a\blackbox\walksat\walksat.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\YI-CHE~1\LOCALS~1\Temp\RSP4D0.tmp"" 
+Creating temporary file "C:\DOCUME~1\YI-CHE~1\LOCALS~1\Temp\RSP4D1.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/blackbox.pdb" /map:"Debug/blackbox.map" /machine:I386 /out:"Debug/blackbox.exe" /pdbtype:sept 
+.\Debug\adns_unix_calls.obj
+.\Debug\asap_cpp_wrapper.obj
+.\Debug\asap_dbase.obj
+.\Debug\asap_solver.obj
+.\Debug\asap_utils.obj
+.\Debug\bbio.obj
+.\Debug\bbpddl.tab.obj
+.\Debug\Clause.obj
+.\Debug\ClauseList.obj
+.\Debug\compact.obj
+.\Debug\control.obj
+.\Debug\dummy.obj
+.\Debug\graph2wff.obj
+.\Debug\graphplan.obj
+.\Debug\hash.obj
+.\Debug\input.obj
+.\Debug\justify.obj
+.\Debug\learn.obj
+.\Debug\lex.yy.obj
+.\Debug\LoadCnf.obj
+.\Debug\planner.obj
+.\Debug\Random.obj
+.\Debug\sat_solve.obj
+.\Debug\sat_solver.obj
+.\Debug\SATInstance.obj
+.\Debug\SATSolver.obj
+".\Debug\satz-rand.obj"
+.\Debug\stack.obj
+.\Debug\tim.obj
+.\Debug\ur.obj
+.\Debug\utilities.obj
+.\Debug\verify.obj
+.\Debug\walksat.obj
+]
+Creating command line "link.exe @"C:\DOCUME~1\YI-CHE~1\LOCALS~1\Temp\RSP4D1.tmp""
+<h3>Output Window</h3>
+Compiling...
+adns_unix_calls.cpp
+asap_cpp_wrapper.cpp
+d:\a\blackbox\zchaff\asap_base.h(109) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+d:\a\blackbox\zchaff\asap_dbase.h(247) : warning C4805: '^' : unsafe mix of type 'short' and type 'bool' in operation
+c:\program files\microsoft visual studio\vc98\include\vector(142) : warning C4786: 'std::reverse_iterator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > const *,std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::pair<int,std::pair<void (__cdecl*)(void *),int> > const &,std::pair<int,std::pair<void (__cdecl*)(void *),int> > const *,int>' : identifier was truncated to '255' characters in the debug information
+        c:\program files\microsoft visual studio\vc98\include\vector(142) : while compiling class-template member function 'void __thiscall std::vector<std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::allocator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > > >::push_back(const std::pair<int,std::pair<void (__cdecl*)(void *),int> > &)'
+asap_dbase.cpp
+d:\a\blackbox\zchaff\asap_base.h(109) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+d:\a\blackbox\zchaff\asap_dbase.h(247) : warning C4805: '^' : unsafe mix of type 'short' and type 'bool' in operation
+d:\a\blackbox\zchaff\asap_dbase.cpp(122) : warning C4305: '=' : truncation from 'const double' to 'float'
+asap_solver.cpp
+d:\a\blackbox\zchaff\asap_base.h(109) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+d:\a\blackbox\zchaff\asap_dbase.h(247) : warning C4805: '^' : unsafe mix of type 'short' and type 'bool' in operation
+d:\a\blackbox\zchaff\asap_solver.cpp(485) : warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+c:\program files\microsoft visual studio\vc98\include\vector(39) : warning C4786: 'std::reverse_iterator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > const *,std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::pair<int,std::pair<void (__cdecl*)(void *),int> > const &,std::pair<int,std::pair<void (__cdecl*)(void *),int> > const *,int>' : identifier was truncated to '255' characters in the debug information
+        c:\program files\microsoft visual studio\vc98\include\vector(39) : while compiling class-template member function '__thiscall std::vector<std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::allocator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > > >::std::vector<std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::allocator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > > >(const std::allocator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > > &)'
+asap_utils.cpp
+c:\program files\microsoft visual studio\vc98\include\vector(39) : warning C4786: 'std::vector<std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::allocator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > > >::vector<std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::allocator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > > >' : identifier was truncated to '255' characters in the debug information
+c:\program files\microsoft visual studio\vc98\include\vector(60) : warning C4786: 'std::vector<std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::allocator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > > >::~vector<std::pair<int,std::pair<void (__cdecl*)(void *),int> >,std::allocator<std::pair<int,std::pair<void (__cdecl*)(void *),int> > > >' : identifier was truncated to '255' characters in the debug information
+bbio.cpp
+bbpddl.tab.cpp
+Clause.cpp
+d:\a\blackbox\rel_sat_r\clause.h(59) : warning C4244: 'return' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+ClauseList.cpp
+d:\a\blackbox\rel_sat_r\clause.h(59) : warning C4244: 'return' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+compact.cpp
+d:\a\blackbox\compact\compact.cpp(61) : warning C4101: 'i' : unreferenced local variable
+d:\a\blackbox\compact\compact.cpp(388) : warning C4101: 'j' : unreferenced local variable
+control.cpp
+d:\a\blackbox\control.cpp(188) : warning C4101: 'token' : unreferenced local variable
+dummy.cpp
+graph2wff.cpp
+d:\a\blackbox\graphplan.h(118) : warning C4005: 'DELETE' : macro redefinition
+        c:\program files\microsoft visual studio\vc98\include\winnt.h(3202) : see previous definition of 'DELETE'
+d:\a\blackbox\graphplan.h(126) : warning C4005: 'max' : macro redefinition
+        c:\program files\microsoft visual studio\vc98\include\windef.h(177) : see previous definition of 'max'
+d:\a\blackbox\graphplan.h(127) : warning C4005: 'min' : macro redefinition
+        c:\program files\microsoft visual studio\vc98\include\windef.h(181) : see previous definition of 'min'
+graphplan.cpp
+d:\a\blackbox\graphplan.h(118) : warning C4005: 'DELETE' : macro redefinition
+        c:\program files\microsoft visual studio\vc98\include\winnt.h(3202) : see previous definition of 'DELETE'
+d:\a\blackbox\graphplan.h(126) : warning C4005: 'max' : macro redefinition
+        c:\program files\microsoft visual studio\vc98\include\windef.h(177) : see previous definition of 'max'
+d:\a\blackbox\graphplan.h(127) : warning C4005: 'min' : macro redefinition
+        c:\program files\microsoft visual studio\vc98\include\windef.h(181) : see previous definition of 'min'
+hash.cpp
+input.cpp
+d:\a\blackbox\compact\input.cpp(60) : warning C4101: 'i' : unreferenced local variable
+justify.cpp
+d:\a\blackbox\compact\input.cpp(127) : warning C4715: 'try_assign' : not all control paths return a value
+learn.cpp
+lex.yy.cpp
+LoadCnf.cpp
+planner.cpp
+Random.cpp
+sat_solve.cpp
+d:\a\blackbox\rel_sat_r\clause.h(59) : warning C4244: 'return' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+D:\a\blackbox\rel_sat_r\sat_solve.cpp(74) : warning C4305: 'initializing' : truncation from 'const double' to 'float'
+D:\a\blackbox\rel_sat_r\sat_solve.cpp(75) : warning C4305: 'initializing' : truncation from 'const double' to 'float'
+sat_solver.cpp
+D:\a\blackbox\sat_solver.cpp(145) : warning C4786: 'std::pair<std::_Tree<int,int,std::set<int,std::less<int>,std::allocator<int> >::_Kfn,std::less<int>,std::allocator<int> >::const_iterator,std::_Tree<int,int,std::set<int,std::less<int>,std::allocator<int> >::_Kfn,std::less<int>,std::allocator<int> >::const_iterator>' : identifier was truncated to '255' characters in the debug information
+D:\a\blackbox\sat_solver.cpp(50) : warning C4101: 'lits' : unreferenced local variable
+SATInstance.cpp
+c:\program files\microsoft visual studio\vc98\include\utility(21) : warning C4786: 'std::pair<std::_Tree<int,int,std::set<int,std::less<int>,std::allocator<int> >::_Kfn,std::less<int>,std::allocator<int> >::iterator,bool>::pair<std::_Tree<int,int,std::set<int,std::less<int>,std::allocator<int> >::_Kfn,std::less<int>,std::allocator<int> >::iterator,bool>' : identifier was truncated to '255' characters in the debug information
+d:\a\blackbox\rel_sat_r\clause.h(59) : warning C4244: 'return' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+D:\a\blackbox\rel_sat_r\SATInstance.cpp(156) : warning C4101: 'buffer' : unreferenced local variable
+SATSolver.cpp
+d:\a\blackbox\rel_sat_r\clause.h(59) : warning C4244: 'return' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+D:\a\blackbox\rel_sat_r\SATSolver.cpp(423) : warning C4101: 'iTo' : unreferenced local variable
+satz-rand.cpp
+c:\program files\microsoft visual studio\vc98\include\winnt.h(3202) : warning C4005: 'DELETE' : macro redefinition
+        d:\a\blackbox\graphplan.h(118) : see previous definition of 'DELETE'
+D:\a\blackbox\satz-rand\satz-rand.cpp(180) : warning C4005: 'VERSION' : macro redefinition
+        unknown(0) : see previous definition of 'VERSION'
+D:\a\blackbox\satz-rand\satz-rand.cpp(193) : warning C4305: 'initializing' : truncation from 'const double' to 'float'
+D:\a\blackbox\satz-rand\satz-rand.cpp(574) : warning C4101: 'pnode1' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(700) : warning C4101: 'ch' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(700) : warning C4101: 'word2' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(940) : warning C4101: 'i' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(1108) : warning C4101: 'i' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(1563) : warning C4101: 'i' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(1672) : warning C4101: 'pvar_node' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(1671) : warning C4101: 'saved_nb_back' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(2016) : warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+D:\a\blackbox\satz-rand\satz-rand.cpp(2044) : warning C4305: '=' : truncation from 'const double' to 'float'
+D:\a\blackbox\satz-rand\satz-rand.cpp(1984) : warning C4101: 'mess' : unreferenced local variable
+D:\a\blackbox\satz-rand\satz-rand.cpp(1983) : warning C4101: 'var' : unreferenced local variable
+stack.cpp
+D:\a\blackbox\satz-rand\satz-rand.cpp(2100) : warning C4700: local variable 'answer' used without having been initialized
+tim.cpp
+ur.cpp
+utilities.cpp
+verify.cpp
+walksat.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+blackbox.exe - 0 error(s), 51 warning(s)
+</pre>
+</body>
+</html>

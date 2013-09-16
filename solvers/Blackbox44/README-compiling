@@ -1,0 +1,100 @@
+ISSUES:
+
+1/11/2006 - Did not compile under g++ 4.0.2-8
+
+
+*****************************************
+
+Note: in process of fixing everything else I deleted some of the WIN32
+comments needed by MS Visual C++, so cannot generate a native binary.
+
+1/4/03 - the -O2 or -O3 flags break the parser!  gives error
+message, "strips  not supported".
+
+Also: parser in lex.yy.cpp was printing
+of ^M's right after loading the files.   Fixed
+this by commenting out call to ECHO.
+
+Should try again after installing lex and bison, to see if get the
+same problems.
+
+
+*****************************************
+
+1/4/03 - All bugs fixed!
+
+1/3/03 - dumps core on gettimeofday call in graphplan
+1/3/03 - note that current version of g++ in cygwin does NOT set
+WIN32.
+
+1/3/03 - need to install bison and flex on laptob, weren't installed with cygwin
+for some reason!  Commented out sections in makefile that use them.
+
+12/28/01 - the graphplan search code causes a core dump.
+Runs okay if graphplan is not used as a solver.  Should
+recompile without -O3 and -g and use gdb.  FIXED!
+
+2/3/02 - 
+Dumps core under cygwin on the large bw wffs.  This happens right
+   after:
+
+** Turning off completeness check **
+Converting graph to wff
+number of action variables = 13939
+number of fluent variables = 5219
+total number variables = 19158
+BASH: [512: 1] tcsetattr: Not a character device
+Segmentation fault (core dumped)
+
+This happens whether the solver is Chaff, satz, or walksat.  So this
+looks to be a bug in the interface code, not in the solvers
+themselves.
+
+**********************************************************************
+
+Dec 2001 - Changes to make compile under Cygwin.
+Probably will also help compile under Linux 6.1.
+
+1. In make Makefile Cygin not finding -lfl library OR -ll library.
+   However, they are not need under Cygwin.
+
+ifeq ($(OSTYPE), cygwin)
+  PFLAGS =
+endif
+
+2. The OSTYPE environmental variable needs to be set to cygwin.  Do
+   this is .bashrc or .cshrc, etc.
+
+3. In rel_sat_r/Random.cpp, changed
+
+#ifdef LINUX
+extern "C" {
+  int initstate();
+  int setstate();
+}
+#endif
+
+to
+
+#ifndef WIN32
+...
+
+All the calls to initstate() and setstate() are wrapped in #ifndef
+WIN32, so I'm guessing this is correct in general (but have not
+verified).
+
+4. In zchaff/Makefile must comment out the following:
+
+# Following seemingly harmless code breaks this Makefile UNLESS your
+# shell is csh!  Go figure!!!
+#  ifneq (posix, $(OSTYPE))
+#  ifneq (linux, $(OSTYPE))
+#  echo "WARNING This thing are not tested under os other than Linux and Solaris"
+#  endif
+#  endif
+
+5. Found bug in graphplan.cpp - must change
+	    sscanf(argv[++i], "%f", &bb_maxsec);
+to
+	    sscanf(argv[++i], "%d", &bb_maxsec);
+

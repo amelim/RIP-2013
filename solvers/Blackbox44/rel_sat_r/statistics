@@ -1,0 +1,89 @@
+#!/bin/ksh
+
+gawk '
+BEGIN {
+	sum_back = 0.0;
+	sum_sec = 0.0;
+	bt_til_success = 0.0;
+	sec_til_success = 0.0;
+	restart_til_success = 0.0;
+	restarts = 0.0;
+	numsuccesstry = 0.0;
+	sum_successback = 0.0;
+	sum_successback_squared = 0.0;
+	sum_restart_til_success = 0.0;
+	sum_restart_til_success_squared = 0.0;
+	sum_sec_til_success  = 0.0;
+	sum_sec_til_success_squared  = 0.0;
+}
+/] rel_sat_r/{
+    sec = $5;
+    bt = $6 * 1.0;
+    status = $4;
+    if (status == "timeout"){
+	 status = -1;
+    }
+    else if (status == "SAT"){
+	status = 1;
+    }
+    else {
+	status = 0;
+    }
+}
+/] satz-rand/{
+	sec = $4 
+	bt = $6 * 1.0;
+	status = $9;
+}
+/] satz-rand|] rel_sat_r/{
+	sum_back += bt;
+	sum_sec += sec;
+	restarts ++;
+	bt_til_success += bt;
+	sec_til_success += sec;
+	restart_til_success ++;
+
+	if (status != -1){
+		numsuccesstry ++;
+		sum_successback += bt;
+		sum_successback_squared += bt * bt;
+		sum_successsec += sec;
+		sum_successsec_squared += sec * sec;
+		
+		sum_restart_til_success += restart_til_success;
+		sum_restart_til_success_squared += restart_til_success * restart_til_success;
+		restart_til_success = 0.0;
+
+		sum_bt_til_success += bt_til_success;
+		sum_bt_til_success_squared += bt_til_success * bt_til_success;
+		bt_til_success = 0.0;
+
+		sum_sec_til_success += sec_til_success;
+		sum_sec_til_success_squared += sec_til_success * sec_til_success;
+		sec_til_success = 0.0;
+	}
+}
+END {
+	print "Number of restarts = " restarts;
+	print "Number of successful restarts = " numsuccesstry;
+	print "Total experiment seconds = " sum_sec;
+	print "Total experiment backtracks = " sum_back;
+	print "Mean backtracks per second = " sum_back / sum_sec;
+	if (numsuccesstry > 0){
+	print "Success rate = " ( numsuccesstry * 1.0 ) / restarts;
+	print "Mean bt successful restarts = " sum_successback / numsuccesstry;
+	print "  standard deviation = " sqrt(sum_successback_squared / numsuccesstry - (sum_successback / numsuccesstry) * (sum_successback / numsuccesstry));
+	print "Mean sec successful restarts = ", sum_successsec / numsuccesstry;
+	print "  standard deviation = " sqrt(sum_successsec_squared / numsuccesstry - (sum_successsec / numsuccesstry) * (sum_successsec / numsuccesstry));
+	print "Mean bt until solution = " sum_bt_til_success / numsuccesstry;
+	print "  standard deviation = " sqrt(sum_bt_til_success_squared / numsuccesstry - (sum_bt_til_success / numsuccesstry) * (sum_bt_til_success / numsuccesstry));
+	print "Mean sec until solution = " sum_sec_til_success / numsuccesstry;
+	print "  standard deviation = " sqrt(sum_sec_til_success_squared / numsuccesstry - (sum_sec_til_success / numsuccesstry) * (sum_sec_til_success / numsuccesstry));
+	print "Mean restarts until solution = " sum_restart_til_success / numsuccesstry;
+	print "  standard deviation = " sqrt(sum_restart_til_success_squared / numsuccesstry - (sum_restart_til_success / numsuccesstry) * (sum_restart_til_success / numsuccesstry));
+	}
+}	
+' $*
+
+
+

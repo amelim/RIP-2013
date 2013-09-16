@@ -1,0 +1,389 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/577/trunk
+END
+expressions.cc
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/575/trunk/expressions.cc
+END
+pddl.cc
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/577/trunk/pddl.cc
+END
+requirements.cc
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/575/trunk/requirements.cc
+END
+predicates.cc
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/558/trunk/predicates.cc
+END
+problems.cc
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/575/trunk/problems.cc
+END
+chain.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/576/trunk/chain.h
+END
+missing
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/missing
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/577/trunk/Makefile.am
+END
+formulas.h
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/575/trunk/formulas.h
+END
+vhpop.cc
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/575/trunk/vhpop.cc
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/575/trunk/Makefile.in
+END
+orderings.h
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/575/trunk/orderings.h
+END
+getopt.c
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/575/trunk/getopt.c
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/346/trunk/AUTHORS
+END
+actions.h
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/575/trunk/actions.h
+END
+depcomp
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/depcomp
+END
+tokens.cc
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/575/trunk/tokens.cc
+END
+ipc3-vhpop
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/402/trunk/ipc3-vhpop
+END
+getopt.h
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/575/trunk/getopt.h
+END
+functions.h
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/559/trunk/functions.h
+END
+effects.cc
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/575/trunk/effects.cc
+END
+getopt1.c
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/575/trunk/getopt1.c
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/COPYING
+END
+debug.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/debug.h
+END
+parameters.cc
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/575/trunk/parameters.cc
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/575/trunk/ChangeLog
+END
+types.cc
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/560/trunk/types.cc
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/575/trunk/README
+END
+flaws.cc
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/575/trunk/flaws.cc
+END
+config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/575/trunk/config.h.in
+END
+heuristics.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/575/trunk/heuristics.h
+END
+pddl.h
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/577/trunk/pddl.h
+END
+requirements.h
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/575/trunk/requirements.h
+END
+problems.h
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/575/trunk/problems.h
+END
+predicates.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/558/trunk/predicates.h
+END
+tokens.ll
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/575/trunk/tokens.ll
+END
+aclocal.m4
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/575/trunk/aclocal.m4
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/575/trunk/install-sh
+END
+domains.h
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/575/trunk/domains.h
+END
+terms.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/terms.h
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/575/trunk/configure
+END
+types.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/560/trunk/types.h
+END
+flaws.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/flaws.h
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/575/trunk/configure.ac
+END
+effects.h
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/575/trunk/effects.h
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/INSTALL
+END
+heuristics.cc
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/577/trunk/heuristics.cc
+END
+expressions.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/575/trunk/expressions.h
+END
+refcount.cc
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/575/trunk/refcount.cc
+END
+refcount.h
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/575/trunk/refcount.h
+END
+formulas.cc
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/575/trunk/formulas.cc
+END
+NEWS
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/442/trunk/NEWS
+END
+domains.cc
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/575/trunk/domains.cc
+END
+terms.cc
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/561/trunk/terms.cc
+END
+mkinstalldirs
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/575/trunk/mkinstalldirs
+END
+orderings.cc
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/577/trunk/orderings.cc
+END
+bindings.cc
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/575/trunk/bindings.cc
+END
+pddl.yy
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/577/trunk/pddl.yy
+END
+bindings.h
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/575/trunk/bindings.h
+END
+actions.cc
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/577/trunk/actions.cc
+END
+parameters.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/575/trunk/parameters.h
+END
+functions.cc
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/559/trunk/functions.cc
+END
+plans.cc
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/577/trunk/plans.cc
+END
+plans.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/plans.h
+END

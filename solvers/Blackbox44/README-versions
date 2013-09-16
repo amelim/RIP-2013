@@ -1,0 +1,8 @@
+Versions:
+
+4.0 - compiles under cygwin and bash (12/26/01)
+4.1 - Jan 2003 - fixes bugs that cause crashes under cygwin
+4.2 - Jan 2003 - extensive changes to compile under cygwin version of Dec 2002
+4.2b - Jan 2003 - fix -M to not be so big!
+4.3 - Jan 2006 - compiles under g++ version 4.0.x
+4.4 - Sept 2010 - compiles under Mac OS X Snow Leopard

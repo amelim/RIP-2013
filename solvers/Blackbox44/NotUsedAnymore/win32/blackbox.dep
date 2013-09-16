@@ -1,0 +1,84 @@
+# Microsoft Developer Studio Generated Dependency File, included by blackbox.mak
+
+..\bbio.c : \
+	"..\bbio.h"\
+	"..\graphplan.h"\
+	"..\interface.h"\
+	"..\learn.h"\
+	"..\tim.h"\
+	"..\utilities.h"\
+	
+
+..\bbpddl.tab.c : \
+	"..\graphplan.h"\
+	"..\utilities.h"\
+	
+
+..\control.c : \
+	"..\graphplan.h"\
+	"..\utilities.h"\
+	
+
+..\dummy.c : \
+	"..\graphplan.h"\
+	
+
+..\graph2wff.c : \
+	"..\graphplan.h"\
+	"..\interface.h"\
+	"..\utilities.h"\
+	"c:\program files\adns\include\adns.h"\
+	"c:\program files\adns\include\adns_win32.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+..\graphplan.c : \
+	"..\bbio.h"\
+	"..\graphplan.h"\
+	"..\interface.h"\
+	"..\learn.h"\
+	"..\tim.h"\
+	"..\utilities.h"\
+	"c:\program files\adns\include\adns.h"\
+	"c:\program files\adns\include\adns_win32.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+..\hash.c : \
+	"..\graphplan.h"\
+	
+
+..\justify.c : \
+	"..\graphplan.h"\
+	"..\interface.h"\
+	"..\justify.h"\
+	"..\utilities.h"\
+	
+
+..\learn.c : \
+	"..\bbio.h"\
+	"..\graphplan.h"\
+	"..\interface.h"\
+	"..\learn.h"\
+	"..\tim.h"\
+	"..\utilities.h"\
+	"..\verify.h"\
+	
+
+..\lex.yy.c : \
+	"..\bbpddl.tab.h"\
+	"..\graphplan.h"\
+	
+
+..\planner.c : \
+	"..\bbio.h"\
+	"..\graphplan.h"\
+	"..\interface.h"\
+	"..\justify.h"\
+	"..\learn.h"\
+	"..\tim.h"\
+	"..\verify.h"\
+	"c:\program files\adns\include\adns.h"\
+	"c:\program files\adns\include\adns_win32.h"\
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
