@@ -1,0 +1,109 @@
+<<Use of Control Rule File - draft>>
+
+In order to use control rules, you need to provide an extra control rule
+file for blackbox by using option "-c filename". Here is an example:
+
+	blackbox -o domain.pddl -f logistics-a.pddl -c control.pddl
+
+To better understand how to use control rules, please read the following and
+refer to examples for logistics domain and tire-world domain.
+
+<<Control Rule File Informal Syntax>>
+	
+	(define (control <name>)
+       	 	(:domain <domain name>)
+	 [<user-defined predicate(s)>]
+         [<action exclusion rule(s)>]
+         [<constraint rule(s)>]  
+	)
+
+<<User-Defined Predicate>>
+
+	(:defpredicate <predicate name>
+ 	 :parameters <parameter list>
+ 	 :body <predicate body>)
+
+The truth value of user-defined predicate should solely dependend on the 
+initial state and goal state. Namely, it can only refer to static predicate
+or goal and its truth value won't change during planning. The return value of 
+user-defined predicate is determined by its <predicate body>. Here is an 
+example taken from logistics domain:
+
+(:defpredicate in_wrong_city 
+ :parameters (?obj ?loc)
+ :body (exists (?goal_loc) (goal (at ?obj ?goal_loc))
+         (exists (?city) (in-city ?loc ?city)
+           (not (in-city ?goal_loc ?city)))))
+
+The above predicate return "true" if location <?loc> is not in the same city as
+object <?obj>'s goal location <?goal_loc>.
+
+(exists (<variable name>) (binding <condition>) (<body>):
+    "exists" is used to bind a variable in the goal or static predicate in
+<binding condition>, which is either a goal predicate or a static predicate. 
+It returns true if <body> returns true when a variable is binded in
+<binding condition>.
+
+(goal (<predicate>)) is used to refer to  goal states. 
+
+
+<<Action Exclusion Rule>>
+
+	(:action <action name>
+	 :exclude <exclusion condition>)
+
+An action is excluded from the plan graph when the "condition" in any 
+exclusion rule for that action holds. The following is an example for action 
+LOAD-TRUCK in logistics domain:
+ 
+; don't load an object into to a truck if it is at the goal location
+(:action LOAD-TRUCK
+  :exclude (goal (at ?obj ?loc)))
+
+    Variables ?obj and ?loc are the parameters of action "LOAD-TRUCK"
+in the domain file.
+
+
+<<Constraint Rule>>
+
+	(:wffcontrol
+	 :scope <scope body>
+	 :precondition <predicate(s)>
+	 :effect <predicate>)
+
+Constraint rule adds constraints into propositional formula generated from
+the planning graph. Each rule adds constraint <precondition> -> <effect> 
+(for all time steps), where <precondition> is a conjunction of predicates 
+and <effect> is a single predicate. <scope> is used to define the domain 
+where the rule should apply. The following is an example in logistics domain:
+
+; don't move an airplane if there is an object that needs to be unloaded 
+(:wffctrl w5
+ :scope (forall (?pln) (AIRPLANE ?pln)
+          (forall (?obj) (obj ?obj)
+            (forall (?loc) (AIRPORT ?loc)
+              (not (in_wrong_city ?obj ?loc)))))
+ :precondition (and (at ?pln ?loc) (in ?obj ?pln))
+ :effect (next (at ?pln ?loc)))
+
+
+(forall <variable name> <binding condition> <body>):
+    <forall> is used to bind and enumerate variable appearing in the 
+<prediction> or <effect>. When <binding condition> holds and <body> returns 
+true, constraint clauses are added into the propositional formula. 
+
+(next <predicate>):
+    <next> is used to refer to the state in the next time step. It is 
+equivalent to the operator "next" in temporal logic.
+
+
+ 
+
+
+
+
+
+
+
+
+

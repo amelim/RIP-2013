@@ -1,0 +1,11 @@
+Follow these simple steps to build VHPOP:
+
+  ./configure [options]
+  make
+
+For brief information on how to run VHPOP, use the following command:
+
+  ./vhpop --help
+
+If you are unable to build VHPOP, please report your problems to
+<lorens@cs.cmu.edu>.

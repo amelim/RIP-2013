@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/575/trunk/scripts
+END
+ipc3verif
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/575/trunk/scripts/ipc3verif
+END
+aips2002verif
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/575/trunk/scripts/aips2002verif
+END
+ipc3stats
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/575/trunk/scripts/ipc3stats
+END
+aaaitests
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/575/trunk/scripts/aaaitests
+END
+aips2002stats
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/575/trunk/scripts/aips2002stats
+END
+ipc3tests
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/575/trunk/scripts/ipc3tests
+END
+aips2002tests
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/575/trunk/scripts/aips2002tests
+END
