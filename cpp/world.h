@@ -20,7 +20,7 @@ class World{
 	public:
 		/* Constructors */
 		World();
-		World(*Matrix map, Location robot, vector<Location> boxes, vector<Location> targets);
+		World(Matrix *map, Location *robot, vector<Location> *boxes, vector<Location> *targets);
 
 		/* Destructor */
 		~World();
@@ -39,7 +39,7 @@ class World{
 		vector<Location> getTargetBoxes() const;
 
 	private:
-		static Matrix map_;		/* Initialize a static map */
+		static Matrix map_;						/* Initialize a static map */
 		Location robot_;						/* Robot location */
 		vector<Location> boxesStart_;			/* Location of boxes on the map */
 		vector<Location> boxesTarget_;			/* Location of boxes on the map */

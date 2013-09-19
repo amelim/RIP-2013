@@ -1,8 +1,7 @@
 #ifndef A_STAR_H
 #define A_STAR_H
 
-#include "world.h"
-#include "location.h"
+#include "state.h"
 #include <queue>		/* For priority queues */
 #include <map>			/* For map data structure */
 #include <vector>
@@ -10,25 +9,40 @@
 
 using namespace std;
 
-typedef std::priority_queue<int,std::vector<Tile>, mycomparison> pq_custom;
+typedef std::priority_queue<int, vector<State>, StateOrdering> statePQ;
 
-class mycomparison {
-	bool reverse;
-
+/* This class is required to sort the priority queue based on the f-cost of a
+ * node */
+class StateOrdering {
 	public:
-		mycomparison(const bool& revparam=false) {reverse=revparam;}
-		bool operator() (const int& lhs, const int&rhs) const {
-			if (reverse) return (lhs>rhs);
-			else return (lhs<rhs);
+		bool operator() (const State &x, const State &y) const {
+			return x->getFCost() > y->getFCost();
 		}
 };
 
 class A_Star{
 	public:
+		/* Planning functions */
 		void solve();
 		void extract_solution();
 
+		/* Display functions */
+		void printSolution();
+
+		/* Get functions */
+		statePQ* getOpen();
+		map<State, int>* getClosed();
+		State* getRoot();
+		State* getSolution();
+
 	private:
-		pq_custom open_;
-		map<Tile, int> closed_;
+		/* Open and closed list for the search */
+		statePQ open_;
+		map<State, int> closed_;
+
+		State* root;			/* Root of the search tree */
+		State* solutionLeaf; 	/* State of the world when a solution is found
+									Keep this state for reconstructing the solution */
+
+		int debugLevel;
 }
