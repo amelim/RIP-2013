@@ -27,6 +27,8 @@ class World{
 
 		/* Display functions */
 		void printWorld();
+		void printConfig();
+		void printAll();
 
 		/* Get functions */
 		Matrix getMap() const;				

@@ -21,7 +21,8 @@ class State{
 		void printState();
 		
 		/* A* planning related functions */
-		vector<State>* expandState();
+		vector<State> expandState();
+		bool isGoal();
 
 		/* Compute various cost functions */
 		int computeGCost(State* parent);

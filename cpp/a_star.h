@@ -20,29 +20,38 @@ class StateOrdering {
 		}
 };
 
-class A_Star{
+class AStar{
 	public:
+		/* Constructor */
+		AStar();
+		AStar(State* init);
+
+		/* Destructor */
+		~AStar();
+
 		/* Planning functions */
-		void solve();
-		void extract_solution();
+		vector<State> solve();
 
 		/* Display functions */
 		void printSolution();
 
 		/* Get functions */
-		statePQ* getOpen();
-		map<State, int>* getClosed();
-		State* getRoot();
-		State* getSolution();
+		statePQ getOpen();
+		map<State, int> getClosed();
+		vector<State> getSolution();
+
+		/*private:*/
+		vector<State> extractSolution(State* solutionLeaf);
 
 	private:
 		/* Open and closed list for the search */
-		statePQ open_;
+		statePQ <State, vector<State>, StateOrdering> open_;
 		map<State, int> closed_;
 
-		State* root;			/* Root of the search tree */
-		State* solutionLeaf; 	/* State of the world when a solution is found
+		State* root_;			/* Root of the search tree */
+		State* solutionLeaf_; 	/* State of the world when a solution is found
 									Keep this state for reconstructing the solution */
+		vector<State> solution_;
 
-		int debugLevel;
+		int debugLevel_;
 }
