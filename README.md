@@ -1,3 +1,11 @@
 RIP-2013
 ========
-g
+
+To build : 
+mkdir build
+cd build
+cmake ..
+make
+
+
+Executables are found in build/cpp
