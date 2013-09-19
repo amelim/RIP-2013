@@ -47,5 +47,5 @@ class World{
 		/* Store the parameters of the world */
 		int sizeX_;
 		int sizeY_;
-		int numberOfTargets_;
+		int numberOfBoxes_;
 }

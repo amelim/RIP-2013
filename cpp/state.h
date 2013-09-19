@@ -12,7 +12,7 @@ class State{
 		State ();
 		State (State *parent, Direction dir);	/* For instantiation based on a parent search node */
 		State (World *world);					/* For the initial instantiation of a search node, 
-												   this is for creating the root node of the search tree */
+												   used to create the root of the search */
 
 		/* Destructor */
 		~State();
