@@ -46,7 +46,7 @@ class State{
 		bool isGoal();
     
     	/* Calculates the distance between */
-		double distanceToLoc(const Location &loc) const;
+		int distanceToLoc(const Location &loc) const;
 
 		/* Compute various cost functions */
 		int computeGCost(const State &parent);

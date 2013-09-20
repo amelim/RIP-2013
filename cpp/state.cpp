@@ -1,4 +1,7 @@
 #include "state.h"
+#include <stdlib.h>
+
+using namespace std;
 
 State::State(){
 }
@@ -7,8 +10,11 @@ State::State(World &world) {
 	world_ = new World(world.getMap(), world.getInitRobotLocation(), world.getInitBoxes(), world.getTargetBoxes());
 }
 
-double State::distanceToLoc(const Location &loc) const{
-  return 0.0;
+// Returns the Manhattan Distance between robot and loc 
+int State::distanceToLoc(const Location &loc) const{
+  int dX = abs(curRobot_->getX() - loc.getX());
+  int dY = abs(curRobot_->getX() - loc.getX());
+  return dX + dY;
 }
 
 bool State::isGoal(){
