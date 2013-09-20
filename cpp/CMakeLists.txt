@@ -5,10 +5,13 @@ set(helloFile "scripts/helloWorld.cpp")
 set(world "world.cpp")
 
 # Does not compile due to subdir_srcs not being implemented
-#add_executable(helloWorld ${helloFile} ${subdir_srcs})
 
 # compile libraries
 add_library(libworld world.cpp)
 
 add_executable(helloWorld ${helloFile})
 target_link_libraries(helloWorld libworld)
+
+set(stateFile "scripts/testState.cpp")
+add_executable(testState ${stateFile} ${subdir_srcs})
+

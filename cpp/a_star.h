@@ -1,6 +1,7 @@
 #ifndef A_STAR_H
 #define A_STAR_H
 
+
 #include "state.h"
 
 #include <iostream>
@@ -10,22 +11,36 @@
 #include <vector>
 #include <functional>   /* std::greater for comparison function for priority queue */
 
-typedef std::priority_queue<int, std::vector<State>, StateOrdering> statePQ;
 
 /* This class is required to sort the priority queue based on the f-cost of a
  * node */
 class StateOrdering {
 	public:
 		bool operator() (const State &x, const State &y) const {
-			return x->getFCost() > y->getFCost();
+			return x.getFCost() > y.getFCost();
 		}
 };
 
+typedef std::priority_queue<int, std::vector<State>, StateOrdering> statePQ;
+
 class AStar{
+
+	private:
+		/* Open and closed list for the search */
+		statePQ open_;
+    std::map<State, int> closed_;
+
+		State root_;			/* Root of the search tree */
+		State solutionLeaf_; 	/* State of the world when a solution is found
+									Keep this state for reconstructing the solution */
+    std::vector<State> solution_;
+
+		int debugLevel_;
+
 	public:
 		/* Constructor */
 		AStar();
-		AStar(State* init);
+		AStar(State& init);
 
 		/* Destructor */
 		~AStar();
@@ -42,17 +57,7 @@ class AStar{
     std::vector<State> getSolution();
 
 		/*private:*/
-		vector<State> extractSolution(State* solutionLeaf);
+    std::vector<State> extractSolution(State* solutionLeaf);
 
-	private:
-		/* Open and closed list for the search */
-		statePQ <State, vector<State>, StateOrdering> open_;
-    std::map<State, int> closed_;
-
-		State* root_;			/* Root of the search tree */
-		State* solutionLeaf_; 	/* State of the world when a solution is found
-									Keep this state for reconstructing the solution */
-    std::vector<State> solution_;
-
-		int debugLevel_;
-}
+};
+#endif

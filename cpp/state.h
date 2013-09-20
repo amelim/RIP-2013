@@ -13,11 +13,11 @@ typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
 
 class State{
 	private:
-		static World &world_;				/* Pointer to the static world initialization */
+		static World *world_;				/* Pointer to the static world initialization */
 		Location curRobot_;					/* Current robot location */
     std::vector<Location> curBoxes_;			/* Current box locations on the map */
 
-		State &parent_;						/* Pointer to previous state, if it exists,
+		State *parent_;						/* Pointer to previous state, if it exists,
 											   otherwise NULL. This pointer is required so that
 											   we can traverse the search tree back from the goal
 											   to extract the solution */
@@ -36,7 +36,7 @@ class State{
 												   used to create the root of the search */
 
 		/* Destructor */
-		~State();
+		~State(){}
 
 		/* Display functions */
 		void printState();
@@ -46,7 +46,7 @@ class State{
 		bool isGoal();
     
     /* Calculates the distance between */
-		double distanceToGoal();
+		double distanceToLoc(const Location &loc) const;
 
 		/* Compute various cost functions */
 		int computeGCost(const State &parent);
@@ -54,11 +54,11 @@ class State{
 		int computeFCost(const State &parent);
 
 		/* Get functions */
-		int getGCost(){ return g_; }
-		int getHCost(){ return h_; }
-		int getFCost(){ return f_; }
-		World* getWorld();
-		State* getParent();
+		int getGCost() const { return g_; }
+		int getHCost() const { return h_; }
+		int getFCost() const { return f_; }
+		World* getWorld(){ return world_; }
+		State* getParent(){ return parent_; }
 
 		/* Set functions */
 		int setGCost();
