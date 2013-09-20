@@ -1,6 +1,8 @@
 #ifndef LOCATION_H
 #define LOCATION_H
 
+#include <iostream>
+
 using namespace std;
 
 class Location{
@@ -14,6 +16,8 @@ class Location{
 
 		int getX() { return x_; }
 		int getY() { return y_; }
+
+		void print() { cout << "x/y: " << x_ << " / " << y_ << endl; }
 
 	private:
 		int x_;

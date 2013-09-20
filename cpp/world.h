@@ -31,17 +31,17 @@ class World{
 		void printAll();
 
 		/* Get functions */
-		Matrix getMap() const;				
-		int getSizeX() const; 						/* const keyword, because we don't want to be 
+		Matrix getMap();				
+		int getSizeX(); 						/* const keyword, because we don't want to be 
 											   			able to change the parameters of the world */
-		int getSizeY() const ;
-		int getNumberOfBoxes() const;
-		Location getInitRobotLocation() const;
-		vector<Location> getInitBoxes() const;
-		vector<Location> getTargetBoxes() const;
+		int getSizeY();
+		int getNumberOfBoxes();
+		Location getInitRobotLocation();
+		vector<Location> getInitBoxes();
+		vector<Location> getTargetBoxes();
 
 	private:
-		static Matrix map_;						/* Initialize a static map */
+		Matrix map_;						/* Initialize a static map */
 		Location robot_;						/* Robot location */
 		vector<Location> boxesStart_;			/* Location of boxes on the map */
 		vector<Location> boxesTarget_;			/* Location of boxes on the map */

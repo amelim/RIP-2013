@@ -8,19 +8,19 @@ World::World() {
 }
 
 World::World(Matrix *map, Location *robot, vector<Location> *boxes, vector<Location> *targets) {
-	map_ = &map;
-	robot_ = &robot;
+	map_ = *map;
+	robot_ = *robot;
 
-	boxesStart_ = &boxes;
-	boxesTarget_ = &targets;
+	boxesStart_ = *boxes;
+	boxesTarget_ = *targets;
 
-	if( boxesStart_ != boxesTarget_) {
+	if( boxesStart_.size() != boxesTarget_.size()) {
 		// TODO: throw error
 	}
 	
 	sizeX_ = map->at(0).size();
 	sizeY_ = map->size();
-	numberOfTargets_ = boxes->size();
+	numberOfBoxes_ = boxes->size();
 }
 
 /* Destructors */
@@ -32,16 +32,17 @@ World::~World() {
 void World::printWorld() {
 	for (int x = 0; x < map_.at(0).size(); x++) {
 		for (int y = 0; y < map_.size(); y++) {
-			switch(map.at(y).at(x)) {
+			switch(map_.at(y).at(x)) {
 				case EMPTY: 	cout << "-"; break;
 				case BOX: 		cout << "B"; break;
 				case TARGET: 	cout << "x"; break;
 				case ROBOT: 	cout << "R"; break;
 				case OCCUPIED: 	cout << "O"; break;
-				case default: 	break;
+				default: 	break;
 			}
 		}
 
+		cout << endl;
 	}
 }
 
@@ -50,17 +51,17 @@ void World::printConfig() {
 	cout << "Size X			: " << sizeX_ << endl;
 	cout << "Size Y			: " << sizeY_ << endl;
 	cout << "Number Boxes	: " << numberOfBoxes_ << endl;
-	cout << "Location Robot : " << robot_.getX() << " / " robot_.getY() << endl;
+	cout << "Location Robot : " << robot_.getX() << " / " << robot_.getY() << endl;
 	cout << "Location Boxes : " << endl;
 	
 	for (i = 0; i < boxesStart_.size(); i++) {
-		cout << boxesStart_.at(i).getX() << " / " boxesStart_.at(i).getY() << endl;
+		cout << boxesStart_.at(i).getX() << " / " << boxesStart_.at(i).getY() << endl;
 	}
 
 	cout << "Location Targets: " << endl;
 	
 	for (i = 0; i < boxesStart_.size(); i++) {
-		cout << boxesTarget_.at(i).getX() << " / " boxesTarget_.at(i).getY() << endl;
+		cout << boxesTarget_.at(i).getX() << " / " << boxesTarget_.at(i).getY() << endl;
 	}
 }
 
