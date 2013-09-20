@@ -14,7 +14,7 @@ using namespace std;
 #define ROBOT 	8
 #define OCCUPIED 16
 
-typedef vector<vector<int>> Matrix;
+typedef vector< vector<int> > Matrix;
 
 class World{
 	public:
@@ -50,4 +50,5 @@ class World{
 		int sizeX_;
 		int sizeY_;
 		int numberOfBoxes_;
-}
+};
+#endif

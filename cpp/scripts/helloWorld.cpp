@@ -1,4 +1,5 @@
-//#include "location.h"
+#include "location.h"
+#include "world.h"
 
 #include <iostream>
 

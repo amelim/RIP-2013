@@ -1,10 +1,7 @@
-#include <iostream>
-#include <cstdlib>
-
-#include "state.h"
 #include "a_star.h"
 
 using namespace std;
+
 /* Constructor */
 AStar::AStar() { 
 	// TODO: throw error

@@ -2,6 +2,9 @@
 #define A_STAR_H
 
 #include "state.h"
+
+#include <iostream>
+#include <cstdlib>
 #include <queue>		/* For priority queues */
 #include <map>			/* For map data structure */
 #include <vector>
