@@ -10,9 +10,7 @@
 #include <vector>
 #include <functional>   /* std::greater for comparison function for priority queue */
 
-using namespace std;
-
-typedef std::priority_queue<int, vector<State>, StateOrdering> statePQ;
+typedef std::priority_queue<int, std::vector<State>, StateOrdering> statePQ;
 
 /* This class is required to sort the priority queue based on the f-cost of a
  * node */
@@ -33,15 +31,15 @@ class AStar{
 		~AStar();
 
 		/* Planning functions */
-		vector<State> solve();
+    std::vector<State> solve();
 
 		/* Display functions */
 		void printSolution();
 
 		/* Get functions */
 		statePQ getOpen();
-		map<State, int> getClosed();
-		vector<State> getSolution();
+    std::map<State, int> getClosed();
+    std::vector<State> getSolution();
 
 		/*private:*/
 		vector<State> extractSolution(State* solutionLeaf);
@@ -49,12 +47,12 @@ class AStar{
 	private:
 		/* Open and closed list for the search */
 		statePQ <State, vector<State>, StateOrdering> open_;
-		map<State, int> closed_;
+    std::map<State, int> closed_;
 
 		State* root_;			/* Root of the search tree */
 		State* solutionLeaf_; 	/* State of the world when a solution is found
 									Keep this state for reconstructing the solution */
-		vector<State> solution_;
+    std::vector<State> solution_;
 
 		int debugLevel_;
 }

@@ -3,8 +3,6 @@
 
 #include <iostream>
 
-using namespace std;
-
 class Location{
 	public:
 		/* Constructor */
@@ -17,7 +15,7 @@ class Location{
 		int getX() { return x_; }
 		int getY() { return y_; }
 
-		void print() { cout << "x/y: " << x_ << " / " << y_ << endl; }
+		void print() { std::cout << "x/y: " << x_ << " / " << y_ << std::endl; }
 
 	private:
 		int x_;

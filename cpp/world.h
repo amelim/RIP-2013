@@ -2,11 +2,10 @@
 #define WORLD_H
 
 #include "location.h"
-#include <queue>
-#include <map>
+// Aren't being used
+//#include <queue>
+//#include <map>
 #include <vector>
-
-using namespace std;
 
 #define EMPTY 	1
 #define BOX		2
@@ -14,13 +13,13 @@ using namespace std;
 #define ROBOT 	8
 #define OCCUPIED 16
 
-typedef vector< vector<int> > Matrix;
+typedef std::vector< std::vector<int> > Matrix;
 
 class World{
 	public:
 		/* Constructors */
 		World();
-		World(Matrix *map, Location *robot, vector<Location> *boxes, vector<Location> *targets);
+		World(Matrix *map, Location *robot, std::vector<Location> *boxes, std::vector<Location> *targets);
 
 		/* Destructor */
 		~World();
@@ -37,14 +36,14 @@ class World{
 		int getSizeY();
 		int getNumberOfBoxes();
 		Location getInitRobotLocation();
-		vector<Location> getInitBoxes();
-		vector<Location> getTargetBoxes();
+		std::vector<Location> getInitBoxes();
+		std::vector<Location> getTargetBoxes();
 
 	private:
 		Matrix map_;						/* Initialize a static map */
 		Location robot_;						/* Robot location */
-		vector<Location> boxesStart_;			/* Location of boxes on the map */
-		vector<Location> boxesTarget_;			/* Location of boxes on the map */
+		std::vector<Location> boxesStart_;			/* Location of boxes on the map */
+		std::vector<Location> boxesTarget_;			/* Location of boxes on the map */
 
 		/* Store the parameters of the world */
 		int sizeX_;
