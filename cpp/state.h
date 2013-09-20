@@ -1,6 +1,7 @@
 #ifndef STATE_H
 #define STATE_H 
 
+<<<<<<< HEAD
 #include "location.h"
 #include "world.h"
 #include <vector>
@@ -8,6 +9,15 @@
 /*
  * An instance of a state describes the locations of boxes, goals and current robot location
  */
+=======
+#include "world.h"
+#include <vector>
+
+using namespace std;
+
+typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
+
+>>>>>>> f4f2e0aab237b0f13c3e80fb9399be1e0cb13711
 class State{
 	private:
 		static World &world_;				/* Pointer to the static world initialization */
@@ -63,4 +73,12 @@ class State{
 		int setFCost();
 		void setParent(const State &parent);
 
+<<<<<<< HEAD
 }
+=======
+		int g;		/* Cost to get to current node for A* */
+		int h;		/* Heuristic estimate to goal for this node for A* */
+		int f;		/* Total cost for a node for A* */
+};
+#endif
+>>>>>>> f4f2e0aab237b0f13c3e80fb9399be1e0cb13711
