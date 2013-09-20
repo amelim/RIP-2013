@@ -1,10 +1,12 @@
 #ifndef STATE_H
 #define STATE_H 
 
-#include "location.h"
+#include "world.h"
 #include <vector>
 
 using namespace std;
+
+typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
 
 class State{
 	public:
@@ -55,6 +57,5 @@ class State{
 		int g;		/* Cost to get to current node for A* */
 		int h;		/* Heuristic estimate to goal for this node for A* */
 		int f;		/* Total cost for a node for A* */
-
-		typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
-}
+};
+#endif
