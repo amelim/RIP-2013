@@ -3,12 +3,14 @@
 
 
 #include "state.h"
+#include "location.h"
 
 #include <iostream>
 #include <cstdlib>
 #include <queue>		/* For priority queues */
 #include <map>			/* For map data structure */
 #include <vector>
+#include <algorithm>    // std::reverse
 #include <functional>   /* std::greater for comparison function for priority queue */
 
 
@@ -24,19 +26,6 @@ class StateOrdering {
 typedef std::priority_queue<int, std::vector<State>, StateOrdering> statePQ;
 
 class AStar{
-
-	private:
-		/* Open and closed list for the search */
-		statePQ open_;
-    std::map<State, int> closed_;
-
-		State root_;			/* Root of the search tree */
-		State solutionLeaf_; 	/* State of the world when a solution is found
-									Keep this state for reconstructing the solution */
-    std::vector<State> solution_;
-
-		int debugLevel_;
-
 	public:
 		/* Constructor */
 		AStar();
@@ -50,14 +39,35 @@ class AStar{
 
 		/* Display functions */
 		void printSolution();
+		void printOpen();
+		void printClosed();
 
 		/* Get functions */
 		statePQ getOpen();
-    std::map<State, int> getClosed();
+    std::vector<State> getClosed();
     std::vector<State> getSolution();
 
 		/*private:*/
-    std::vector<State> extractSolution(State* solutionLeaf);
+	private:
+    	std::vector<State> extractSolution(State* solutionLeaf);
+		bool isClosed(State* state);
+
+	private:
+		/* Open and closed list for the search */
+		statePQ open_;
+    	//std::map<State, int> closed_;		
+											/* NOTE: maps might not work for this application, 
+											   since they require constant keys. A State though
+											   is not constant and can change. Therefore it is 
+											   not suitable as a key for maps */
+		std::vector<State> closed_;
+
+		State root_;			/* Root of the search tree */
+		State solutionLeaf_; 	/* State of the world when a solution is found
+									Keep this state for reconstructing the solution */
+    	std::vector<State> solution_;
+
+		int debugLevel_;
 
 };
 #endif

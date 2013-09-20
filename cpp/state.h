@@ -13,9 +13,9 @@ typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
 
 class State{
 	private:
-		static World *world_;				/* Pointer to the static world initialization */
-		Location curRobot_;					/* Current robot location */
-    std::vector<Location> curBoxes_;			/* Current box locations on the map */
+		World *world_;				/* Pointer to the static world initialization */
+		Location *curRobot_;					/* Current robot location */
+    	std::vector<Location> curBoxes_;			/* Current box locations on the map */
 
 		State *parent_;						/* Pointer to previous state, if it exists,
 											   otherwise NULL. This pointer is required so that
@@ -42,10 +42,10 @@ class State{
 		void printState();
 		
 		/* A* planning related functions */
-    std::vector<State> expandState();
+    	std::vector<State> expandState();
 		bool isGoal();
     
-    /* Calculates the distance between */
+    	/* Calculates the distance between */
 		double distanceToLoc(const Location &loc) const;
 
 		/* Compute various cost functions */
@@ -54,10 +54,12 @@ class State{
 		int computeFCost(const State &parent);
 
 		/* Get functions */
+		Location* getRobot() const { return curRobot_; }
+		std::vector<Location> getCurBoxes() const { return curBoxes_; }
 		int getGCost() const { return g_; }
 		int getHCost() const { return h_; }
 		int getFCost() const { return f_; }
-		World* getWorld(){ return world_; }
+		World* getWorld() const { return world_; }
 		State* getParent(){ return parent_; }
 
 		/* Set functions */
@@ -66,5 +68,9 @@ class State{
 		int setFCost();
 		void setParent(const State &parent);
 
+		/* Overloaded operators */
+		friend std::ostream& operator<< (std::ostream& stream, const State& state);
+		friend bool operator== (State &s1, State &s2);
+		friend bool operator!= (State &s1, State &s2);
 };
 #endif

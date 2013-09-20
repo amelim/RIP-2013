@@ -14,6 +14,8 @@ AStar::AStar(State &init) {
 
 	/* Add initial state to queue */
 	open_.push(root_);
+	closed_.push_back(root_);
+	closed_.push_back(root_);
 }
 
 /* Destructor */
@@ -73,15 +75,49 @@ vector<State> AStar::extractSolution(State* solutionLeaf) {
 
 	/* Since the solution goes from goal to initial state, reverse the vector
 	 * such that it goes from initial to final state */
-	//reverse(solution.begin(), solution.end());
+	reverse(solution_.begin(), solution_.end());
+}
+
+bool AStar::isClosed(State* state) {
+	for (int i = 0; i < closed_.size(); i++) {
+		if(state == &closed_.at(i))
+			return true;
+	}
+
+	return false;
 }
 
 /* Display functions */
 void AStar::printSolution() {
+	for (int i = 0; i < solution_.size(); i++) {
+		cout << solution_.at(i);
 
+		for (int j = 0; j < solution_.at(i).getWorld()->getSizeX() * 2; j++) {
+			cout << "#";
+		}
+
+		cout << endl;
+	}
+}
+
+void AStar::printOpen() {
+	/* Can't iterate over queue, therefore printing the open list is not 
+	 * trivial and would involve creating a copy of the queue */
+}
+
+void AStar::printClosed() {
+	for (int i = 0; i < closed_.size(); i++) {
+		cout << closed_.at(i);
+
+		for (int j = 0; j < closed_.at(i).getWorld()->getSizeX() * 2; j++) {
+			cout << "#";
+		}
+
+		cout << endl;
+	}
 }
 
 /* Get functions */
 statePQ AStar::getOpen() { return open_; }
-std::map<State, int> AStar::getClosed() { return closed_; }
+std::vector<State> AStar::getClosed() { return closed_; }
 vector<State> AStar::getSolution() { return solution_; }

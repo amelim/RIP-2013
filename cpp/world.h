@@ -2,9 +2,7 @@
 #define WORLD_H
 
 #include "location.h"
-// Aren't being used
-//#include <queue>
-//#include <map>
+#include <iomanip>
 #include <vector>
 
 #define EMPTY 	1
@@ -25,19 +23,22 @@ class World{
 		~World();
 
 		/* Display functions */
-		void printWorld();
+		void printWorld() const;
 		void printConfig();
 		void printAll();
 
 		/* Get functions */
-		Matrix getMap();				
+		Matrix* getMap();				
 		int getSizeX(); 						/* const keyword, because we don't want to be 
 											   			able to change the parameters of the world */
 		int getSizeY();
 		int getNumberOfBoxes();
-		Location getInitRobotLocation();
-		std::vector<Location> getInitBoxes();
-		std::vector<Location> getTargetBoxes();
+		Location* getInitRobotLocation();
+		std::vector<Location>* getInitBoxes();
+		std::vector<Location>* getTargetBoxes();
+
+		/* Overloaded operators */
+		friend bool operator== (World &w1, World &w2);
 
 	private:
 		Matrix map_;						/* Initialize a static map */
