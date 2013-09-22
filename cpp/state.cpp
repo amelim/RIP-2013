@@ -84,21 +84,25 @@ vector<State> State::expandState(){
 	// -- Edge Conditions -- //
 	// Make sure we cannot go off the map
   if(curRobot_->getX() == 0){ 
+    cout << "Left edge condition trigger!" << endl;
   	expands.push_back(State(*this, LEFT));
   	left = true;
 	}
   
   if(curRobot_->getX() == world_->getSizeX()-1){
+    cout << "Right edge condition trigger!" << endl;
   	expands.push_back(State(*this, RIGHT));
   	right = true;
 	}
 
   if(curRobot_->getY() == 0){
+    cout << "Up edge condition trigger!" << endl;
   	expands.push_back(State(*this, UP));
   	up = true;
 	}
   
   if(curRobot_->getY() == world_->getSizeY()-1){
+    cout << "Down edge condition trigger!" << endl;
   	expands.push_back(State(*this, DOWN));
   	down = true;
 	}
