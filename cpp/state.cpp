@@ -15,6 +15,11 @@ State::State(State &parent, Direction dir) {
 	// 3. based on the parent node, this constructor has 
 	// 	  to reason based on the dir parameter whether a box 
 	// 	  has been pushed to another location
+
+	parent_ = &parent;
+	g_ = computeGCost(parent);
+	h_ = computeHCost();
+	f_ = g_ + h_;
 }
 
 State::State(World &world) {
@@ -38,8 +43,17 @@ std::vector<State> State::expandState(){
 /* ---------------------- */
 /* Cost functions 		  */
 /* ---------------------- */
-int State::computeGCost(const State &parent) {}; 	//TODO: implement this function
-int State::computeHCost() {}; 						//TODO: implement this function
+// Cost from start to current pos
+int State::computeGCost(const State &parent) {
+	// Get the starting spots
+	//vector<Location> inits = world_->getInitBoxes();
+
+}
+// Heuristic Cost
+int State::computeHCost() {
+
+}
+// NOT NEEDED
 int State::computeFCost(const State &parent) {}; 	//TODO: implement this function
 
 void State::setGCost(int g) { g_ = g; };
