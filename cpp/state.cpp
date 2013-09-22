@@ -23,13 +23,11 @@ State::State(State &parent, Direction dir) {
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
-<<<<<<< HEAD
+
 	curBoxes_ = parent.getCurBoxes();
 
 	// TODO: update robot position too!! 
 	curRobot_ = parent.getRobot();
-=======
->>>>>>> fc446e2e82836006c4a158e43f27e303d296bbea
 }
 
 State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State &parent){
@@ -76,12 +74,7 @@ vector<State> State::expandState(){
   	left = true;
 	}
   
-<<<<<<< HEAD
-  if(curRobot_->getX() < world_->getSizeX()-1
-  	|| map[curRobot_->getY()][curRobot_->getX()+1] != 16 ){
-=======
   if(curRobot_->getX() == world_->getSizeX()-2){
->>>>>>> 91a5381ef094e81803b21a826057bf7c4c43e9e3
   	expands.push_back(State(*this, RIGHT));
   	right = true;
 	}
@@ -91,12 +84,7 @@ vector<State> State::expandState(){
   	up = true;
 	}
   
-<<<<<<< HEAD
-  if(curRobot_->getY() < world_->getSizeY()-1
-  	|| map[curRobot_->getY()+1][curRobot_->getX()] != 16 ){
-=======
   if(curRobot_->getY() == world_->getSizeY()-2){
->>>>>>> 91a5381ef094e81803b21a826057bf7c4c43e9e3
   	expands.push_back(State(*this, DOWN));
   	down = true;
 	}
