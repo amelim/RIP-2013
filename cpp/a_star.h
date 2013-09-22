@@ -35,7 +35,7 @@ class AStar{
 		~AStar();
 
 		/* Planning functions */
-    std::vector<State> solve();
+    	bool solve();
 
 		/* Display functions */
 		void printSolution();
@@ -44,12 +44,12 @@ class AStar{
 
 		/* Get functions */
 		statePQ getOpen();
-    std::vector<State> getClosed();
-    std::vector<State> getSolution();
+    	std::vector<State> getClosed();
+    	std::vector<State> getSolution();
 
 		/*private:*/
 	private:
-    	std::vector<State> extractSolution(State* solutionLeaf);
+    	void extractSolution(State* solutionLeaf);
 		bool isClosed(State* state, int *pos);
 
 	private:

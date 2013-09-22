@@ -20,7 +20,7 @@ AStar::AStar(State &init) {
 AStar::~AStar() { }
 
 /* Planning functions */
-vector<State> AStar::solve() {
+bool AStar::solve() {
 	State tmp;
 	int pos;
 
@@ -42,12 +42,14 @@ vector<State> AStar::solve() {
 
 		/* Check if we have found the solution */
 		if(tmp.isGoal()) {
-			return extractSolution(&tmp);
+			extractSolution(&tmp);
+			return true;
 		}
 
 		/* Compute neighboring states */
 		vector<State> neighbors = tmp.expandState();
 
+		//if(false) {
 		/* Iterate over neighboring states */
 		for (int i = 0; i < neighbors.size(); i++) {
 			/* Compute tentative g-cost of neighbor 
@@ -87,16 +89,16 @@ vector<State> AStar::solve() {
 				 */
 			}
 		}
+		//}
 	}
 
 	/* If the while loop terminates without calling extractSolution, then no
 	 * solution has been found */
 	cout << "Error AStar: No solution has been found." << endl;
-	vector<State> empty;
-	return empty;
+	return false;
 }
 
-vector<State> AStar::extractSolution(State* solutionLeaf) {
+void AStar::extractSolution(State* solutionLeaf) {
 	State* tmp = solutionLeaf;
 
 	while(tmp->getParent() != NULL) {
