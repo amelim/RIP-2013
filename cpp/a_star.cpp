@@ -49,9 +49,17 @@ bool AStar::solve() {
 		/* Compute neighboring states */
 		vector<State> neighbors = tmp.expandState();
 
-		//if(false) {
+		cout << "AStar: " << neighbors.size() << " neighbors found" << endl;
+		for (int k = 0; k < neighbors.size(); k++){
+			neighbors.at(k).printState();
+		}
+
+		if(false) {
 		/* Iterate over neighboring states */
 		for (int i = 0; i < neighbors.size(); i++) {
+			/* Test output of state */
+			neighbors.at(i).printState();
+
 			/* Compute tentative g-cost of neighbor 
 			 * NOTE: the distance between a neigbhor and tmp is always
 			 * 		 one move
@@ -89,7 +97,7 @@ bool AStar::solve() {
 				 */
 			}
 		}
-		//}
+		}
 	}
 
 	/* If the while loop terminates without calling extractSolution, then no

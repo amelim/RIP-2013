@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.22)  22 SEP 2013 16:06
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.22)  22 SEP 2013 18:35
 entering extended mode
-**C:/Users/Hawke/Documents/GitHub/RIP-2013*-*Copy/writeup/writeup.tex
-("C:/Users/Hawke/Documents/GitHub/RIP-2013 - Copy/writeup/writeup.tex"
+**C:/Users/Hawke/Documents/GitHub/RIP-2013/writeup/writeup.tex
+(C:/Users/Hawke/Documents/GitHub/RIP-2013/writeup/writeup.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -258,7 +258,7 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsavesec=\count111
 \c@@ppsaveapp=\count112
 )
-("C:\Users\Hawke\Documents\GitHub\RIP-2013 - Copy\writeup\writeup.aux")
+(C:\Users\Hawke\Documents\GitHub\RIP-2013\writeup\writeup.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
 LaTeX Font Info:    ... okay on input line 86.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
@@ -301,20 +301,43 @@ Missing character: There is no Å in font cmr12!
 Missing character: There is no Ô in font cmr12!
 Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
- [1
+
+
+Package caption Warning: \label without proper \caption on input line 140.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `table:results' on page 1 undefined on input line 122.
+
+
+[1
 Non-PDF special ignored!
 
 {C:/Users/Hawke/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
-Missing character: There is no ‚ in font cmr12!
-Missing character: There is no Ä in font cmr12!
-Missing character: There is no ù in font cmr12!
+LaTeX Font Info:    Try loading font information for U+msa on input line 142.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 142.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 10000) in alignment at lines 142--158
+[][][][]
+ []
+
 
 Overfull \vbox (9.0pt too high) has occurred while \output is active []
 
  [2]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+
 Overfull \vbox (9.0pt too high) has occurred while \output is active []
 
  [3]
@@ -354,24 +377,34 @@ Overfull \vbox (9.0pt too high) has occurred while \output is active []
 Overfull \vbox (9.0pt too high) has occurred while \output is active []
 
  [15]
-("C:\Users\Hawke\Documents\GitHub\RIP-2013 - Copy\writeup\writeup.aux") ) 
+Overfull \vbox (9.0pt too high) has occurred while \output is active []
+
+ [16]
+Overfull \vbox (9.0pt too high) has occurred while \output is active []
+
+ [17]
+(C:\Users\Hawke\Documents\GitHub\RIP-2013\writeup\writeup.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4098 strings out of 493921
- 60357 string characters out of 3144876
- 182776 words of memory out of 3000000
- 7347 multiletter control sequences out of 15000+200000
- 6105 words of font info for 22 fonts, out of 3000000 for 9000
+ 4147 strings out of 493921
+ 61032 string characters out of 3144876
+ 178835 words of memory out of 3000000
+ 7377 multiletter control sequences out of 15000+200000
+ 10195 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 44i,5n,42p,21614b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on writeup.pdf (15 pages, 89214 bytes).
+ 44i,8n,42p,21607b,344s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pr
+ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on writeup.pdf (17 pages, 112895 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
+ 81 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
