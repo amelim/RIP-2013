@@ -50,7 +50,7 @@ class AStar{
 		/*private:*/
 	private:
     	std::vector<State> extractSolution(State* solutionLeaf);
-		bool isClosed(State* state);
+		bool isClosed(State* state, int *pos);
 
 	private:
 		/* Open and closed list for the search */

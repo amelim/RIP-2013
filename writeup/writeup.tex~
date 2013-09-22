@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb,amsmath}
+\usepackage{graphics,graphicx,amssymb,verbatim,color}
+\usepackage{epstopdf,amsxtra,epsfig, psfrag, subfig} %subfigure
+\usepackage{titlesec}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `basename #1 .tif`.png}
+
+%%% Set the margins %%%
+\setlength{\topmargin}{-.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{.5in}
+\setlength{\textheight}{8.75in}
+\setlength{\textwidth}{7in}
+\setlength{\oddsidemargin}{-.125in}
+\setlength{\evensidemargin}{0in}
+
+%%% Set paragraph style %%%
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{2ex}
+
+%%% Helper Macros %%%
+\newcommand{\note}{\textcolor{red}}
+\providecommand{\todo}[0]{\textcolor{blue}{TO DO}}
+\providecommand{\T}[0]{\textsf{T}}
+\providecommand{\ul}[1]{\underline{#1}}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\vector}[2]{[#1_1,\ldots,#1_{#2}]} % Vector
+\providecommand{\argmin}{\operatornamewithlimits{argmin}} % Minimum argument
+\providecommand{\argmax}{\operatornamewithlimits{argmax}} % Maximum argument
+\providecommand{\N}{\mathbb{N}} % Natural Numbers
+\providecommand{\Z}{\mathbb{Z}} % Integers Numbers
+\providecommand{\R}{\mathbb{R}} % Real Numbers
+\providecommand{\Im}{\mathcal{R}} % Range Space
+\providecommand{\Ker}{\mathcal{N}} % Null Space
+
+\newcommand{\eqnbox}[1]
+{
+\begin{equation*}
+\addtolength{\fboxsep}{1pt}
+\boxed{
+\begin{split}
+#1
+\end {split}
+}
+\end{equation*}
+}
+
+%%% Homework Document Macros %%%
+% Homework specifics
+\newcommand{\hwName}{Assignment 1}
+\newcommand{\dueDate}{04/18/2013}
+\newcommand{\myFirstName}{Daniel Pickem, Andrew Melim, Jarius Tillman, Matheus Svolenski}
+\newcommand{\myLastName}{}
+\newcommand{\myIDNumber}{}
+\newcommand{\courseNum}{CS 4649/7649}
+\newcommand{\courseName}{RIP - Robot Intelligence - Planning}
+\newcommand{\courseTerm}{Fall 2013}
+
+% Full Name
+\newcommand{\myFullName}{\myFirstName~\myLastName~}
+
+% Document Header - 1st page only
+\newcommand{\docHeader}
+{
+{\myFullName} \\
+\noindent\rule[1pt]{\textwidth}{1pt}
+\noindent{\courseName ~ \courseNum ~ \courseTerm} \hfill 
+\noindent{\hwName} \hfill {\dueDate}
+\noindent\rule[8pt]{\textwidth}{1pt}
+}
+
+% Running Header - every page
+\newcommand{\runningHeader}{\markright{\it{\courseNum ~ \hwName \hfill \myLastName~~~}}}
+
+% New problem
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\newcommand{\problem}[2]{\section*{Problem {#1}~-~{#2}}}
+\newcommand{\problemPart}[1]{\subsection*{(#1)}}
+
+% ------------------------------------------------------------------------------------------------------------
+% BEGIN DOCUMENT
+% ------------------------------------------------------------------------------------------------------------
+\begin{document}
+\runningHeader
+\pagestyle{myheadings}
+\thispagestyle{empty}
+\docHeader
+
+Deliverables include the following: 
+\begin{itemize}
+ \item A 4-5 page PDF summary that describes your work, results and answers to the questions posed below. Thoroughness in analysis and answers in the reports are the primary component of your grade!
+ \item A page in your summary describing what each group member did to participate in the project.
+ \item A zip ﬁle that includes your code and results in an organized form.
+ \item A README file that describes how to run the code.
+ \item Print the summary and bring it to the following class
+\end{itemize}
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++
+\problem{1}{Pre-Project: Towers of Hanoi}
+% ++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{enumerate}
+ \item Explain the method by which each of the two planners ﬁnds a solution.
+ \item Which planner was fastest?
+ \item Explain why the winning planner might be more effective on this problem.
+\end{enumerate}
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++
+\problem{2}{Project Part I: Sokoban PDDL}
+% ++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{enumerate}
+ \item Show successful plans from at least one planner on the three Sokoban problems in Figure 2
+(1-3). The challenge problem is optional.
+ \item Compare the performance of two planners on this domain. Which one works better? Does this
+make sense, why?
+ \item Clearly PDDL was not intended for this sort of application. Discuss the challenges in expressing geometric constraints in semantic planning.
+ \item In many cases, geometric and dynamic planning are insufficient to describe a domain. Give
+an example of a problem that is best suited for semantic (classical) planning. Explain why a
+semantic representation would be desirable.
+\end{enumerate}
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++
+\problem{3}{Project Part II: Sokoban Planner}
+% ++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{enumerate}
+  \item Give successful plans from your planner on the Sokoban problems in Figure 2 and any others.
+  \item Compare the performance of your planner to the PDDL planners you used in the previous
+problem. Which was faster? Why?
+  \item Prove that your planner was complete. Your instructor has a math background: a proof ”is
+a convincing argument.” Make sure you address each aspect of completeness and why your
+planner satisfies it. Pictures are always welcome.
+  \item What methods did you use to speed up the planning? Give a short description of each method and explain why it did or didn't help on each relevant problem.
+\end{enumerate}
+
+% ++++++++++++++++++++++++++++++++++++++++++++++++
+\problem{4}{Post-Project: Towers of Hanoi Revisited}
+% ++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{enumerate}
+ \item Give successful plans from at least one planner with 6 and 10 disks.
+ \item Do you notice anything about the structure of the plans? Can you use this to increase the
+efficiency of planning for Towers of Hanoi? Explain.
+ \item In a paragraph or two, explain a general planning strategy that would take advantage of
+problem structure. Make sure your strategy applies to problems other than Towers of Hanoi.
+Would such a planner still be complete?
+\end{enumerate}
+
+
+\newpage
+\end{document}

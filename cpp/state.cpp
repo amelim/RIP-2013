@@ -6,6 +6,17 @@ using namespace std;
 State::State(){
 }
 
+/* For instantiation based on a parent search node */
+State::State(State &parent, Direction dir) {
+	// TODO: create new state node based on parent
+	// 1. assign parent pointer
+	// 2. compute g, h, f cost based on parent node
+	//
+	// 3. based on the parent node, this constructor has 
+	// 	  to reason based on the dir parameter whether a box 
+	// 	  has been pushed to another location
+}
+
 State::State(World &world) {
 	world_ = new World(world.getMap(), world.getInitRobotLocation(), world.getInitBoxes(), world.getTargetBoxes());
 }
@@ -24,7 +35,18 @@ bool State::isGoal(){
 std::vector<State> State::expandState(){
 
 }
+/* ---------------------- */
+/* Cost functions 		  */
+/* ---------------------- */
+int State::computeGCost(const State &parent) {}; 	//TODO: implement this function
+int State::computeHCost() {}; 						//TODO: implement this function
+int State::computeFCost(const State &parent) {}; 	//TODO: implement this function
 
+void State::setGCost(int g) { g_ = g; };
+void State::setHCost(int h) { h_ = h; };
+void State::setFCost(int f) { f_ = f; };
+
+<<<<<<< HEAD
 int State::computeGCost(const State &parent){
 }
 int State::computeHCost(const State &parent){
@@ -33,6 +55,11 @@ int State::computeFCost(const State &parent){
 }
 
 /* Overloade << operator */
+=======
+/* ---------------------- */
+/* Overloaded << operator */
+/* ---------------------- */
+>>>>>>> 114804c6406e8ae83c5dc7fdc429d7f3b7988ce0
 std::ostream& operator<<(std::ostream& os, const State& state) {
 	state.getWorld()->printWorld();
 	//state.getWorld()->printConfig();
