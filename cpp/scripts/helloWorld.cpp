@@ -44,11 +44,11 @@ int main(){
 	State state(world);
 	state.printState("Starting");
 
-	//AStar astar(state);
+	AStar astar(state);
 	//cout << "Output of AStar::printClosed()" << endl;
 	//astar.printClosed();
 
-	//astar.solve();
+	astar.solve();
 	//vector<State> solution = astar.solve();
 	//astar.printSolution();
 
