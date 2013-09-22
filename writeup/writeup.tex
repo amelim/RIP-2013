@@ -120,6 +120,10 @@ Deliverables include the following:
 make sense, why?} \newline
     %
     An overview of the numerical results is given in Table \ref{table:results}. We compared two planners, namely Fast Forward and BlackBox. 
+    
+    It seems like BlackBox does not use any heuristic to prune the search tree or search in a more goal-directed fashion. 
+    
+    The number of steps BlackBox can handle seems to be fairly low. The first up to 20 levels of the graph are computed fairly fast, but any level in the GraphPlan graph after that take on the order of seconds or minutes. Clearly the number of levels is too low to solve a Sokoban level like the ones shown in problem 2.2 to 2.4.
 
         \begin{itemize}
      \item BlackBox (uses GraphPlan and SAT - see \cite{Blackbox})
@@ -141,14 +145,14 @@ evaluation.
     \hline\hline
     % DATA
     % ########################################################
-    Problem 2.1 [time] 		&  0 	& 0 	& 0 \\ \hline
-    Problem 2.1 [steps]		&  0 	& 0 	& 0 \\ \hline\hline
-    Problem 2.2 [time] 		&  0	& 0 	& 0 \\ \hline
-    Problem 2.2 [steps]		&  0 	& 0 	& 0 \\ \hline\hline
-    Problem 2.3 [time] 		&  0 	& 0 	& 0 \\ \hline
-    Problem 2.3 [steps]		&  0 	& 0 	& 0 \\ \hline\hline
-    Problem Challenge [time] 	&  0 	& 0 	& 0 \\ \hline
-    Problem Challenge [steps]	&  0 	& 0 	& 0 \\ \hline
+    Problem 2.1 [time] 		&  0.0 	& 0.27 	& 0 \\ \hline    
+    Problem 2.2 [time] 		&  0.0	& - 	& 0 \\ \hline
+    Problem 2.3 [time] 		&  0.02 & - 	& 0 \\ \hline
+    Problem Challenge [time] 	&  0.7 	& - 	& 0 \\ \hline\hline
+    Problem 2.1 [steps]		&  12 	& 14 	& 0 \\ \hline
+    Problem 2.2 [steps]		&  31 	& 0 	& 0 \\ \hline
+    Problem 2.3 [steps]		&  110 	& 0 	& 0 \\ \hline
+    Problem Challenge [steps]	&  77 	& 0 	& 0 \\ \hline
     % ########################################################
     \hline
     \end{tabular*}
