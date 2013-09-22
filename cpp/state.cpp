@@ -46,9 +46,20 @@ void State::setGCost(int g) { g_ = g; };
 void State::setHCost(int h) { h_ = h; };
 void State::setFCost(int f) { f_ = f; };
 
+<<<<<<< HEAD
+int State::computeGCost(const State &parent){
+}
+int State::computeHCost(const State &parent){
+}
+int State::computeFCost(const State &parent){
+}
+
+/* Overloade << operator */
+=======
 /* ---------------------- */
 /* Overloaded << operator */
 /* ---------------------- */
+>>>>>>> 114804c6406e8ae83c5dc7fdc429d7f3b7988ce0
 std::ostream& operator<<(std::ostream& os, const State& state) {
 	state.getWorld()->printWorld();
 	//state.getWorld()->printConfig();
