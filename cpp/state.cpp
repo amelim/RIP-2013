@@ -23,6 +23,12 @@ State::State(State &parent, Direction dir) {
 	curBoxes_ = parent.getCurBoxes();
 }
 
+State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State &parent){
+  world_ = &world;
+  parent_ = &parent;
+  curBoxes_ = curBoxes;
+}
+
 State::State(World &world) {
 	world_ = new World(world.getMap(), world.getInitRobotLocation(), world.getInitBoxes(), world.getTargetBoxes());
 	curBoxes_ = *world_->getInitBoxes();
@@ -75,17 +81,22 @@ vector<State> State::expandState(){
   // -- Push Box--
 
   for(unsigned int i = 0; i < curBoxes_.size(); i++){
+    // Check to see if we will push any boxes (i.e. we are adjacent)
   	if(curBoxes_[i].adjacent(*curRobot_, LEFT)){
-  		
+  	  Location newBox = curBoxes_[i].push(LEFT);
+  	  Location newRob = curRobot_->push(LEFT);
   	}
   	else if(curBoxes_[i].adjacent(*curRobot_, RIGHT)){
-
+  	  Location newBox = curBoxes_[i].push(RIGHT);
+  	  Location newRob = curRobot_->push(RIGHT);
   	}
   	else if(curBoxes_[i].adjacent(*curRobot_, UP)){
-  		
+  	  Location newBox = curBoxes_[i].push(UP);
+  	  Location newRob = curRobot_->push(UP);
   	}
   	else if(curBoxes_[i].adjacent(*curRobot_, DOWN)){
-  		
+  	  Location newBox = curBoxes_[i].push(DOWN);
+  	  Location newRob = curRobot_->push(DOWN);
   	}
   }
 }

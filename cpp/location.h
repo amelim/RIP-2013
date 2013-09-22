@@ -30,6 +30,17 @@ class Location{
 				return loc.getX()==x_ && loc.getY() == y_+1;
 		}
 
+	  Location push(const Direction dir){
+		  if(dir==LEFT)
+		    return Location(x_-1, y_);
+		  if(dir==RIGHT)
+		    return Location(x_+1, y_);
+		  if(dir==UP)
+		    return Location(x_, y_-1);
+		  if(dir==DOWN)
+		    return Location(x_, y_+1);
+    }
+
 		friend std::ostream& operator<<(std::ostream& os, const Location& loc) {
 			os << loc.getX() << "/" << loc.getY() << std::endl;
 			return os; 
