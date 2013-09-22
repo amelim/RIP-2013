@@ -17,11 +17,12 @@ State::State(State &parent, Direction dir) {
 	// 	  has been pushed to another location
 
 	parent_ = &parent;
+	world_ = parent.getWorld();
 	curRobot_ = parent.getRobot();
+	curBoxes_ = parent.getCurBoxes();
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
-	curBoxes_ = parent.getCurBoxes();
 }
 
 State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State &parent){
