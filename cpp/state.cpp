@@ -17,6 +17,7 @@ State::State(State &parent, Direction dir) {
 	// 	  has been pushed to another location
 
 	parent_ = &parent;
+	curRobot_ = parent.getRobot();
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
@@ -27,6 +28,7 @@ State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State
   world_ = &world;
   parent_ = &parent;
   curBoxes_ = curBoxes;
+  curRobot_ = &curRobot;
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
@@ -57,7 +59,8 @@ vector<State> State::expandState(){
   bool up = false;
   bool down = false;
 	// -- No Change Operations --
-  if(curRobot_->getX() == 0){ // Make sure we cannot go off the map
+	// Make sure we cannot go off the map
+  if(curRobot_->getX() == 0){ 
   	expands.push_back(State(*this, LEFT));
   	left = true;
 	}
@@ -81,6 +84,7 @@ vector<State> State::expandState(){
   	//|| map[curRobot_->getY()+1][curRobot_->getX()] != 16 ){
   	//|| map[curRobot_->getY()][curRobot_->getX()+1] != 16 ){
   	//|| map[curRobot_->getY()-1][curRobot_->getX()] != 16 ){
+  	
   // -- Push Box--
 
   vector<Location> newBoxes = curBoxes_;
@@ -135,10 +139,10 @@ int State::distanceBetween(const Location& loc1, const Location &loc2) const{
 	//loc2.print();
   int dX = abs(loc1.getX() - loc2.getX());
   int dY = abs(loc1.getY() - loc2.getY());
-  cout << "Cost between: " << endl;
+  /*cout << "Cost between: " << endl;
   loc1.print("target");
   loc2.print("current");
-  cout << " is " << dX + dY << endl;
+  cout << " is " << dX + dY << endl;*/
   return dX + dY;
 }
 
