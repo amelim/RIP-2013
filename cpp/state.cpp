@@ -24,10 +24,6 @@ State::State(State &parent, Direction dir) {
 	h_ = computeHCost();
 	f_ = g_ + h_;
 
-	curBoxes_ = parent.getCurBoxes();
-
-	// TODO: update robot position too!! 
-	curRobot_ = parent.getRobot();
 }
 
 State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State &parent){
@@ -38,14 +34,13 @@ State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
-
-	// TODO: update robot position too!!
-	// 		 missing robot position causes the seg fault
 }
+
 
 State::State(World &world) {
 	world_ = new World(world.getMap(), world.getInitRobotLocation(), world.getInitBoxes(), world.getTargetBoxes());
 	curBoxes_ = *world_->getInitBoxes();
+	curRobot_ = world_->getInitRobotLocation();
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
@@ -155,6 +150,7 @@ void State::printState(const string& name){
 		mapTmp.push_back(tmp);
 	}
 
+  cout << "Robot position: " << curRobot_->getX() << " " << curRobot_->getY() << endl;
 	/* Add robot location */
 	mapTmp.at(curRobot_->getY()).at(curRobot_->getX()) = ROBOT;
 

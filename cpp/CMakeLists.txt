@@ -21,7 +21,7 @@ target_link_libraries(helloWorld libworld libstate libastar)
 add_executable(planner ${planneroutput})
 target_link_libraries(planner libworld libstate libastar)
 
-#set(stateFile "scripts/testState.cpp")
-#add_executable(testState ${stateFile} ${subdir_srcs})
-#target_link_libraries(testState libworld)
+set(stateFile "scripts/testState.cpp")
+add_executable(testState ${stateFile} ${subdir_srcs})
+target_link_libraries(testState libworld)
 
