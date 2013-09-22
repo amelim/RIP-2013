@@ -21,6 +21,9 @@ State::State(State &parent, Direction dir) {
 	h_ = computeHCost();
 	f_ = g_ + h_;
 	curBoxes_ = parent.getCurBoxes();
+
+	// TODO: update robot position too!! 
+	curRobot_ = parent.getRobot();
 }
 
 State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State &parent){
@@ -30,6 +33,9 @@ State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
+
+	// TODO: update robot position too!!
+	// 		 missing robot position causes the seg fault
 }
 
 State::State(World &world) {
@@ -63,7 +69,7 @@ vector<State> State::expandState(){
   	left = true;
 	}
   
-  if(curRobot_->getX() == world_->getSizeX()-1
+  if(curRobot_->getX() < world_->getSizeX()-1
   	|| map[curRobot_->getY()][curRobot_->getX()+1] != 16 ){
   	expands.push_back(State(*this, RIGHT));
   	right = true;
@@ -75,7 +81,7 @@ vector<State> State::expandState(){
   	up = true;
 	}
   
-  if(curRobot_->getY() == world_->getSizeY()-1
+  if(curRobot_->getY() < world_->getSizeY()-1
   	|| map[curRobot_->getY()+1][curRobot_->getX()] != 16 ){
   	expands.push_back(State(*this, DOWN));
   	down = true;
@@ -124,6 +130,48 @@ void State::printState(const string& name){
 	cout << "G Cost: " << g_ << endl;
 	cout << "H Cost: " << h_ << endl;
 	cout << "F Cost: " << f_ << endl;
+
+	int mapSizeX = world_->getSizeX();
+	int mapSizeY = world_->getSizeY();
+
+	/* Create temporary map for display purposes only */
+	Matrix mapTmp;
+	vector<int> tmp;
+
+	for (int x = 0; x < mapSizeX; x++) {
+		tmp.clear();
+
+		for (int y = 0; y < mapSizeY; y++) {
+			tmp.push_back(EMPTY);
+		}
+
+		mapTmp.push_back(tmp);
+	}
+
+	/* Add robot location */
+	mapTmp.at(curRobot_->getY()).at(curRobot_->getX()) = ROBOT;
+
+	/* Add boxes */
+	int i;
+	for (i = 0; i < curBoxes_.size(); i++) {
+		mapTmp.at(curBoxes_.at(i).getY()).at(curBoxes_.at(i).getX()) = BOX;
+	}
+	
+	for (int x = 0; x < mapSizeX; x++) {
+		for (int y = 0; y < mapSizeY; y++) {
+			switch(mapTmp.at(y).at(x)) {
+				case EMPTY: 		cout << setw(2) << "-"; break;
+				case BOX: 			cout << setw(2) <<"B"; break;
+				case TARGET: 		cout << setw(2) <<"T"; break;
+				case ROBOT: 		cout << setw(2) <<"S"; break;
+				case OCCUPIED: 		cout << setw(2) <<"1"; break;
+				case BOX+TARGET: 	cout << setw(2) <<"R"; break;
+				default: 	break;
+			}
+		}
+
+		cout << endl;
+	}
 }
 
 /* ---------------------- */
