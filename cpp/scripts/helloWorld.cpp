@@ -28,7 +28,7 @@ int main(){
 
 	vector<Location> boxes;
 	vector<Location> targets;
-	for (i = 0; i < 5; i++) {
+	for (i = 1; i < 5; i++) {
 		boxes.push_back(Location(i,i));
 		targets.push_back(Location(i+1,i));
 		map.at(i).at(i) = BOX;
@@ -47,6 +47,10 @@ int main(){
 	AStar astar(state);
 	cout << "Output of AStar::printClosed()" << endl;
 	astar.printClosed();
+
+	astar.solve();
+	//vector<State> solution = astar.solve();
+	//astar.printSolution();
 
   	cout << "Hello World!" << endl;
   return 1;
