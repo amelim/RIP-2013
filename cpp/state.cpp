@@ -25,6 +25,13 @@ std::vector<State> State::expandState(){
 
 }
 
+int State::computeGCost(const State &parent){
+}
+int State::computeHCost(const State &parent){
+}
+int State::computeFCost(const State &parent){
+}
+
 /* Overloade << operator */
 std::ostream& operator<<(std::ostream& os, const State& state) {
 	state.getWorld()->printWorld();

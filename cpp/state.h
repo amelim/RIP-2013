@@ -42,7 +42,8 @@ class State{
 		void printState();
 		
 		/* A* planning related functions */
-    	std::vector<State> expandState();
+    std::vector<State> expandState();
+
 		bool isGoal();
     
     	/* Calculates the distance between */
