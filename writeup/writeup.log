@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.22)  22 SEP 2013 19:31
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.22)  22 SEP 2013 19:39
 entering extended mode
 **C:/Users/Hawke/Documents/GitHub/RIP-2013/writeup/writeup.tex
 (C:/Users/Hawke/Documents/GitHub/RIP-2013/writeup/writeup.tex
@@ -367,27 +367,6 @@ Overfull \vbox (9.0pt too high) has occurred while \output is active []
 Overfull \vbox (9.0pt too high) has occurred while \output is active []
 
  [9]
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [10]
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [11]
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [12]
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [13]
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [14]
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [15]
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [16]
 (C:\Users\Hawke\Documents\GitHub\RIP-2013\writeup\writeup.aux)
 
 LaTeX Warning: There were undefined references.
@@ -396,7 +375,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  4147 strings out of 493921
  61032 string characters out of 3144876
- 180835 words of memory out of 3000000
+ 124835 words of memory out of 3000000
  7377 multiletter control sequences out of 15000+200000
  10195 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -407,9 +386,9 @@ Here is how much of TeX's memory you used:
 ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on writeup.pdf (16 pages, 110368 bytes).
+Output written on writeup.pdf (9 pages, 99942 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
+ 56 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
