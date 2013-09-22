@@ -198,9 +198,8 @@ efficiency of planning for Towers of Hanoi? Explain.} \newline
  \item \textbf{In a paragraph or two, explain a general planning strategy that would take advantage of
 problem structure. Make sure your strategy applies to problems other than Towers of Hanoi.
 Would such a planner still be complete?}
-\newline One possible strategy would be to create a planner that could self expand. For instance, it could state with a single disk tower of hanoi, moving from pole x to pole z. Then solve a 2 disk game moving a stacked tower on pole x to a stacked tower on pole z. This program would continually iterate and hopefully through some form of machine learning detect repeatedly grouped steps. For instance, the optimal steps for moving a 2 disk stack from pole x to pole y: move-stack(disk2,pole-x,pole-y) can be simplified to 3 substeps: move(disk1,pole.x,pole.z), move (disk2,pole.x,pole.y),move(disk1,pole.z,pole.y). The next move-stack action \- move-stack (disk3,pole.x,pole.y) would simply involve \- move-stack (disk2,pole.x,pole.z), \- move (disk3,pole.x,pole.y), \- move-stack (disk2,pole.z,pole.y). Hopefully this program would be able to detect other progressively complex tasks that require similar recursion methods.
+\newline Testing
 \end{enumerate}
-
 
 \newpage
 \begin{center}
