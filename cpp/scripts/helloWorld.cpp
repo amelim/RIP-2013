@@ -37,18 +37,18 @@ int main(){
 
 	map.at(1).at(5) = ROBOT;
 
-	World world(&map, new Location(1,1), &boxes, &targets);
+	World world(&map, new Location(1,8), &boxes, &targets);
 	world.printWorld();
 	//world.printConfig();
 
 	State state(world);
 	state.printState("Starting");
 
-	//AStar astar(state);
-	//cout << "Output of AStar::printClosed()" << endl;
-	//astar.printClosed();
+	AStar astar(state);
+	cout << "Output of AStar::printClosed()" << endl;
+	astar.printClosed();
 
-	//astar.solve();
+	astar.solve();
 	//vector<State> solution = astar.solve();
 	//astar.printSolution();
 
