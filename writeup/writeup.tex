@@ -131,28 +131,26 @@ make sense, why?} \newline
 %      Blackbox is a planning system that works by converting problems specified in STRIPS notation into Boolean satisfiability problems, and then solving the problems with a variety of state-of-the-art satisfiability engines. The front-end employs the graphplan system (Blum and Furst 1995). There is extreme flexibility in specifying the engines to use. For example, you can tell it to use walksat (Selman, Kautz, and Cohen 1994) for 60 seconds, and if that fails, then satz (Li and Anbulagan 1997) for 1000 seconds. This gives blackbox the capability of functioning efficiently over a broad range of problems. The name blackbox refers to the fact that the plan generator knows nothing about the SAT solvers, and the SAT solvers know nothing about plans: each is a "black box" to the other.
      \item Fast Forward (see \cite{FastForward})
      
-%      FF is a forward chaining heuristic state space planner. The main heuristic principle was originally developed by Blai Bonet and Hector Geffner for the HSP system: to obtain a heuristic estimate, relax the task P at hand into a simpler task P+ by ignoring the delete lists of all operators. While HSP employs a technique that gives a rough estimate for the solution length of P+ , FF extracts an explicit solution to P+ , by using a GRAPHPLAN-style algorithm. The number of actions in the relaxed solutions is used as a goal distance estimate. These estimates control a novel local search strategy, enforced hill-climbing: this is a hill-climbing procedure that, in each intermediate state, uses breadth first search to find a strictly better, possibly indirect, successor. As a second important heuristic information, the relaxed plans can be used to prune the search space: usually, the actions that are really useful in a state are contained in the relaxed plan, so one can restrict the successors of any state to 
-those produced by members of the respective relaxed solution. FF employs a slightly more elaborated form of this heuristic, which we call helpful actions pruning. The simple architecture described so far already solves most of the available benchmarks extremely efficiently. Problematic cases are when there are dead ends --- states from which the goals get unreachable --- or goal orderings. In the presence of the latter phenomenon, like in the Blocksworld, the local search sometimes proceeds too greedily, and gets trapped. To overcome this, we have integrated the Goal Agenda algorithm (first proposed by Jana Koehler), as well as a simple goal ordering technique of our own, based on the relaxed solutions. In order to deal with dead end states, which can cause the search to fail entirely, we have chosen a simple safety-net solution: if local search fails, then we skip everything done so far and switch to a complete best-first algorithm that simply expands all search nodes by increasing order of goal distance 
-evaluation.
+%      FF is a forward chaining heuristic state space planner. The main heuristic principle was originally developed by Blai Bonet and Hector Geffner for the HSP system: to obtain a heuristic estimate, relax the task P at hand into a simpler task P+ by ignoring the delete lists of all operators. While HSP employs a technique that gives a rough estimate for the solution length of P+ , FF extracts an explicit solution to P+ , by using a GRAPHPLAN-style algorithm. The number of actions in the relaxed solutions is used as a goal distance estimate. These estimates control a novel local search strategy, enforced hill-climbing: this is a hill-climbing procedure that, in each intermediate state, uses breadth first search to find a strictly better, possibly indirect, successor. As a second important heuristic information, the relaxed plans can be used to prune the search space: usually, the actions that are really useful in a state are contained in the relaxed plan, so one can restrict the successors of any state to those produced by members of the respective relaxed solution. FF employs a slightly more elaborated form of this heuristic, which we call helpful actions pruning. The simple architecture described so far already solves most of the available benchmarks extremely efficiently. Problematic cases are when there are dead ends --- states from which the goals get unreachable --- or goal orderings. In the presence of the latter phenomenon, like in the Blocksworld, the local search sometimes proceeds too greedily, and gets trapped. To overcome this, we have integrated the Goal Agenda algorithm (first proposed by Jana Koehler), as well as a simple goal ordering technique of our own, based on the relaxed solutions. In order to deal with dead end states, which can cause the search to fail entirely, we have chosen a simple safety-net solution: if local search fails, then we skip everything done so far and switch to a complete best-first algorithm that simply expands all search nodes by increasing order of goal distance evaluation.
     \end{itemize}
     
     \begin{table}%[t!]
     \label{table:results}
     \caption{Performance Comparison of BlackBox and FF.}
-    \begin{tabular*}{1.0\textwidth}{c|c|c|c}
+    \begin{tabular*}{1.0\textwidth}{c|c|c|c|c}
     \hline
-    \bfseries Problem Instance & \bfseries FF (default) & \bfseries BlackBox (default) & \bfseries BlackBox (walksat) \\
+    \bfseries Problem Instance & \bfseries FF (default) & \bfseries Conformant-FF & \bfseries BlackBox (default) \\
     \hline\hline
     % DATA
     % ########################################################
-    Problem 2.1 [time] 		&  0.0 	& 0.27 	& 0 \\ \hline    
-    Problem 2.2 [time] 		&  0.0	& - 	& 0 \\ \hline
-    Problem 2.3 [time] 		&  0.02 & - 	& 0 \\ \hline
-    Problem Challenge [time] 	&  0.7 	& - 	& 0 \\ \hline\hline
-    Problem 2.1 [steps]		&  12 	& 14 	& 0 \\ \hline
-    Problem 2.2 [steps]		&  31 	& 0 	& 0 \\ \hline
-    Problem 2.3 [steps]		&  110 	& 0 	& 0 \\ \hline
-    Problem Challenge [steps]	&  77 	& 0 	& 0 \\ \hline
+    Problem 2.1 [time] 		&  0.0 	& 0.0 	& 0.27 	\\ \hline    
+    Problem 2.2 [time] 		&  0.0	& 0.02 	& -	\\ \hline
+    Problem 2.3 [time] 		&  0.02 & 0.12 	& -	\\ \hline
+    Problem Challenge [time] 	&  0.7 	& 34.54 & -	\\ \hline\hline
+    Problem 2.1 [steps]		&  12 	& 15 	& 14 	\\ \hline
+    Problem 2.2 [steps]		&  31 	& 31 	& - 	\\ \hline
+    Problem 2.3 [steps]		&  110 	& 88 	& - 	\\ \hline
+    Problem Challenge [steps]	&  77 	& 77 	& - 	\\ \hline
     % ########################################################
     \hline
     \end{tabular*}
