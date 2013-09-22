@@ -44,8 +44,10 @@ int main(){
 	State state(world);
 	state.printState("Starting");
 	vector<State> expansion = state.expandState();
-	for(unsigned int i = 0; i < expansion.size(); i++)
-	  expansion[i].printState("expand");
+	for(unsigned int i = 0; i < expansion.size(); i++){
+	  cout << "Expand: " << i << endl;
+	  expansion[i].printState();
+  }
 
   return 0;
 }

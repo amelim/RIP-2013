@@ -42,20 +42,18 @@ bool State::isGoal(){
   return false;
 }
 
-bool State::boxLogic(const int i, vector<Location> newBoxes, vector<State> expands, const Direction dir){
+bool State::boxLogic(const int i, const Direction dir){
   if(curBoxes_[i].adjacent(*curRobot_, dir)){
     // Check to make sure you aren't going to push a box into another
-    
     if(!freeToMove(curBoxes_[i], dir, i))
       return false;
-
-    // Robot is adjacent to box i and box i is not adjacent to any other of the boxes
-    newBoxes[i] = curBoxes_[i].push(dir);
-	  Location newRob = curRobot_->push(dir);
-		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
-		expands.push_back(child);
-		return true;
-  }
+    Location test = curBoxes_[i].push(dir);
+    // Make sure you aren't pushing a box out of bounds
+    if(test.getX() < 0 || test.getY() < 0 
+        || test.getX() >= world_->getSizeX() || test.getY() >= world_->getSizeY())
+      return false;
+    return true;
+  } // Robot is adjacent to box i and box i is not adjacent to any other of the boxes
   else
     return false;
 }
@@ -111,41 +109,73 @@ vector<State> State::expandState(){
   vector<Location> newBoxes = curBoxes_;
   for(unsigned int i = 0; i < curBoxes_.size(); i++){
     // Check to see if we will push any boxes (i.e. we are adjacent)
-    if(!left)
-      left = boxLogic(i, newBoxes, expands, LEFT);
-    if(!right)
-      right = boxLogic(i, newBoxes, expands, RIGHT);
-    if(!up)
-      up = boxLogic(i, newBoxes, expands, UP);
-    if(!down)
-      down = boxLogic(i, newBoxes, expands, DOWN);
+    if(!left && boxLogic(i, LEFT)){
+      cout << "Pushing left " << i << endl;
+      newBoxes[i] = curBoxes_[i].push(LEFT);
+	    Location newRob = curRobot_->push(LEFT);
+		  State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
+		  expands.push_back(child);
+		  left = true;
+    }
+    if(!right && boxLogic(i, RIGHT)){
+      cout << "Pushing right " << i << endl;
+      newBoxes[i] = curBoxes_[i].push(RIGHT);
+	    Location newRob = curRobot_->push(RIGHT);
+		  State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
+		  expands.push_back(child);
+		  right = true;
+    }
+    if(!up && boxLogic(i, UP)){
+      cout << "Pushing up " << i << endl;
+      newBoxes[i] = curBoxes_[i].push(UP);
+	    Location newRob = curRobot_->push(UP);
+		  State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
+		  expands.push_back(child);
+		  up = true;
+    }
+    if(!down && boxLogic(i, DOWN)){
+      cout << "Pushing down "<< i << endl;
+      newBoxes[i] = curBoxes_[i].push(DOWN);
+	    Location newRob = curRobot_->push(DOWN);
+		  State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
+		  expands.push_back(child);
+		  down = true;
+    }
   }
 
   // -- Free movement logic -- //
   if(!left && freeToMove(*curRobot_, LEFT)){
     Location newRob = curRobot_->push(LEFT);
 		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
-		left = true;
 		expands.push_back(child);
   }
+  else
+    cout << "Cannot move left!" << left << endl;
+
   if(!right && freeToMove(*curRobot_, RIGHT)){
     Location newRob = curRobot_->push(RIGHT);
 		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
-		right = true;
 		expands.push_back(child);
   }
+  else
+    cout << "Cannot move right!" << right << endl;
+
   if(!up && freeToMove(*curRobot_, UP)){
     Location newRob = curRobot_->push(UP);
 		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
-		up = true;
 		expands.push_back(child);
   }
+  else
+    cout << "Cannot move up!" << up << endl;
+
   if(!down && freeToMove(*curRobot_, DOWN)){
     Location newRob = curRobot_->push(DOWN);
 		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
-		down = true;
 		expands.push_back(child);
   }
+  else
+    cout << "Cannot move down!"<< down << endl;
+
   return expands;
 }
 

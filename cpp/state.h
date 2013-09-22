@@ -30,7 +30,7 @@ class State{
 		int distanceBetween(const Location& loc1, const Location &loc2) const;
 
 		// Private expansion functions
-    bool boxLogic(const int i, std::vector<Location> newBoxes, std::vector<State> expands, const Direction dir);
+    bool boxLogic(const int i, const Direction dir);
     bool freeToMove(Location &loc, const Direction dir, int ignore=-1);
 
 	public:
