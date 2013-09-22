@@ -27,6 +27,9 @@ State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State
   world_ = &world;
   parent_ = &parent;
   curBoxes_ = curBoxes;
+	g_ = computeGCost();
+	h_ = computeHCost();
+	f_ = g_ + h_;
 }
 
 State::State(World &world) {
@@ -112,6 +115,7 @@ vector<State> State::expandState(){
 		  expands.push_back(child);
   	}
   }
+  return expands;
 }
 
 /* Display functions */
