@@ -35,7 +35,55 @@ bool State::isGoal(){
   return false;
 }
 
-std::vector<State> State::expandState(){}
+/*
+ * This function returns the possible states from the four different actions (robot up left right down)
+ */
+vector<State> State::expandState(){
+
+  vector<State> expands;
+  Matrix map = *world_->getMap();
+  // Flags to ensure we only add one state for each possible action
+  bool left = false;
+  bool right = false;
+  bool up = false;
+  bool down = false;
+	// -- No Change Operations --
+  if(curRobot_->getX() == 0 // Make sure we cannot go off the map
+  	|| map[curRobot_->getY()][curRobot_->getX()-1] != 16 ){ // Make sure we cannot enter an occupied space 
+  	expands.push_back(State(*this, LEFT));
+  	left = true;
+	}
+  
+  if(curRobot_->getX() == world_->getSizeX()-1
+  	|| map[curRobot_->getY()][curRobot_->getX()+1] != 16 ){
+  	expands.push_back(State(*this, RIGHT));
+  	right = true;
+	}
+
+  if(curRobot_->getY() == 0
+  	|| map[curRobot_->getY()-1][curRobot_->getX()] != 16 ){
+  	expands.push_back(State(*this, UP));
+  	up = true;
+	}
+  
+  if(curRobot_->getY() == world_->getSizeY()-1
+  	|| map[curRobot_->getY()+1][curRobot_->getX()] != 16 ){
+  	expands.push_back(State(*this, DOWN));
+  	down = true;
+	}
+
+  // -- Push Box--
+  if(!left){
+  	if(curRobot_->getX() == 1 
+  		&& map[curRobot_->getY()][curRobot_->getX()-1] != 16) // We cannot push a box out of the map
+  		expands.push_back(State(*this, LEFT));
+  	else if(map[curRobot_->getY()][curRobot_->getX()-2] != 16) // We cannot move a box into another occupied space
+  		expands.push_back(State(*this, LEFT));
+  	else{
+
+  	}
+  }
+}
 
 /* Display functions */
 void State::printState(const string& name){
@@ -86,7 +134,7 @@ int State::computeHCost() {
 	return cost;
 }
 // NOT NEEDED
-int State::computeFCost(const State &parent) {}; 	//TODO: implement this function
+int State::computeFCost() {}; 	//TODO: implement this function
 
 void State::setGCost(int g) { g_ = g; };
 void State::setHCost(int h) { h_ = h; };

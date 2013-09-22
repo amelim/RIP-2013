@@ -38,7 +38,7 @@ int main(){
 	map.at(1).at(5) = ROBOT;
 
 	World world(&map, new Location(1,1), &boxes, &targets);
-	//world.printWorld();
+	world.printWorld();
 	//world.printConfig();
 
 	State state(world);

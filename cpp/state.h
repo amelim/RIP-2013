@@ -29,7 +29,6 @@ class State{
 		Direction lastMove_;
 
 	public:
-		/*typedef enum {UP, LEFT, DOWN, RIGHT} Direction;*/
 
 		/* Constructors */
 		State ();
@@ -54,7 +53,7 @@ class State{
 		/* Compute various cost functions */
 		int computeGCost();
 		int computeHCost();
-		int computeFCost(const State &parent);
+		int computeFCost();
 
 		/* Get functions */
 		Location* getRobot() const { return curRobot_; }
