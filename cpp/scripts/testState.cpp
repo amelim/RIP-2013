@@ -37,11 +37,15 @@ int main(){
 
 	map.at(1).at(5) = ROBOT;
 
-	World world(&map, new Location(1,1), &boxes, &targets);
+	World world(&map, new Location(1,2), &boxes, &targets);
 	world.printWorld();
 	//world.printConfig();
 
 	State state(world);
 	state.printState("Starting");
+	vector<State> expansion = state.expandState();
+	for(unsigned int i = 0; i < expansion.size(); i++)
+	  expansion[i].printState("expand");
+
   return 0;
 }

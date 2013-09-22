@@ -19,11 +19,11 @@ State::State(State &parent, Direction dir) {
 
 }
 // Initialize a state based upon the individual components
-State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State &parent){
+State::State(World &world, int x, int y, vector<Location> &curBoxes, State &parent){
   world_ = &world;
   parent_ = &parent;
   curBoxes_ = curBoxes;
-  curRobot_ = &curRobot;
+  curRobot_ = new Location(x,y);
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
@@ -45,22 +45,29 @@ bool State::isGoal(){
 bool State::boxLogic(const int i, vector<Location> newBoxes, vector<State> expands, const Direction dir){
   if(curBoxes_[i].adjacent(*curRobot_, dir)){
     // Check to make sure you aren't going to push a box into another
-    bool free = true;
-    for(unsigned int j = 0; j < curBoxes_.size(); j++){
-      // If any other box is adjacent to the pushed box inthe direction, it's not free!
-      if(j != i && curBoxes_[i].adjacent(curBoxes_[j], dir))
-        return false; 
-		}
+    
+    if(!freeToMove(curBoxes_[i], dir, i))
+      return false;
 
     // Robot is adjacent to box i and box i is not adjacent to any other of the boxes
     newBoxes[i] = curBoxes_[i].push(dir);
 	  Location newRob = curRobot_->push(dir);
-		State child(*world_, newRob, newBoxes, *this);
+		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
 		expands.push_back(child);
 		return true;
   }
   else
     return false;
+}
+
+// If you wish to ignore a box, sent the vector index as ignore, defaults to -1
+bool State::freeToMove(Location &loc, const Direction dir, int ignore){
+  for(unsigned int j = 0; j < curBoxes_.size(); j++){
+    // If any other box is adjacent to the pushed box inthe direction, it's not free!
+    if(j != ignore && loc.adjacent(curBoxes_[j], dir))
+      return false; 
+	}
+	return true;
 }
 /*
  * This function returns the possible states from the four different actions (robot up left right down)
@@ -111,27 +118,27 @@ vector<State> State::expandState(){
   }
 
   // -- Free movement logic -- //
-  if(!left){
+  if(!left && freeToMove(*curRobot_, LEFT)){
     Location newRob = curRobot_->push(LEFT);
-		State child(*world_, newRob, newBoxes, *this);
+		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
 		left = true;
 		expands.push_back(child);
   }
-  if(!right){
+  if(!right && freeToMove(*curRobot_, RIGHT)){
     Location newRob = curRobot_->push(RIGHT);
-		State child(*world_, newRob, newBoxes, *this);
+		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
 		right = true;
 		expands.push_back(child);
   }
-  if(!up){
+  if(!up && freeToMove(*curRobot_, UP)){
     Location newRob = curRobot_->push(UP);
-		State child(*world_, newRob, newBoxes, *this);
+		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
 		up = true;
 		expands.push_back(child);
   }
-  if(!down){
+  if(!down && freeToMove(*curRobot_, DOWN)){
     Location newRob = curRobot_->push(DOWN);
-		State child(*world_, newRob, newBoxes, *this);
+		State child(*world_, newRob.getX(), newRob.getY(), newBoxes, *this);
 		down = true;
 		expands.push_back(child);
   }
