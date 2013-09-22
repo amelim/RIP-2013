@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
+
 class Location{
 	public:
 		/* Constructor */
@@ -16,6 +18,17 @@ class Location{
 		int getY() const { return y_; }
 
 		void print(const std::string& type="") const { std::cout << type << " x/y: " << x_ << " / " << y_ << std::endl; }
+
+		bool adjacent(const Location& loc, const Direction dir){
+			if(dir==LEFT)
+				return loc.getX()==x_-1 && loc.getY() == y_;
+			else if(dir==RIGHT)
+				return loc.getX()==x_+1 && loc.getY() == y_;
+			else if(dir==UP)
+				return loc.getX()==x_ && loc.getY() == y_-1;
+			else // DOWN
+				return loc.getX()==x_ && loc.getY() == y_+1;
+		}
 
 		friend std::ostream& operator<<(std::ostream& os, const Location& loc) {
 			os << loc.getX() << "/" << loc.getY() << std::endl;

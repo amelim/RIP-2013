@@ -73,14 +73,19 @@ vector<State> State::expandState(){
 	}
 
   // -- Push Box--
-  if(!left){
-  	if(curRobot_->getX() == 1 
-  		&& map[curRobot_->getY()][curRobot_->getX()-1] != 16) // We cannot push a box out of the map
-  		expands.push_back(State(*this, LEFT));
-  	else if(map[curRobot_->getY()][curRobot_->getX()-2] != 16) // We cannot move a box into another occupied space
-  		expands.push_back(State(*this, LEFT));
-  	else{
 
+  for(unsigned int i = 0; i < curBoxes_.size(); i++){
+  	if(curBoxes_[i].adjacent(*curRobot_, LEFT)){
+  		
+  	}
+  	else if(curBoxes_[i].adjacent(*curRobot_, RIGHT)){
+
+  	}
+  	else if(curBoxes_[i].adjacent(*curRobot_, UP)){
+  		
+  	}
+  	else if(curBoxes_[i].adjacent(*curRobot_, DOWN)){
+  		
   	}
   }
 }

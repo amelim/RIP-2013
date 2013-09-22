@@ -9,8 +9,6 @@
 #include "world.h"
 #include <vector>
 
-typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
-
 class State{
 	private:
 		World *world_;				/* Pointer to the static world initialization */
