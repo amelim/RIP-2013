@@ -25,10 +25,12 @@ class State{
 		int g_;		/* Cost to get to current node for A* */
 		int h_;		/* Heuristic estimate to goal for this node for A* */
 		int f_;		/* Total cost for a node for A* */
-
-		typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
+	
+		Direction lastMove_;
 
 	public:
+		/*typedef enum {UP, LEFT, DOWN, RIGHT} Direction;*/
+
 		/* Constructors */
 		State ();
 		State (State &parent, Direction dir);	/* For instantiation based on a parent search node */
@@ -50,7 +52,7 @@ class State{
 
 		/* Compute various cost functions */
 		int computeGCost(const State &parent);
-		int computeHCost(const State &parent);
+		int computeHCost();
 		int computeFCost(const State &parent);
 
 		/* Get functions */
@@ -59,13 +61,14 @@ class State{
 		int getGCost() const { return g_; }
 		int getHCost() const { return h_; }
 		int getFCost() const { return f_; }
+		Direction getLastMove() { return lastMove_; }
 		World* getWorld() const { return world_; }
 		State* getParent(){ return parent_; }
 
 		/* Set functions */
-		int setGCost();
-		int setHCost();
-		int setFCost();
+		void setGCost(int g);
+		void setHCost(int h);
+		void setFCost(int f);
 		void setParent(const State &parent);
 
 		/* Overloaded operators */
