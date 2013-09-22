@@ -67,6 +67,7 @@ bool State::freeToMove(Location &loc, const Direction dir, int ignore){
 	}
 	return true;
 }
+
 /*
  * This function returns the possible states from the four different actions (robot up left right down)
  */
