@@ -14,8 +14,6 @@ AStar::AStar(State &init) {
 
 	/* Add initial state to queue */
 	open_.push(root_);
-	closed_.push_back(root_);
-	closed_.push_back(root_);
 }
 
 /* Destructor */
@@ -24,11 +22,23 @@ AStar::~AStar() { }
 /* Planning functions */
 vector<State> AStar::solve() {
 	State tmp;
+	int pos;
+
+	/* Initialize closed list (open list initialized in constructor) */
+	closed_.clear();
+
+	/* Initialize costs of root node */
+	root_.setGCost(0);
+	root_.setHCost(root_.computeHCost());
+	root_.setFCost(root_.getGCost() + root_.getHCost());
 
 	while(!open_.empty()) {
 		/* Retrieve first element of queue and delete from queue */
 		tmp = open_.top();
 		open_.pop();
+
+		/* Add tmp to closed list */
+		closed_.push_back(tmp);
 
 		/* Check if we have found the solution */
 		if(tmp.isGoal()) {
@@ -40,29 +50,50 @@ vector<State> AStar::solve() {
 
 		/* Iterate over neighboring states */
 		for (int i = 0; i < neighbors.size(); i++) {
+			/* Compute tentative g-cost of neighbor 
+			 * NOTE: the distance between a neigbhor and tmp is always
+			 * 		 one move
+			 */
+			int tentative_g_score = tmp.getGCost() + 1;
+
 			/* Check if neighbor is already in closed list */
-			//if(closed_.find(neighbors.at(i)) != closed_.end()) {
-				/* 1. compute f-cost of neighbor
-				 * 2. if f-cost is better than that of the state in the
+			if(isClosed(&neighbors.at(i), &pos)) {
+				/* 1. compute g-cost of neighbor
+				 * 2. if g-cost is better than that of the state in the
 				 * closed_list, reopen the state (remove from closed, add to
 				 * open)
 				 */
-			//	continue;
-			//} else {
-				/* neighbor is not in closed_ list already */
+				if(tentative_g_score < neighbors.at(i).getGCost()) {
+					/* Add to open list - i.e. reopen the node */
+					open_.push(neighbors.at(i));
 
-				/* 1. create new state based on parent
-				 * 2. compute f, g, h costs
+					/* Remove from closed list */
+					closed_.erase(closed_.begin() + pos);
+				} else {
+					continue;
+				}
+			} else {
+				/* 1. create new state based on parent tmp
+				 * 2. compute f, g, h costs (done in constructor)
 				 * 3. add to open_ list
 				 */
-			//}
+				open_.push(State(tmp, neighbors.at(i).getLastMove()));
+
+				/* NOTE: technically we should check if the node is already
+				 * 		 in the open list, but that's hard to do with a 
+				 *		 priority queue. Instead we allow to add duplicates
+				 * 		 to the open list and discard them on following iterations
+				 * 		 (because they will be in closed list and discarded.
+				 */
+			}
 		}
 	}
 
 	/* If the while loop terminates without calling extractSolution, then no
 	 * solution has been found */
-	//cout << "Error AStar: No solution has been found." << endl;
-	//return NULL;
+	cout << "Error AStar: No solution has been found." << endl;
+	vector<State> empty;
+	return empty;
 }
 
 vector<State> AStar::extractSolution(State* solutionLeaf) {
@@ -78,9 +109,10 @@ vector<State> AStar::extractSolution(State* solutionLeaf) {
 	reverse(solution_.begin(), solution_.end());
 }
 
-bool AStar::isClosed(State* state) {
+bool AStar::isClosed(State* state, int *pos) {
 	for (int i = 0; i < closed_.size(); i++) {
 		if(state == &closed_.at(i))
+			*pos = i;
 			return true;
 	}
 
