@@ -1,0 +1,571 @@
+blackbox version 43
+command line:  ./Blackbox44/bin/blackbox -o ../pddl/sokoban/sokoban-domain.pddl -f ../pddl/sokoban/sokoban-problem2.pddl -solver satz
+
+Begin solver specification
+    -maxint        0   -maxsec 0.000000  satz
+End solver specification
+Loading domain file: ../pddl/sokoban/sokoban-domain.pddl
+Loading fact file: ../pddl/sokoban/sokoban-problem2.pddl
+Problem name: sokoban-problem2
+Facts loaded.
+time: 1, 52 facts and 4 exclusive pairs.
+time: 2, 53 facts and 6 exclusive pairs.
+time: 3, 56 facts and 22 exclusive pairs.
+time: 4, 60 facts and 50 exclusive pairs.
+time: 5, 65 facts and 93 exclusive pairs.
+time: 6, 68 facts and 116 exclusive pairs.
+time: 7, 73 facts and 194 exclusive pairs.
+time: 8, 76 facts and 237 exclusive pairs.
+time: 9, 77 facts and 225 exclusive pairs.
+time: 10, 82 facts and 329 exclusive pairs.
+time: 11, 85 facts and 387 exclusive pairs.
+time: 12, 86 facts and 376 exclusive pairs.
+Goals reachable at 12 steps but mutually exclusive.
+time: 13, 88 facts and 411 exclusive pairs.
+Goals reachable at 13 steps but mutually exclusive.
+time: 14, 88 facts and 377 exclusive pairs.
+Goals reachable at 14 steps but mutually exclusive.
+time: 15, 88 facts and 353 exclusive pairs.
+Goals reachable at 15 steps but mutually exclusive.
+time: 16, 90 facts and 415 exclusive pairs.
+Goals first reachable in 16 steps.
+3081 nodes created.
+
+####################################################
+goals at time 17:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+** Turning off completeness check **
+Converting graph to wff
+number of action variables = 1365
+number of fluent variables = 946
+total number variables = 2311
+number clauses = 25200
+Invoking solver satz-rand version satz-rand-214
+seed: 57119900
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 1 1 0 0 86 29 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 48, NB_UNIT= 251, NB_BRANCHE= 1, NB_BACK= 1 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 1
+
+----------------------------------------------------
+time: 17, 91 facts and 440 exclusive pairs.
+255 new nodes added.
+
+####################################################
+goals at time 18:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 1510
+number of fluent variables = 1025
+total number variables = 2535
+number clauses = 29567
+Invoking solver satz-rand version satz-rand-214
+seed: 57359676
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 1 1 0 0 158 68 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 48, NB_UNIT= 400, NB_BRANCHE= 1, NB_BACK= 1 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 1
+
+----------------------------------------------------
+Can't solve in 17 steps
+time: 18, 92 facts and 468 exclusive pairs.
+259 new nodes added.
+
+####################################################
+goals at time 19:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 1660
+number of fluent variables = 1106
+total number variables = 2766
+number clauses = 34308
+Invoking solver satz-rand version satz-rand-214
+seed: 57631643
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 1 1 0 0 254 113 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 48, NB_UNIT= 424, NB_BRANCHE= 1, NB_BACK= 1 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 1
+
+----------------------------------------------------
+Can't solve in 18 steps
+time: 19, 92 facts and 458 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 20:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 1810
+number of fluent variables = 1185
+total number variables = 2995
+number clauses = 39147
+Invoking solver satz-rand version satz-rand-214
+seed: 57934897
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 1 1 0 0 243 113 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 48, NB_UNIT= 451, NB_BRANCHE= 1, NB_BACK= 1 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 1
+
+----------------------------------------------------
+Can't solve in 19 steps
+time: 20, 92 facts and 450 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 21:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 1961
+number of fluent variables = 1265
+total number variables = 3226
+number clauses = 44083
+Invoking solver satz-rand version satz-rand-214
+seed: 58275386
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 1 1 0 0 293 139 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 48, NB_UNIT= 468, NB_BRANCHE= 1, NB_BACK= 1 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 1
+
+----------------------------------------------------
+Can't solve in 20 steps
+time: 21, 92 facts and 444 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 22:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 2113
+number of fluent variables = 1345
+total number variables = 3458
+number clauses = 49123
+Invoking solver satz-rand version satz-rand-214
+seed: 58648513
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 1 1 0 0 432 209 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 48, NB_UNIT= 385, NB_BRANCHE= 1, NB_BACK= 1 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 1
+
+----------------------------------------------------
+Can't solve in 21 steps
+time: 22, 92 facts and 439 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 23:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 2265
+number of fluent variables = 1425
+total number variables = 3690
+number clauses = 54142
+Invoking solver satz-rand version satz-rand-214
+seed: 59063264
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 25 49 24 0 12088 745 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 2681, NB_UNIT= 13816, NB_BRANCHE= 49, NB_BACK= 25 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 49
+
+----------------------------------------------------
+Can't solve in 22 steps
+time: 23, 92 facts and 435 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 24:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 2417
+number of fluent variables = 1505
+total number variables = 3922
+number clauses = 59145
+Invoking solver satz-rand version satz-rand-214
+seed: 59604697
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 36 71 35 0 17841 1307 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 3848, NB_UNIT= 19218, NB_BRANCHE= 71, NB_BACK= 36 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 71
+
+----------------------------------------------------
+Can't solve in 23 steps
+time: 24, 92 facts and 433 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 25:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 2569
+number of fluent variables = 1585
+total number variables = 4154
+number clauses = 64136
+Invoking solver satz-rand version satz-rand-214
+seed: 60235669
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 86 170 85 0 30863 2553 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 5214, NB_UNIT= 40827, NB_BRANCHE= 170, NB_BACK= 86 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 171
+
+----------------------------------------------------
+Can't solve in 24 steps
+time: 25, 92 facts and 432 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 26:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 2721
+number of fluent variables = 1665
+total number variables = 4386
+number clauses = 69119
+Invoking solver satz-rand version satz-rand-214
+seed: 61100774
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 168 330 167 0 55035 3841 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 10034, NB_UNIT= 82189, NB_BRANCHE= 330, NB_BACK= 168 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 335
+
+----------------------------------------------------
+Can't solve in 25 steps
+time: 26, 92 facts and 432 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 27:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 2873
+number of fluent variables = 1745
+total number variables = 4618
+number clauses = 74095
+Invoking solver satz-rand version satz-rand-214
+seed: 62301684
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 194 383 193 0 85799 4427 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 15994, NB_UNIT= 98798, NB_BRANCHE= 383, NB_BACK= 194 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 385
+
+----------------------------------------------------
+Can't solve in 26 steps
+time: 27, 92 facts and 432 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 28:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 3025
+number of fluent variables = 1825
+total number variables = 4850
+number clauses = 79068
+Invoking solver satz-rand version satz-rand-214
+seed: 63610682
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 421 836 420 0 133796 7685 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 24189, NB_UNIT= 188203, NB_BRANCHE= 836, NB_BACK= 421 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 839
+
+----------------------------------------------------
+Can't solve in 27 steps
+time: 28, 92 facts and 432 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 29:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 3177
+number of fluent variables = 1905
+total number variables = 5082
+number clauses = 84041
+Invoking solver satz-rand version satz-rand-214
+seed: 65714759
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 525 1031 524 0 152375 9570 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 25966, NB_UNIT= 261248, NB_BRANCHE= 1031, NB_BACK= 525 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 1046
+
+----------------------------------------------------
+Can't solve in 28 steps
+time: 29, 92 facts and 432 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 30:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 3329
+number of fluent variables = 1985
+total number variables = 5314
+number clauses = 89014
+Invoking solver satz-rand version satz-rand-214
+seed: 68213038
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 1181 2332 1180 0 339466 18201 0.000 0
+****the instance is unsatisfiable *****
+NB_MONO= 58685, NB_UNIT= 516694, NB_BRANCHE= 2332, NB_BACK= 1181 
+Program terminated in 0.000 seconds.
+Result is Unsat
+Iteration was 2359
+
+----------------------------------------------------
+Can't solve in 29 steps
+time: 30, 92 facts and 432 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 31:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 3481
+number of fluent variables = 2065
+total number variables = 5546
+number clauses = 93987
+Invoking solver satz-rand version satz-rand-214
+seed: 72826493
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 2369 4666 2368 0 600734 31963 0.001 0
+****the instance is unsatisfiable *****
+NB_MONO= 94550, NB_UNIT= 970343, NB_BRANCHE= 4666, NB_BACK= 2369 
+Program terminated in 0.001 seconds.
+Result is Unsat
+Iteration was 4735
+
+----------------------------------------------------
+Can't solve in 30 steps
+time: 31, 92 facts and 432 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 32:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 3633
+number of fluent variables = 2145
+total number variables = 5778
+number clauses = 98960
+Invoking solver satz-rand version satz-rand-214
+seed: 81015850
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 4479 8872 4478 0 976009 51707 0.001 0
+****the instance is unsatisfiable *****
+NB_MONO= 131558, NB_UNIT= 1643200, NB_BRANCHE= 8872, NB_BACK= 4479 
+Program terminated in 0.001 seconds.
+Result is Unsat
+Iteration was 8943
+
+----------------------------------------------------
+Can't solve in 31 steps
+time: 32, 92 facts and 432 exclusive pairs.
+260 new nodes added.
+
+####################################################
+goals at time 33:
+  at_b1_s-2-2 at_b2_s-5-7 
+
+
+----------------------------------------------------
+Converting graph to wff
+number of action variables = 3785
+number of fluent variables = 2225
+total number variables = 6010
+number clauses = 103933
+Invoking solver satz-rand version satz-rand-214
+seed: 93907546
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 7079 14014 7085 0 1512033 76266 0.002 1
+****the instance is satisfiable *****
+****verification of solution is OK****
+NB_MONO= 189407, NB_UNIT= 2467017, NB_BRANCHE= 14014, NB_BACK= 7079 
+Program terminated in 0.002 seconds.
+Result is Sat
+Iteration was 14159
+Performing plan justification:
+   0 actions were pruned in 0.00 seconds
+
+----------------------------------------------------
+Begin plan
+1 (move r s-2-3 s-2-2 down)
+2 (move r s-2-2 s-3-2 right)
+3 (move r s-3-2 s-4-2 right)
+4 (push r b2 s-4-2 s-4-3 s-4-4 up)
+5 (move r s-4-3 s-4-2 down)
+6 (move r s-4-2 s-3-2 left)
+7 (move r s-3-2 s-2-2 left)
+8 (move r s-2-2 s-2-3 up)
+9 (push r b1 s-2-3 s-3-3 s-4-3 right)
+10 (move r s-3-3 s-3-4 up)
+11 (push r b2 s-3-4 s-4-4 s-5-4 right)
+12 (move r s-4-4 s-3-4 left)
+13 (move r s-3-4 s-3-3 down)
+14 (move r s-3-3 s-3-2 down)
+15 (move r s-3-2 s-4-2 right)
+16 (push r b1 s-4-2 s-4-3 s-4-4 up)
+17 (move r s-4-3 s-5-3 right)
+18 (push r b2 s-5-3 s-5-4 s-5-5 up)
+19 (push r b2 s-5-4 s-5-5 s-5-6 up)
+20 (push r b2 s-5-5 s-5-6 s-5-7 up)
+21 (move r s-5-6 s-5-5 down)
+22 (move r s-5-5 s-4-5 left)
+23 (push r b1 s-4-5 s-4-4 s-4-3 down)
+24 (move r s-4-4 s-5-4 right)
+25 (move r s-5-4 s-5-3 down)
+26 (push r b1 s-5-3 s-4-3 s-3-3 left)
+27 (move r s-4-3 s-4-4 up)
+28 (move r s-4-4 s-3-4 left)
+29 (push r b1 s-3-4 s-3-3 s-3-2 down)
+30 (move r s-3-3 s-4-3 right)
+31 (move r s-4-3 s-4-2 down)
+32 (push r b1 s-4-2 s-3-2 s-2-2 left)
+End plan
+----------------------------------------------------
+
+32 total actions in plan
+0 entries in hash table, 
+31 total set-creation steps (entries + hits + plan length - 1)
+0 actions tried
+
+####################################################
+Total elapsed time:   56.52 seconds
+Time in milliseconds: 56519
+
+####################################################

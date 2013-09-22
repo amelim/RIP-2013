@@ -1,0 +1,84 @@
+blackbox version 43
+command line:  ./Blackbox44/bin/blackbox -o ../pddl/sokoban/sokoban-domain.pddl -f ../pddl/sokoban/sokoban-problem1.pddl -solver satz
+
+Begin solver specification
+    -maxint        0   -maxsec 0.000000  satz
+End solver specification
+Loading domain file: ../pddl/sokoban/sokoban-domain.pddl
+Loading fact file: ../pddl/sokoban/sokoban-problem1.pddl
+Problem name: sokoban-problem0
+Facts loaded.
+time: 1, 48 facts and 6 exclusive pairs.
+time: 2, 52 facts and 28 exclusive pairs.
+time: 3, 57 facts and 79 exclusive pairs.
+time: 4, 60 facts and 117 exclusive pairs.
+time: 5, 61 facts and 124 exclusive pairs.
+time: 6, 62 facts and 130 exclusive pairs.
+time: 7, 62 facts and 122 exclusive pairs.
+time: 8, 63 facts and 131 exclusive pairs.
+time: 9, 65 facts and 162 exclusive pairs.
+time: 10, 65 facts and 148 exclusive pairs.
+time: 11, 65 facts and 139 exclusive pairs.
+time: 12, 66 facts and 153 exclusive pairs.
+time: 13, 67 facts and 167 exclusive pairs.
+time: 14, 68 facts and 180 exclusive pairs.
+Goals first reachable in 14 steps.
+2200 nodes created.
+
+####################################################
+goals at time 15:
+  at_b1_s-3-2 
+
+
+----------------------------------------------------
+** Turning off completeness check **
+Converting graph to wff
+number of action variables = 963
+number of fluent variables = 692
+total number variables = 1655
+number clauses = 13185
+Invoking solver satz-rand version satz-rand-214
+seed: 50152621
+cutoff: 1000000000
+noise: 0.400000
+restart: 1
+fields: NB_BACK NB_BRANCH NB_OP NB_NOOP NB_SEARCH time sat
+[1] satz-rand-214 0 6 5 0 1024 17 0.000 1
+****the instance is satisfiable *****
+****verification of solution is OK****
+NB_MONO= 615, NB_UNIT= 779, NB_BRANCHE= 6, NB_BACK= 0 
+Program terminated in 0.000 seconds.
+Result is Sat
+Iteration was 6
+Performing plan justification:
+   0 actions were pruned in 0.00 seconds
+
+----------------------------------------------------
+Begin plan
+1 (move r s-3-3 s-3-4 up)
+2 (move r s-3-4 s-4-4 right)
+3 (move r s-4-4 s-5-4 right)
+4 (move r s-5-4 s-5-5 up)
+5 (push r b1 s-5-5 s-4-5 s-3-5 left)
+6 (move r s-4-5 s-4-4 down)
+7 (move r s-4-4 s-3-4 left)
+8 (move r s-3-4 s-2-4 left)
+9 (move r s-2-4 s-2-5 up)
+10 (move r s-2-5 s-2-6 up)
+11 (move r s-2-6 s-3-6 right)
+12 (push r b1 s-3-6 s-3-5 s-3-4 down)
+13 (push r b1 s-3-5 s-3-4 s-3-3 down)
+14 (push r b1 s-3-4 s-3-3 s-3-2 down)
+End plan
+----------------------------------------------------
+
+14 total actions in plan
+0 entries in hash table, 
+13 total set-creation steps (entries + hits + plan length - 1)
+0 actions tried
+
+####################################################
+Total elapsed time:   0.31 seconds
+Time in milliseconds: 315
+
+####################################################

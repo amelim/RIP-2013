@@ -1,0 +1,54 @@
+
+ff: parsing domain file
+domain 'SOKOBAN-DOMAIN' defined
+ ... done.
+ff: parsing problem file
+problem 'SOKOBAN_PROBLEM0' defined
+ ... done.
+
+
+
+Cueing down from goal distance:    9 into depth [1]
+                                   8            [1][2][3]
+                                   7            [1]
+                                   6            [1]
+
+Enforced Hill-climbing failed !
+switching to Best-first Search now.
+
+advancing to distance :    9
+                           8
+                           7
+                           6
+                           5
+                           4
+                           3
+                           2
+                           1
+                           0
+
+ff: found legal plan as follows
+
+step    0: MOVE R S-3-3 S-3-4 UP
+        1: MOVE R S-3-4 S-4-4 RIGHT
+        2: MOVE R S-4-4 S-5-4 RIGHT
+        3: MOVE R S-5-4 S-5-5 UP
+        4: PUSH R B1 S-5-5 S-4-5 S-3-5 LEFT
+        5: MOVE R S-4-5 S-4-4 DOWN
+        6: MOVE R S-4-4 S-3-4 LEFT
+        7: MOVE R S-3-4 S-2-4 LEFT
+        8: MOVE R S-2-4 S-2-5 UP
+        9: MOVE R S-2-5 S-2-6 UP
+       10: MOVE R S-2-6 S-3-6 RIGHT
+       11: PUSH R B1 S-3-6 S-3-5 S-3-4 DOWN
+       12: PUSH R B1 S-3-5 S-3-4 S-3-3 DOWN
+       13: PUSH R B1 S-3-4 S-3-3 S-3-2 DOWN
+     
+
+time spent:    0.00 seconds instantiating 48 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 38 facts and 48 actions
+               0.00 seconds creating final representation with 38 relevant facts
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 49 states, to a max depth of 3
+               0.00 seconds total time
+

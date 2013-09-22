@@ -1,0 +1,155 @@
+
+ff: parsing domain file
+domain 'SOKOBAN-DOMAIN' defined
+ ... done.
+ff: parsing problem file
+problem 'SOKOBAN_PROBLEM3' defined
+ ... done.
+
+
+
+Cueing down from goal distance:   18 into depth [1]
+                                  17            [1]
+
+Enforced Hill-climbing failed !
+switching to Best-first Search now.
+
+advancing to distance :   18
+                          17
+                          16
+                          15
+                          12
+                          11
+                          10
+                           8
+                           7
+                           6
+                           5
+                           4
+                           3
+                           2
+                           1
+                           0
+
+ff: found legal plan as follows
+
+step    0: MOVE R S-3-5 S-4-5 RIGHT
+        1: MOVE R S-4-5 S-4-6 UP
+        2: MOVE R S-4-6 S-4-7 UP
+        3: MOVE R S-4-7 S-5-7 RIGHT
+        4: MOVE R S-5-7 S-6-7 RIGHT
+        5: MOVE R S-6-7 S-6-6 DOWN
+        6: MOVE R S-6-6 S-6-5 DOWN
+        7: PUSH R B1 S-6-5 S-5-5 S-4-5 LEFT
+        8: PUSH R B1 S-5-5 S-4-5 S-3-5 LEFT
+        9: MOVE R S-4-5 S-5-5 RIGHT
+       10: MOVE R S-5-5 S-6-5 RIGHT
+       11: MOVE R S-6-5 S-6-6 UP
+       12: MOVE R S-6-6 S-6-7 UP
+       13: MOVE R S-6-7 S-7-7 RIGHT
+       14: MOVE R S-7-7 S-8-7 RIGHT
+       15: MOVE R S-8-7 S-8-6 DOWN
+       16: MOVE R S-8-6 S-8-5 DOWN
+       17: MOVE R S-8-5 S-8-4 DOWN
+       18: MOVE R S-8-4 S-8-3 DOWN
+       19: MOVE R S-8-3 S-8-2 DOWN
+       20: MOVE R S-8-2 S-9-2 RIGHT
+       21: MOVE R S-9-2 S-10-2 RIGHT
+       22: MOVE R S-10-2 S-10-3 UP
+       23: MOVE R S-10-3 S-10-4 UP
+       24: MOVE R S-10-4 S-10-5 UP
+       25: PUSH R B3 S-10-5 S-9-5 S-8-5 LEFT
+       26: MOVE R S-9-5 S-10-5 RIGHT
+       27: MOVE R S-10-5 S-10-4 DOWN
+       28: MOVE R S-10-4 S-10-3 DOWN
+       29: MOVE R S-10-3 S-10-2 DOWN
+       30: MOVE R S-10-2 S-9-2 LEFT
+       31: MOVE R S-9-2 S-8-2 LEFT
+       32: MOVE R S-8-2 S-8-3 UP
+       33: MOVE R S-8-3 S-8-4 UP
+       34: PUSH R B3 S-8-4 S-8-5 S-8-6 UP
+       35: PUSH R B2 S-8-5 S-7-5 S-6-5 LEFT
+       36: PUSH R B2 S-7-5 S-6-5 S-5-5 LEFT
+       37: MOVE R S-6-5 S-6-6 UP
+       38: MOVE R S-6-6 S-6-7 UP
+       39: MOVE R S-6-7 S-5-7 LEFT
+       40: MOVE R S-5-7 S-4-7 LEFT
+       41: MOVE R S-4-7 S-4-6 DOWN
+       42: MOVE R S-4-6 S-4-5 DOWN
+       43: PUSH R B2 S-4-5 S-5-5 S-6-5 RIGHT
+       44: PUSH R B2 S-5-5 S-6-5 S-7-5 RIGHT
+       45: MOVE R S-6-5 S-5-5 LEFT
+       46: MOVE R S-5-5 S-4-5 LEFT
+       47: MOVE R S-4-5 S-4-6 UP
+       48: MOVE R S-4-6 S-4-7 UP
+       49: MOVE R S-4-7 S-3-7 LEFT
+       50: MOVE R S-3-7 S-2-7 LEFT
+       51: MOVE R S-2-7 S-2-6 DOWN
+       52: MOVE R S-2-6 S-2-5 DOWN
+       53: PUSH R B1 S-2-5 S-3-5 S-4-5 RIGHT
+       54: PUSH R B1 S-3-5 S-4-5 S-5-5 RIGHT
+       55: MOVE R S-4-5 S-4-6 UP
+       56: MOVE R S-4-6 S-4-7 UP
+       57: MOVE R S-4-7 S-5-7 RIGHT
+       58: MOVE R S-5-7 S-6-7 RIGHT
+       59: MOVE R S-6-7 S-6-6 DOWN
+       60: MOVE R S-6-6 S-6-5 DOWN
+       61: PUSH R B1 S-6-5 S-5-5 S-4-5 LEFT
+       62: MOVE R S-5-5 S-6-5 RIGHT
+       63: MOVE R S-6-5 S-6-6 UP
+       64: MOVE R S-6-6 S-6-7 UP
+       65: MOVE R S-6-7 S-7-7 RIGHT
+       66: MOVE R S-7-7 S-8-7 RIGHT
+       67: PUSH R B3 S-8-7 S-8-6 S-8-5 DOWN
+       68: PUSH R B3 S-8-6 S-8-5 S-8-4 DOWN
+       69: PUSH R B3 S-8-5 S-8-4 S-8-3 DOWN
+       70: PUSH R B3 S-8-4 S-8-3 S-8-2 DOWN
+       71: MOVE R S-8-3 S-8-4 UP
+       72: MOVE R S-8-4 S-8-5 UP
+       73: MOVE R S-8-5 S-8-6 UP
+       74: MOVE R S-8-6 S-8-7 UP
+       75: MOVE R S-8-7 S-7-7 LEFT
+       76: MOVE R S-7-7 S-6-7 LEFT
+       77: MOVE R S-6-7 S-6-6 DOWN
+       78: MOVE R S-6-6 S-6-5 DOWN
+       79: PUSH R B2 S-6-5 S-7-5 S-8-5 RIGHT
+       80: MOVE R S-7-5 S-6-5 LEFT
+       81: MOVE R S-6-5 S-6-6 UP
+       82: MOVE R S-6-6 S-6-7 UP
+       83: MOVE R S-6-7 S-7-7 RIGHT
+       84: MOVE R S-7-7 S-8-7 RIGHT
+       85: MOVE R S-8-7 S-8-6 DOWN
+       86: PUSH R B2 S-8-6 S-8-5 S-8-4 DOWN
+       87: PUSH R B2 S-8-5 S-8-4 S-8-3 DOWN
+       88: MOVE R S-8-4 S-8-5 UP
+       89: MOVE R S-8-5 S-7-5 LEFT
+       90: MOVE R S-7-5 S-6-5 LEFT
+       91: MOVE R S-6-5 S-6-6 UP
+       92: MOVE R S-6-6 S-6-7 UP
+       93: MOVE R S-6-7 S-5-7 LEFT
+       94: MOVE R S-5-7 S-4-7 LEFT
+       95: MOVE R S-4-7 S-3-7 LEFT
+       96: MOVE R S-3-7 S-2-7 LEFT
+       97: MOVE R S-2-7 S-2-6 DOWN
+       98: MOVE R S-2-6 S-2-5 DOWN
+       99: MOVE R S-2-5 S-3-5 RIGHT
+      100: PUSH R B1 S-3-5 S-4-5 S-5-5 RIGHT
+      101: PUSH R B1 S-4-5 S-5-5 S-6-5 RIGHT
+      102: PUSH R B1 S-5-5 S-6-5 S-7-5 RIGHT
+      103: PUSH R B1 S-6-5 S-7-5 S-8-5 RIGHT
+      104: MOVE R S-7-5 S-6-5 LEFT
+      105: MOVE R S-6-5 S-6-6 UP
+      106: MOVE R S-6-6 S-6-7 UP
+      107: MOVE R S-6-7 S-7-7 RIGHT
+      108: MOVE R S-7-7 S-8-7 RIGHT
+      109: MOVE R S-8-7 S-8-6 DOWN
+      110: PUSH R B1 S-8-6 S-8-5 S-8-4 DOWN
+     
+
+time spent:    0.00 seconds instantiating 192 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 96 facts and 126 actions
+               0.00 seconds creating final representation with 96 relevant facts
+               0.00 seconds building connectivity graph
+               0.02 seconds searching, evaluating 950 states, to a max depth of 1
+               0.02 seconds total time
+
