@@ -26,6 +26,12 @@ class State{
 	
 		Direction lastMove_;
 
+    /* Calculates the distance between */
+		int distanceBetween(const Location& loc1, const Location &loc2) const;
+
+		// Private expansion functions
+    bool boxLogic(const int i, std::vector<Location> newBoxes, std::vector<State> expands, const Direction dir);
+
 	public:
 
 		/* Constructors */
@@ -45,9 +51,6 @@ class State{
     std::vector<State> expandState();
 
 		bool isGoal();
-    
-    	/* Calculates the distance between */
-		int distanceBetween(const Location& loc1, const Location &loc2) const;
 
 		/* Compute various cost functions */
 		int computeGCost();

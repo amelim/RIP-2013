@@ -7,15 +7,8 @@ State::State(){
 }
 
 /* For instantiation based on a parent search node */
+// TODO: Don't think this is needed
 State::State(State &parent, Direction dir) {
-	// TODO: create new state node based on parent
-	// 1. assign parent pointer
-	// 2. compute g, h, f cost based on parent node
-	//
-	// 3. based on the parent node, this constructor has 
-	// 	  to reason based on the dir parameter whether a box 
-	// 	  has been pushed to another location
-
 	parent_ = &parent;
 	world_ = parent.getWorld();
 	curRobot_ = parent.getRobot();
@@ -25,7 +18,7 @@ State::State(State &parent, Direction dir) {
 	f_ = g_ + h_;
 
 }
-
+// Initialize a state based upon the individual components
 State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State &parent){
   world_ = &world;
   parent_ = &parent;
@@ -35,8 +28,7 @@ State::State(World &world, Location &curRobot, vector<Location> &curBoxes, State
 	h_ = computeHCost();
 	f_ = g_ + h_;
 }
-
-
+// Initialize the first state based upon the world configuration
 State::State(World &world) {
 	world_ = new World(world.getMap(), world.getInitRobotLocation(), world.getInitBoxes(), world.getTargetBoxes());
 	curBoxes_ = *world_->getInitBoxes();
@@ -50,6 +42,26 @@ bool State::isGoal(){
   return false;
 }
 
+bool State::boxLogic(const int i, vector<Location> newBoxes, vector<State> expands, const Direction dir){
+  if(curBoxes_[i].adjacent(*curRobot_, dir)){
+    // Check to make sure you aren't going to push a box into another
+    bool free = true;
+    for(unsigned int j = 0; j < curBoxes_.size(); j++){
+      // If any other box is adjacent to the pushed box inthe direction, it's not free!
+      if(j != i && curBoxes_[i].adjacent(curBoxes_[j], dir))
+        return false; 
+		}
+
+    // Robot is adjacent to box i and box i is not adjacent to any other of the boxes
+    newBoxes[i] = curBoxes_[i].push(dir);
+	  Location newRob = curRobot_->push(dir);
+		State child(*world_, newRob, newBoxes, *this);
+		expands.push_back(child);
+		return true;
+  }
+  else
+    return false;
+}
 /*
  * This function returns the possible states from the four different actions (robot up left right down)
  */
@@ -62,14 +74,14 @@ vector<State> State::expandState(){
   bool right = false;
   bool up = false;
   bool down = false;
-	// -- No Change Operations --
+	// -- Edge Conditions -- //
 	// Make sure we cannot go off the map
   if(curRobot_->getX() == 0){ 
   	expands.push_back(State(*this, LEFT));
   	left = true;
 	}
   
-  if(curRobot_->getX() == world_->getSizeX()-2){
+  if(curRobot_->getX() == world_->getSizeX()-1){
   	expands.push_back(State(*this, RIGHT));
   	right = true;
 	}
@@ -79,49 +91,49 @@ vector<State> State::expandState(){
   	up = true;
 	}
   
-  if(curRobot_->getY() == world_->getSizeY()-2){
+  if(curRobot_->getY() == world_->getSizeY()-1){
   	expands.push_back(State(*this, DOWN));
   	down = true;
 	}
-
-  	//|| map[curRobot_->getY()][curRobot_->getX()-1] != 16 ){ // Make sure we cannot enter an occupied space 
-  	//|| map[curRobot_->getY()+1][curRobot_->getX()] != 16 ){
-  	//|| map[curRobot_->getY()][curRobot_->getX()+1] != 16 ){
-  	//|| map[curRobot_->getY()-1][curRobot_->getX()] != 16 ){
   	
-  // -- Push Box--
-
+  // -- Push Box-- //
   vector<Location> newBoxes = curBoxes_;
   for(unsigned int i = 0; i < curBoxes_.size(); i++){
     // Check to see if we will push any boxes (i.e. we are adjacent)
-  	if(curBoxes_[i].adjacent(*curRobot_, LEFT) && !left){
-  	  newBoxes[i] = curBoxes_[i].push(LEFT);
-  	  Location newRob = curRobot_->push(LEFT);
-		  State child(*world_, newRob, newBoxes, *this);
-		  left = true;
-		  expands.push_back(child);
-  	}
-  	else if(curBoxes_[i].adjacent(*curRobot_, RIGHT) && !right){
-  	  newBoxes[i] = curBoxes_[i].push(RIGHT);
-  	  Location newRob = curRobot_->push(RIGHT);
-		  State child(*world_, newRob, newBoxes, *this);
-		  right = true;
-		  expands.push_back(child);
-  	}
-  	else if(curBoxes_[i].adjacent(*curRobot_, UP) && !up){
-  	  newBoxes[i] = curBoxes_[i].push(UP);
-  	  Location newRob = curRobot_->push(UP);
-		  State child(*world_, newRob, newBoxes, *this);
-		  up = true;
-		  expands.push_back(child);
-  	}
-  	else if(curBoxes_[i].adjacent(*curRobot_, DOWN) && !down){
-  	  newBoxes[i] = curBoxes_[i].push(DOWN);
-  	  Location newRob = curRobot_->push(DOWN);
-		  State child(*world_, newRob, newBoxes, *this);
-		  down = true;
-		  expands.push_back(child);
-  	}
+    if(!left)
+      left = boxLogic(i, newBoxes, expands, LEFT);
+    if(!right)
+      right = boxLogic(i, newBoxes, expands, RIGHT);
+    if(!up)
+      up = boxLogic(i, newBoxes, expands, UP);
+    if(!down)
+      down = boxLogic(i, newBoxes, expands, DOWN);
+  }
+
+  // -- Free movement logic -- //
+  if(!left){
+    Location newRob = curRobot_->push(LEFT);
+		State child(*world_, newRob, newBoxes, *this);
+		left = true;
+		expands.push_back(child);
+  }
+  if(!right){
+    Location newRob = curRobot_->push(RIGHT);
+		State child(*world_, newRob, newBoxes, *this);
+		right = true;
+		expands.push_back(child);
+  }
+  if(!up){
+    Location newRob = curRobot_->push(UP);
+		State child(*world_, newRob, newBoxes, *this);
+		up = true;
+		expands.push_back(child);
+  }
+  if(!down){
+    Location newRob = curRobot_->push(DOWN);
+		State child(*world_, newRob, newBoxes, *this);
+		down = true;
+		expands.push_back(child);
   }
   return expands;
 }
