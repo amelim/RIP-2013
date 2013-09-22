@@ -17,41 +17,73 @@ State::State(State &parent, Direction dir) {
 	// 	  has been pushed to another location
 
 	parent_ = &parent;
-	g_ = computeGCost(parent);
+	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
+	curBoxes_ = parent.getCurBoxes();
 }
 
 State::State(World &world) {
 	world_ = new World(world.getMap(), world.getInitRobotLocation(), world.getInitBoxes(), world.getTargetBoxes());
-}
-
-// Returns the Manhattan Distance between robot and loc 
-int State::distanceToLoc(const Location &loc) const{
-  int dX = abs(curRobot_->getX() - loc.getX());
-  int dY = abs(curRobot_->getX() - loc.getX());
-  return dX + dY;
+	curBoxes_ = *world_->getInitBoxes();
+	g_ = computeGCost();
+	h_ = computeHCost();
+	f_ = g_ + h_;
 }
 
 bool State::isGoal(){
   return false;
 }
 
-std::vector<State> State::expandState(){
+std::vector<State> State::expandState(){}
 
+/* Display functions */
+void State::printState(const string& name){
+	cout << "State: " <<  name << endl;
+	cout << "G Cost: " << g_ << endl;
+	cout << "H Cost: " << h_ << endl;
+	cout << "F Cost: " << f_ << endl;
 }
+
 /* ---------------------- */
 /* Cost functions 		  */
 /* ---------------------- */
-// Cost from start to current pos
-int State::computeGCost(const State &parent) {
-	// Get the starting spots
-	//vector<Location> inits = world_->getInitBoxes();
+// Returns the Manhattan Distance between robot and loc 
+int State::distanceBetween(const Location& loc1, const Location &loc2) const{
+	//loc1.print();
+	//loc2.print();
+  int dX = abs(loc1.getX() - loc2.getX());
+  int dY = abs(loc1.getY() - loc2.getY());
+  cout << "Cost between: " << endl;
+  loc1.print("target");
+  loc2.print("current");
+  cout << " is " << dX + dY << endl;
+  return dX + dY;
+}
 
+// Cost from start to current pos
+int State::computeGCost() {
+	int cost = 0;
+	// Get the starting spots
+	vector<Location> inits = *world_->getInitBoxes();
+
+	// For each box, compute the distance from the boxes current location and it's starting point
+	for(unsigned int i = 0; i < world_->getNumberOfBoxes(); i++){
+		cost += distanceBetween(inits[i], curBoxes_[i]);
+	}
+	return cost;
 }
 // Heuristic Cost
 int State::computeHCost() {
+	int cost = 0;
+	// Get the starting spots
+	vector<Location> targets = *world_->getTargetBoxes();
 
+	// For each box, compute the distance from the boxes current location and it's target
+	for(unsigned int i = 0; i < world_->getNumberOfBoxes(); i++){
+		cost += distanceBetween(targets[i], curBoxes_[i]);
+	}
+	return cost;
 }
 // NOT NEEDED
 int State::computeFCost(const State &parent) {}; 	//TODO: implement this function

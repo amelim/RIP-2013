@@ -15,7 +15,7 @@ class State{
 	private:
 		World *world_;				/* Pointer to the static world initialization */
 		Location *curRobot_;					/* Current robot location */
-    	std::vector<Location> curBoxes_;			/* Current box locations on the map */
+    std::vector<Location> curBoxes_;			/* Current box locations on the map */
 
 		State *parent_;						/* Pointer to previous state, if it exists,
 											   otherwise NULL. This pointer is required so that
@@ -41,7 +41,7 @@ class State{
 		~State(){}
 
 		/* Display functions */
-		void printState();
+		void printState(const std::string& name = "");
 		
 		/* A* planning related functions */
     std::vector<State> expandState();
@@ -49,10 +49,10 @@ class State{
 		bool isGoal();
     
     	/* Calculates the distance between */
-		int distanceToLoc(const Location &loc) const;
+		int distanceBetween(const Location& loc1, const Location &loc2) const;
 
 		/* Compute various cost functions */
-		int computeGCost(const State &parent);
+		int computeGCost();
 		int computeHCost();
 		int computeFCost(const State &parent);
 

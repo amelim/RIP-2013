@@ -15,7 +15,7 @@ class Location{
 		int getX() const { return x_; }
 		int getY() const { return y_; }
 
-		void print() { std::cout << "x/y: " << x_ << " / " << y_ << std::endl; }
+		void print(const std::string& type="") const { std::cout << type << " x/y: " << x_ << " / " << y_ << std::endl; }
 
 		friend std::ostream& operator<<(std::ostream& os, const Location& loc) {
 			os << loc.getX() << "/" << loc.getY() << std::endl;

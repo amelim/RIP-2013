@@ -10,7 +10,7 @@ using namespace std;
 int main(){
 	/* Test location class */
 	Location loc(1, 3);
-	//loc.print();
+	loc.print();
 
 	/* Test world class */
 	int i,j;
@@ -27,20 +27,22 @@ int main(){
 	}
 
 	vector<Location> boxes;
+	vector<Location> targets;
 	for (i = 0; i < 5; i++) {
 		boxes.push_back(Location(i,i));
+		targets.push_back(Location(i+1,i));
 		map.at(i).at(i) = BOX;
 		map.at(i+1).at(i) = TARGET;
 	}
 
 	map.at(1).at(5) = ROBOT;
 
-	World world(&map, new Location(1,1), &boxes, &boxes);
+	World world(&map, new Location(1,1), &boxes, &targets);
 	//world.printWorld();
 	//world.printConfig();
 
 	State state(world);
-	//cout << state;
+	state.printState("Starting");
 
 	AStar astar(state);
 	cout << "Output of AStar::printClosed()" << endl;
