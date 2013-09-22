@@ -80,23 +80,36 @@ vector<State> State::expandState(){
 
   // -- Push Box--
 
+  vector<Location> newBoxes = curBoxes_;
   for(unsigned int i = 0; i < curBoxes_.size(); i++){
     // Check to see if we will push any boxes (i.e. we are adjacent)
   	if(curBoxes_[i].adjacent(*curRobot_, LEFT)){
-  	  Location newBox = curBoxes_[i].push(LEFT);
+  	  newBoxes[i] = curBoxes_[i].push(LEFT);
   	  Location newRob = curRobot_->push(LEFT);
+		  State child(*world_, newRob, newBoxes, *this);
+		  left = true;
+		  expands.push_back(child);
   	}
   	else if(curBoxes_[i].adjacent(*curRobot_, RIGHT)){
-  	  Location newBox = curBoxes_[i].push(RIGHT);
+  	  newBoxes[i] = curBoxes_[i].push(RIGHT);
   	  Location newRob = curRobot_->push(RIGHT);
+		  State child(*world_, newRob, newBoxes, *this);
+		  right = true;
+		  expands.push_back(child);
   	}
   	else if(curBoxes_[i].adjacent(*curRobot_, UP)){
-  	  Location newBox = curBoxes_[i].push(UP);
+  	  newBoxes[i] = curBoxes_[i].push(UP);
   	  Location newRob = curRobot_->push(UP);
+		  State child(*world_, newRob, newBoxes, *this);
+		  up = true;
+		  expands.push_back(child);
   	}
   	else if(curBoxes_[i].adjacent(*curRobot_, DOWN)){
-  	  Location newBox = curBoxes_[i].push(DOWN);
+  	  newBoxes[i] = curBoxes_[i].push(DOWN);
   	  Location newRob = curRobot_->push(DOWN);
+		  State child(*world_, newRob, newBoxes, *this);
+		  down = true;
+		  expands.push_back(child);
   	}
   }
 }
