@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.22)  22 SEP 2013 18:35
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.22)  22 SEP 2013 19:31
 entering extended mode
 **C:/Users/Hawke/Documents/GitHub/RIP-2013/writeup/writeup.tex
 (C:/Users/Hawke/Documents/GitHub/RIP-2013/writeup/writeup.tex
@@ -303,7 +303,7 @@ Missing character: There is no ¨ in font cmr12!
 Missing character: There is no Å in font cmr12!
 
 
-Package caption Warning: \label without proper \caption on input line 140.
+Package caption Warning: \label without proper \caption on input line 134.
 See the caption package documentation for explanation.
 
 
@@ -314,17 +314,25 @@ LaTeX Warning: Reference `table:results' on page 1 undefined on input line 122.
 Non-PDF special ignored!
 
 {C:/Users/Hawke/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 142.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+
+Package caption Warning: \label without proper \caption on input line 134.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `table:results' on page 2 undefined on input line 130.
+
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 136.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 142.
+LaTeX Font Info:    Try loading font information for U+msb on input line 136.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in alignment at lines 142--158
-[][][][]
+Underfull \hbox (badness 10000) in alignment at lines 136--152
+[][][][][]
  []
 
 
@@ -380,9 +388,6 @@ Overfull \vbox (9.0pt too high) has occurred while \output is active []
 Overfull \vbox (9.0pt too high) has occurred while \output is active []
 
  [16]
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [17]
 (C:\Users\Hawke\Documents\GitHub\RIP-2013\writeup\writeup.aux)
 
 LaTeX Warning: There were undefined references.
@@ -391,20 +396,20 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  4147 strings out of 493921
  61032 string characters out of 3144876
- 178835 words of memory out of 3000000
+ 180835 words of memory out of 3000000
  7377 multiletter control sequences out of 15000+200000
  10195 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 44i,8n,42p,21607b,344s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,8n,42p,2119b,340s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
 /Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pr
 ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Prog
 ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on writeup.pdf (17 pages, 112895 bytes).
+Output written on writeup.pdf (16 pages, 110368 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 78 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
