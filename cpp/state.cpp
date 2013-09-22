@@ -162,14 +162,24 @@ void State::printState(const string& name){
 		mapTmp.push_back(tmp);
 	}
 
-  cout << "Robot position: " << curRobot_->getX() << " " << curRobot_->getY() << endl;
+	int robotX = curRobot_->getX();
+	int robotY = curRobot_->getY();
+
+  	cout << "Robot position: " << robotX << " " << robotY << endl;
 	/* Add robot location */
-	mapTmp.at(curRobot_->getY()).at(curRobot_->getX()) = ROBOT;
+	mapTmp.at(robotY).at(robotX) = ROBOT;
 
 	/* Add boxes */
 	int i;
 	for (i = 0; i < curBoxes_.size(); i++) {
-		mapTmp.at(curBoxes_.at(i).getY()).at(curBoxes_.at(i).getX()) = BOX;
+		int boxX = curBoxes_.at(i).getX();
+		int boxY = curBoxes_.at(i).getY();
+
+		if(mapTmp.at(boxY).at(boxX) == EMPTY) {
+			mapTmp.at(boxY).at(boxX) = BOX;
+		} else {
+			mapTmp.at(boxY).at(boxX) += BOX;
+		}
 	}
 	
 	for (int x = 0; x < mapSizeX; x++) {
@@ -181,7 +191,7 @@ void State::printState(const string& name){
 				case ROBOT: 		cout << setw(2) <<"S"; break;
 				case OCCUPIED: 		cout << setw(2) <<"1"; break;
 				case BOX+TARGET: 	cout << setw(2) <<"R"; break;
-				default: 	break;
+				default: 			cout << setw(2) <<"U"; break;
 			}
 		}
 
