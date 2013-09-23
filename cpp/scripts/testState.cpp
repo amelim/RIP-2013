@@ -32,7 +32,7 @@ int main(){
 		boxes.push_back(Location(i,i));
 		targets.push_back(Location(i+1,i));
 		map.at(i).at(i) = BOX;
-		map.at(i+1).at(i) = TARGET;
+		map.at(i).at(i+1) = TARGET;
 	}
 
 	map.at(1).at(5) = ROBOT;

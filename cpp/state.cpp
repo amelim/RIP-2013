@@ -43,19 +43,26 @@ bool State::isGoal(){
 }
 
 bool State::boxLogic(const int i, const Direction dir){
-  if(curBoxes_[i].adjacent(*curRobot_, dir)){
+  if(curRobot_->adjacent(curBoxes_[i], dir)){
     // Check to make sure you aren't going to push a box into another
-    if(!freeToMove(curBoxes_[i], dir, i))
+    if(!freeToMove(curBoxes_[i], dir, i)){
+      cout << "not free to move!" << endl;
       return false;
+    }
     Location test = curBoxes_[i].push(dir);
+    test.print();
     // Make sure you aren't pushing a box out of bounds
     if(test.getX() < 0 || test.getY() < 0 
         || test.getX() >= world_->getSizeX() || test.getY() >= world_->getSizeY())
       return false;
+
+
     return true;
   } // Robot is adjacent to box i and box i is not adjacent to any other of the boxes
-  else
+  else{
+    cout << "Not adjacent! " << dir << endl;
     return false;
+  }
 }
 
 // If you wish to ignore a box, sent the vector index as ignore, defaults to -1
@@ -109,6 +116,10 @@ vector<State> State::expandState(){
   // -- Push Box-- //
   for(unsigned int i = 0; i < curBoxes_.size(); i++){
     vector<Location> newBoxes = curBoxes_;
+    cout << "Box " << i;
+    curBoxes_[i].print();
+    cout << "Robot at";
+    curRobot_->print();
     // Check to see if we will push any boxes (i.e. we are adjacent)
     if(!left && boxLogic(i, LEFT)){
       cout << "Pushing left " << i << endl;
@@ -209,7 +220,7 @@ void State::printState(const string& name){
 
   	cout << "Robot position: " << robotX << " " << robotY << endl;
 	/* Add robot location */
-	mapTmp.at(robotY).at(robotX) = ROBOT;
+	mapTmp[robotX][robotY] = ROBOT;
 
 	/* Add boxes */
 	int i;
@@ -217,10 +228,10 @@ void State::printState(const string& name){
 		int boxX = curBoxes_.at(i).getX();
 		int boxY = curBoxes_.at(i).getY();
 
-		if(mapTmp.at(boxY).at(boxX) == EMPTY) {
-			mapTmp.at(boxY).at(boxX) = BOX;
+		if(mapTmp[boxX][boxY] == EMPTY) {
+			mapTmp[boxX][boxY] = BOX;
 		} else {
-			mapTmp.at(boxY).at(boxX) += BOX;
+			mapTmp[boxX][boxY] += BOX;
 		}
 	}
 	
