@@ -39,15 +39,6 @@ int main(){
   State state(world);
   state.printState("Starting");
 
-  cout << "-----------------------" << endl;
-  cout << " helloWorld: Test == operator in state" << endl;
-  if(state == state) {
-	  cout << "helloWorld: state == state" << endl;
-  } else {
-	  cout << "helloWorld: state != state" << endl;
-  }
-  cout << "-----------------------" << endl;
-
   int pos;
   AStar astar(state);
 

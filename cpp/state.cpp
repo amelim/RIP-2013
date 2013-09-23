@@ -187,10 +187,10 @@ vector<State> State::expandState(){
 
 /* Display functions */
 void State::printState(const string& name){
-	cout << "State: " <<  name << endl;
-	cout << "G Cost: " << g_ << endl;
-	cout << "H Cost: " << h_ << endl;
-	cout << "F Cost: " << f_ << endl;
+	//cout << "State: " <<  name << endl;
+	//cout << "G Cost: " << g_ << endl;
+	//cout << "H Cost: " << h_ << endl;
+	//cout << "F Cost: " << f_ << endl;
 
 	int mapSizeX = world_->getSizeX();
 	int mapSizeY = world_->getSizeY();
@@ -317,16 +317,20 @@ std::ostream& operator<<(std::ostream& os, const State& state) {
 /* Overload comparison operator */
 bool operator== (State &s1, State &s2) {
 	/* Compare robot loation */
-	if (s1.getRobot() != s2.getRobot())
+	if (*s1.getRobot() != *s2.getRobot()) {
+		//cout << "s1.robot (" << *s1.getRobot() << ") != s2.robot (" << *s2.getRobot() << ")" << endl;
 		return false;
+	}
 
 	/* Compare box locations */
 	std::vector<Location> s1Boxes = s1.getCurBoxes();
 	std::vector<Location> s2Boxes = s2.getCurBoxes();
 
 	for(int i = 0; i < s1Boxes.size(); i++) {
-		if(s1Boxes.at(i) != s2Boxes.at(i))
+		if(s1Boxes.at(i) != s2Boxes.at(i)) {
+			//cout << "s1Box " << s1Boxes.at(i) << " != s2Box " << s2Boxes.at(i) << endl;
 			return false;
+		}
 	}
 
 	/* Compare f, g, and h costs */

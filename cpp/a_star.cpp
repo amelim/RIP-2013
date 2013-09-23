@@ -20,6 +20,7 @@ AStar::AStar(State &init) {
 	/* Add initial state to queue */
 	open_.push(root_);
 	openVector_.push_back(root_);
+	//closed_.push_back(root_);
 }
 
 /* Destructor */
@@ -33,8 +34,8 @@ bool AStar::solve() {
 	/* Initialize closed list (open list initialized in constructor) */
 	closed_.clear();
 
-	//while(!open_.empty()) {
-	for (int i = 0; i < 4; i++) {
+	while(!open_.empty()) {
+	//for (int i = 0; i < 1500; i++) {
 		/* Retrieve first element of queue and delete from queue */
 		tmp = open_.top();
 		open_.pop();
@@ -42,15 +43,18 @@ bool AStar::solve() {
 		/* Keep a copy of the priority queue as a vector, so we can
 		 * check if something is already in the open list 
 		 */
-		cout << " ############################" << endl;
-		cout << " Printing open before delete " << endl;
-		printOpen();
+
+		//cout << " ############################" << endl;
+		//cout << " Printing open before delete " << endl;
+		//printOpen();
+		//cout << " ############################" << endl;
 		isOpen(&tmp, &pos);
 		openVector_.erase(openVector_.begin() + pos);
-		cout << " ############################" << endl;
+		//cout << " ############################" << endl;
 		//cout << " Printing open after delete " << endl;
 		//cout << " ############################" << endl;
 		//printOpen();
+		//cout << " ############################" << endl;
 
 		/* Add tmp to closed list */
 		if(!isClosed(&tmp, &pos)) {
@@ -138,15 +142,31 @@ void AStar::extractSolution(State* solutionLeaf) {
 }
 
 bool AStar::isOpen(State* state, int *pos) {
-	cout << "AStar::isOpen: Size of open list: " << openVector_.size() << endl;
+	bool debug = false;
+
+	if(debug) {
+		cout << "AStar::isOpen: Size of open list: " << openVector_.size() << endl;
+		cout << " Comparint state vs open list element" << endl;
+		state->printState();
+		cout << "##### vs. ####" << endl;
+	}
 
 	for (int i = 0; i < openVector_.size(); i++) {
+		if(debug) {
+			openVector_.at(i).printState();
+		}
+
 		if(*state == openVector_.at(i)) {
-			//cout << "state == openVector_.at(" << i  << ")" << endl;
+			if(debug) {
+				cout << "state == openVector_.at(" << i  << ")" << endl;
+			}
+
 			*pos = i;
 			return true;
 		} else {
-			//cout << "state != openVector_.at(" << i  << ")" << endl;
+			if(debug) {
+				cout << "state != openVector_.at(" << i  << ")" << endl;
+			}
 		}
 	}
 
@@ -154,25 +174,31 @@ bool AStar::isOpen(State* state, int *pos) {
 }
 
 bool AStar::isClosed(State* state, int *pos) {
-	//cout << "AStar::isClosed: Size of closed list: " << closed_.size() << endl;
+	bool debug = false;
 
-	//cout << "++++++++++++++++++++++++" << endl;
-	//cout << "isClosed checking state " << closed_.size() << endl;
-	//state->printState();
-	//closed_.at(0).printState();
-	//cout << "-----------------------" << endl;
-	//cout << "++++++++++++++++++++++++" << endl;
-	//cout << "++++++++++++++++++++++++" << endl;
+	if(debug) {
+		cout << "AStar::isClosed: Size of closed list: " << closed_.size() << endl;
+		cout << " Comparint state vs open list element" << endl;
+		state->printState();
+		cout << "##### vs. ####" << endl;
+	}
 
 	for (int i = 0; i < closed_.size(); i++) {
-		//closed_.at(i).printState();
+		if(debug) {
+			closed_.at(i).printState();
+		}
 
 		if(*state == closed_.at(i)) {
-			//cout << "state == closed_.at(" << i  << ")" << endl;
+			if(debug) {
+				cout << "state == closed_.at(" << i  << ")" << endl;
+			}
+
 			*pos = i;
 			return true;
 		} else {
-			//cout << "state != closed_.at(" << i  << ")" << endl;
+			if(debug) {
+				cout << "state != closed_.at(" << i  << ")" << endl;
+			}
 		}
 	}
 
