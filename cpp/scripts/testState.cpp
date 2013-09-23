@@ -48,6 +48,10 @@ int main(){
 	  cout << "Expand: " << i << endl;
 	  expansion[i].printState();
   }
+  vector<State> exTwo = expansion[0].expandState();
+	for(unsigned int i = 0; i < exTwo.size(); i++){
+	  exTwo[i].printState();
+  }
 
   return 0;
 }

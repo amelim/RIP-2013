@@ -207,6 +207,8 @@ void State::printState(const string& name){
 	//cout << "G Cost: " << g_ << endl;
 	//cout << "H Cost: " << h_ << endl;
 	//cout << "F Cost: " << f_ << endl;
+  cout << "State ptr: "	 << this << endl;
+	cout << "Parent ptr: " << parent_ << endl;
 
 	int mapSizeX = world_->getSizeX();
 	int mapSizeY = world_->getSizeY();
