@@ -38,8 +38,8 @@ class State{
 
 		/* Constructors */
 		State ();
-		State (State &parent, Direction dir);	/* For instantiation based on a parent search node */
-		State (World &world, int x, int y, std::vector<Location> &curBoxes, State &parent);
+		State (State *parent, Direction dir);	/* For instantiation based on a parent search node */
+		State (World &world, int x, int y, std::vector<Location> &curBoxes, State *parent);
 		State (World &world);					/* For the initial instantiation of a search node, 
 												   used to create the root of the search */
 
