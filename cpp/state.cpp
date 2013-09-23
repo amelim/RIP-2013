@@ -39,7 +39,24 @@ State::State(World &world) {
 }
 
 bool State::isGoal(){
-  return false;
+	for (int i = 0; i < curBoxes_.size(); i++){
+		if(!isAtTargetLocation(curBoxes_.at(i))) {
+				return false;
+		}
+	}
+
+	this->printState();
+  	return true;
+}
+
+bool State::isAtTargetLocation(Location loc) {
+	for (int i = 0; i < world_->getTargetBoxes()->size(); i++) {
+		if(world_->getTargetBoxes()->at(i) == loc) {
+			return true;
+		}
+	}
+
+	return false;
 }
 
 bool State::boxLogic(const int i, const Direction dir){

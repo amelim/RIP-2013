@@ -63,7 +63,9 @@ bool AStar::solve() {
 
 		/* Check if we have found the solution */
 		if(tmp.isGoal()) {
+			cout << "AStar::solve(): Solution found" << endl;
 			extractSolution(&tmp);
+			//printSolution();
 			return true;
 		}
 
@@ -132,6 +134,7 @@ void AStar::extractSolution(State* solutionLeaf) {
 	State* tmp = solutionLeaf;
 
 	while(tmp->getParent() != NULL) {
+		tmp->printState();
 		solution_.push_back(*tmp);
 		tmp = tmp->getParent();
 	}

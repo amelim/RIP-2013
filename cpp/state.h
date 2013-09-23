@@ -32,6 +32,7 @@ class State{
 		// Private expansion functions
     bool boxLogic(const int i, const Direction dir);
     bool freeToMove(Location &loc, const Direction dir, int ignore=-1);
+	bool isAtTargetLocation(Location loc);
 
 	public:
 
