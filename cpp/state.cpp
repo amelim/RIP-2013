@@ -59,10 +59,8 @@ bool State::boxLogic(const int i, const Direction dir){
 
     return true;
   } // Robot is adjacent to box i and box i is not adjacent to any other of the boxes
-  else{
-    cout << "Not adjacent! " << dir << endl;
+  else
     return false;
-  }
 }
 
 // If you wish to ignore a box, sent the vector index as ignore, defaults to -1
@@ -116,10 +114,6 @@ vector<State> State::expandState(){
   // -- Push Box-- //
   for(unsigned int i = 0; i < curBoxes_.size(); i++){
     vector<Location> newBoxes = curBoxes_;
-    cout << "Box " << i;
-    curBoxes_[i].print();
-    cout << "Robot at";
-    curRobot_->print();
     // Check to see if we will push any boxes (i.e. we are adjacent)
     if(!left && boxLogic(i, LEFT)){
       cout << "Pushing left " << i << endl;

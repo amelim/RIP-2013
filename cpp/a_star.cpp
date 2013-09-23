@@ -139,7 +139,7 @@ bool AStar::isClosed(State* state, int *pos) {
 	for (int i = 0; i < closed_.size(); i++) {
 		closed_.at(i).printState();
 
-		if(state == &closed_.at(i)) {
+		if(*state == closed_.at(i)) {
 			cout << "state == closed_.at(" << i  << ")" << endl;
 			*pos = i;
 			return true;
