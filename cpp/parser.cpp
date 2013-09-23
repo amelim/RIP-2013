@@ -1,21 +1,25 @@
 #include "parser.h"
 #include <iostream>
 
+
 using namespace std;
 
-Parser::Parser() {
-
+Parser::Parser(char* filename) {
+	fs.open(filename);
 }
 
 Parser::~Parser() {
-
+	fs.close();
 }
 
 Matrix Parser::loadMap() {
 	Matrix map;
-	int i, j, columns, rows;
-	
-	cin >> columns >> rows;
+	int i, j;
+	int columns = 1;
+	int rows = 1;
+	char c;
+
+	fs >> columns >> rows;
 	map.resize(rows);
 	for (i = 0; i < rows; i++) {
 		map[i].resize(columns);
@@ -28,9 +32,9 @@ Matrix Parser::loadMap() {
 
 int Parser::readValue() {
 	char c;
-	cin >> c;
+	fs >> c;
 	while (c == ' ') {
-		cin >> c;	
+		fs >> c;
 	}
 	int value = 0;
 	switch (c) {
