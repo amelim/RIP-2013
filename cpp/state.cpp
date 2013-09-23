@@ -228,6 +228,18 @@ void State::printState(const string& name){
 			mapTmp[boxX][boxY] += BOX;
 		}
 	}
+
+	/* Add targets */
+	for (i = 0; i < world_->getTargetBoxes()->size(); i++) {
+		int targetX = world_->getTargetBoxes()->at(i).getX();
+		int targetY = world_->getTargetBoxes()->at(i).getY();
+
+		if(mapTmp[targetX][targetY] == EMPTY) {
+			mapTmp[targetX][targetY] = TARGET;
+		} else {
+			mapTmp[targetX][targetY] += TARGET;
+		}
+	}
 	
 	for (int x = 0; x < mapSizeX; x++) {
 		for (int y = 0; y < mapSizeY; y++) {
@@ -318,16 +330,16 @@ bool operator== (State &s1, State &s2) {
 	}
 
 	/* Compare f, g, and h costs */
-	if(s1.getFCost() != s2.getFCost())
-		return false;
-	if(s1.getGCost() != s2.getGCost())
-		return false;
-	if(s1.getHCost() != s2.getHCost())
-		return false;
+	//if(s1.getFCost() != s2.getFCost())
+		//return false;
+	//if(s1.getGCost() != s2.getGCost())
+		//return false;
+	//if(s1.getHCost() != s2.getHCost())
+		//return false;
 
-	/*Compare parent */
-	if(s1.getParent() != s2.getParent())
-		return false;
+	///*Compare parent */
+	//if(s1.getParent() != s2.getParent())
+		//return false;
 
 	return true;
 }

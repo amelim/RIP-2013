@@ -74,6 +74,8 @@ class State{
 		void setFCost(int f);
 		void setParent(const State &parent);
 
+		bool compareStates(State *s1, State *s2);
+
 		/* Overloaded operators */
 		friend std::ostream& operator<< (std::ostream& stream, const State& state);
 		friend bool operator== (State &s1, State &s2);

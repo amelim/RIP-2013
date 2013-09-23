@@ -12,10 +12,14 @@ AStar::AStar(State &init) {
 	//solutionLeaf_ = NULL;
 	debugLevel_ = 0;
 
+	/* Initialize costs of root node */
+	root_.setGCost(0);
+	root_.setHCost(root_.computeHCost());
+	root_.setFCost(root_.getGCost() + root_.getHCost());
+
 	/* Add initial state to queue */
 	open_.push(root_);
-
-	closed_.push_back(root_);
+	openVector_.push_back(root_);
 }
 
 /* Destructor */
@@ -24,20 +28,29 @@ AStar::~AStar() { }
 /* Planning functions */
 bool AStar::solve() {
 	State tmp;
-	int pos;
+	int pos, posi;
 
 	/* Initialize closed list (open list initialized in constructor) */
 	closed_.clear();
 
-	/* Initialize costs of root node */
-	root_.setGCost(0);
-	root_.setHCost(root_.computeHCost());
-	root_.setFCost(root_.getGCost() + root_.getHCost());
-
-	while(!open_.empty()) {
+	//while(!open_.empty()) {
+	for (int i = 0; i < 4; i++) {
 		/* Retrieve first element of queue and delete from queue */
 		tmp = open_.top();
 		open_.pop();
+
+		/* Keep a copy of the priority queue as a vector, so we can
+		 * check if something is already in the open list 
+		 */
+		cout << " ############################" << endl;
+		cout << " Printing open before delete " << endl;
+		printOpen();
+		isOpen(&tmp, &pos);
+		openVector_.erase(openVector_.begin() + pos);
+		cout << " ############################" << endl;
+		//cout << " Printing open after delete " << endl;
+		//cout << " ############################" << endl;
+		//printOpen();
 
 		/* Add tmp to closed list */
 		if(!isClosed(&tmp, &pos)) {
@@ -53,27 +66,22 @@ bool AStar::solve() {
 		/* Compute neighboring states */
 		vector<State> neighbors = tmp.expandState();
 
-		cout << " ###########################" << endl;
-		cout << " Printing closed list " << endl;
-		printClosed();
-		cout << " ###########################" << endl;
-		cout << "AStar: " << neighbors.size() << " neighbors found" << endl;
+		//cout << " ###########################" << endl;
+		//cout << " Printing closed list " << endl;
+		//printClosed();
+		//printOpen();
+		//cout << " ###########################" << endl;
 
 		/* Iterate over neighboring states */
 		for (int i = 0; i < neighbors.size(); i++) {
-			/* Test output of state */
-			//neighbors.at(i).printState();
-
 			/* Compute tentative g-cost of neighbor 
 			 * NOTE: the distance between a neigbhor and tmp is always
 			 * 		 one move
 			 */
 			int tentative_g_score = tmp.getGCost() + 1;
 
-			cout << "JUST BEFORE isClosed CHECK" << endl;
 			/* Check if neighbor is already in closed list */
 			if(isClosed(&neighbors.at(i), &pos)) {
-				cout << "neighbor was already in closed list" << endl;
 				/* 1. compute g-cost of neighbor
 				 * 2. if g-cost is better than that of the state in the
 				 * closed_list, reopen the state (remove from closed, add to
@@ -94,8 +102,11 @@ bool AStar::solve() {
 				 * 2. compute f, g, h costs (done in constructor)
 				 * 3. add to open_ list
 				 */
-				cout << "neighbor added to open list" << endl;
-				open_.push(State(tmp, neighbors.at(i).getLastMove()));
+				/* Only add to open list, if it was not already in there */
+				if(!isOpen(&neighbors.at(i), &posi)) {
+					open_.push(neighbors.at(i));
+					openVector_.push_back(neighbors.at(i));
+				}
 
 				/* NOTE: technically we should check if the node is already
 				 * 		 in the open list, but that's hard to do with a 
@@ -105,7 +116,6 @@ bool AStar::solve() {
 				 */
 			}
 		}
-		//}
 	}
 
 	/* If the while loop terminates without calling extractSolution, then no
@@ -127,28 +137,45 @@ void AStar::extractSolution(State* solutionLeaf) {
 	reverse(solution_.begin(), solution_.end());
 }
 
-bool AStar::isClosed(State* state, int *pos) {
-	cout << "++++++++++++++++++++++++" << endl;
-	cout << "isClosed checking state " << closed_.size() << endl;
-	state->printState();
-	//closed_.at(0).printState();
-	cout << "-----------------------" << endl;
-	cout << "++++++++++++++++++++++++" << endl;
-	cout << "++++++++++++++++++++++++" << endl;
+bool AStar::isOpen(State* state, int *pos) {
+	cout << "AStar::isOpen: Size of open list: " << openVector_.size() << endl;
 
-	for (int i = 0; i < closed_.size(); i++) {
-		closed_.at(i).printState();
-
-		if(*state == closed_.at(i)) {
-			cout << "state == closed_.at(" << i  << ")" << endl;
+	for (int i = 0; i < openVector_.size(); i++) {
+		if(*state == openVector_.at(i)) {
+			//cout << "state == openVector_.at(" << i  << ")" << endl;
 			*pos = i;
 			return true;
 		} else {
-			cout << "state != closed_.at(" << i  << ")" << endl;
+			//cout << "state != openVector_.at(" << i  << ")" << endl;
 		}
 	}
 
-	cout << "AStar::isClosed: Size of closed list: " << closed_.size() << endl;
+	return false;
+}
+
+bool AStar::isClosed(State* state, int *pos) {
+	//cout << "AStar::isClosed: Size of closed list: " << closed_.size() << endl;
+
+	//cout << "++++++++++++++++++++++++" << endl;
+	//cout << "isClosed checking state " << closed_.size() << endl;
+	//state->printState();
+	//closed_.at(0).printState();
+	//cout << "-----------------------" << endl;
+	//cout << "++++++++++++++++++++++++" << endl;
+	//cout << "++++++++++++++++++++++++" << endl;
+
+	for (int i = 0; i < closed_.size(); i++) {
+		//closed_.at(i).printState();
+
+		if(*state == closed_.at(i)) {
+			//cout << "state == closed_.at(" << i  << ")" << endl;
+			*pos = i;
+			return true;
+		} else {
+			//cout << "state != closed_.at(" << i  << ")" << endl;
+		}
+	}
+
 	return false;
 }
 
@@ -168,6 +195,15 @@ void AStar::printSolution() {
 void AStar::printOpen() {
 	/* Can't iterate over queue, therefore printing the open list is not 
 	 * trivial and would involve creating a copy of the queue */
+	for (int i = 0; i < openVector_.size(); i++) {
+		openVector_.at(i).printState();
+
+		for (int j = 0; j < openVector_.at(i).getWorld()->getSizeX() * 2; j++) {
+			cout << "#";
+		}
+
+		cout << endl;
+	}
 }
 
 void AStar::printClosed() {

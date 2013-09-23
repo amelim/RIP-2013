@@ -50,6 +50,7 @@ class AStar{
 		bool isClosed(State* state, int *pos);
 	private:
     	void extractSolution(State* solutionLeaf);
+		bool isOpen(State* state, int *pos);
 
 	private:
 		/* Open and closed list for the search */
@@ -60,6 +61,7 @@ class AStar{
 											   is not constant and can change. Therefore it is 
 											   not suitable as a key for maps */
 		std::vector<State> closed_;
+		std::vector<State> openVector_;
 
 		State root_;			/* Root of the search tree */
 		State solutionLeaf_; 	/* State of the world when a solution is found
