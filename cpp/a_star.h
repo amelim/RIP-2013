@@ -47,10 +47,9 @@ class AStar{
     	std::vector<State> getClosed();
     	std::vector<State> getSolution();
 
-		/*private:*/
+		bool isClosed(State* state, int *pos);
 	private:
     	void extractSolution(State* solutionLeaf);
-		bool isClosed(State* state, int *pos);
 
 	private:
 		/* Open and closed list for the search */
