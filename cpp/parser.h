@@ -8,17 +8,23 @@
 
 class Parser {
 	public:
-		/* Constructors */
+		/* Constructor */
 		Parser(char* problem);
 
 		/* Destructor */
 		~Parser();
 
+		/* Load */
 		Matrix loadMap();
+
+		/* Properties */
+		int getColumns();
+		int getRows();
 
 	private:
 		int readValue();
 
 		std::ifstream fs;
+		int rows, columns;
 };
 #endif

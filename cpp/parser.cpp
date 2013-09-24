@@ -6,6 +6,8 @@ using namespace std;
 
 Parser::Parser(char* filename) {
 	fs.open(filename);
+	rows = 0;
+	columns = 0;
 }
 
 Parser::~Parser() {
@@ -15,8 +17,6 @@ Parser::~Parser() {
 Matrix Parser::loadMap() {
 	Matrix map;
 	int i, j;
-	int columns = 1;
-	int rows = 1;
 	char c;
 
 	fs >> columns >> rows;
@@ -28,6 +28,14 @@ Matrix Parser::loadMap() {
 		}
 	}
 	return map;
+}
+
+int Parser::getColumns() {
+	return columns;
+}
+
+int Parser::getRows() {
+	return rows;
 }
 
 int Parser::readValue() {
