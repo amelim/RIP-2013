@@ -139,8 +139,6 @@ void AStar::extractSolution(State* solutionLeaf) {
 	vector<Direction> solution = solutionLeaf->getCommands();
 	cout << "Solution: ";
 	for(unsigned int i = solution.size()-1; i > 0; i--){
-		cout << i << " " << endl;
-		cout << solution[i] << endl;
 	  switch(solution[i]){
       case LEFT: cout << "LEFT "; break;
       case RIGHT: cout << "RIGHT "; break;
@@ -149,7 +147,7 @@ void AStar::extractSolution(State* solutionLeaf) {
       default: cout << "STAY "; break;
     }
   }
-  cout << "End solution" << endl;;
+  cout << "\n End solution" << endl;;
 
 	/* Since the solution goes from goal to initial state, reverse the vector
 	 * such that it goes from initial to final state */
