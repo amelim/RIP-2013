@@ -28,7 +28,6 @@ AStar::~AStar() { }
 
 /* Planning functions */
 bool AStar::solve() {
-	State tmp;
 	int pos, posi;
 
 	/* Initialize closed list (open list initialized in constructor) */
@@ -37,7 +36,7 @@ bool AStar::solve() {
 	while(!open_.empty()) {
 	//for (int i = 0; i < 1500; i++) {
 		/* Retrieve first element of queue and delete from queue */
-		tmp = open_.top();
+		State tmp = open_.top();
 		open_.pop();
 
 		/* Keep a copy of the priority queue as a vector, so we can
@@ -142,9 +141,18 @@ void AStar::extractSolution(State* solutionLeaf) {
 		solution_.push_back(*tmp);
 		tmp = tmp->getParent();
 	}*/
-	tmp->printState();
-	tmp = tmp->getParent();
-	tmp->printState();
+	vector<Direction> solution = solutionLeaf->getCommands();
+	for(unsigned int i = solution.size()-1; i >=0; i--){
+	  cout << "Solution";
+	  switch(solution[i]){
+      case LEFT: cout << "LEFT";
+      case RIGHT: cout << "RIGHT";
+      case UP: cout << "UP";
+      case DOWN: cout << "DOWN";
+      defualt: cout << "STAY";
+    }
+    cout << "End solution";
+  }
 
 	/* Since the solution goes from goal to initial state, reverse the vector
 	 * such that it goes from initial to final state */

@@ -49,9 +49,9 @@ int main(){
 	  expansion[i].printState();
   }
   vector<State> exTwo = expansion[0].expandState();
-	for(unsigned int i = 0; i < exTwo.size(); i++){
-	  exTwo[i].printState();
-  }
+	exTwo[0].printState();
+	State copy(exTwo[0]);
+	copy.printState();
 
   return 0;
 }

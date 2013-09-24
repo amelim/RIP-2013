@@ -14,6 +14,7 @@ class State{
 		World *world_;				/* Pointer to the static world initialization */
 		Location *curRobot_;					/* Current robot location */
     std::vector<Location> curBoxes_;			/* Current box locations on the map */
+    std::vector<Direction> commands_;
 
 		State *parent_;						/* Pointer to previous state, if it exists,
 											   otherwise NULL. This pointer is required so that
@@ -38,7 +39,7 @@ class State{
 
 		/* Constructors */
 		State ();
-		State (State *parent, Direction dir);	/* For instantiation based on a parent search node */
+		State (State *parent);	/* For instantiation based on a parent search node */
 		State (World &world, int x, int y, std::vector<Location> &curBoxes, State *parent);
 		State (World &world);					/* For the initial instantiation of a search node, 
 												   used to create the root of the search */
@@ -68,6 +69,7 @@ class State{
 		Direction getLastMove() { return lastMove_; }
 		World* getWorld() const { return world_; }
 		State* getParent(){ return parent_; }
+    std::vector<Direction> getCommands(){ return commands_;}
 
 		/* Set functions */
 		void setGCost(int g);

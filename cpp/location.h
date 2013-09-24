@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-typedef enum {UP, LEFT, DOWN, RIGHT} Direction;
+typedef enum {UP, LEFT, DOWN, RIGHT, STAY} Direction;
 
 class Location{
 	public:
