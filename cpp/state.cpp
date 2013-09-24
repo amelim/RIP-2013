@@ -104,25 +104,21 @@ vector<State> State::expandState(){
 	// -- Edge Conditions -- //
 	// Make sure we cannot go off the map
   if(curRobot_->getX() == 0){ 
-    cout << "Left edge condition trigger!" << endl;
   	expands.push_back(State(this, LEFT));
   	left = true;
 	}
   
   if(curRobot_->getX() == world_->getSizeX()-1){
-    cout << "Right edge condition trigger!" << endl;
   	expands.push_back(State(this, RIGHT));
   	right = true;
 	}
 
   if(curRobot_->getY() == 0){
-    cout << "Up edge condition trigger!" << endl;
   	expands.push_back(State(this, UP));
   	up = true;
 	}
   
   if(curRobot_->getY() == world_->getSizeY()-1){
-    cout << "Down edge condition trigger!" << endl;
   	expands.push_back(State(this, DOWN));
   	down = true;
 	}
@@ -132,7 +128,6 @@ vector<State> State::expandState(){
     vector<Location> newBoxes = curBoxes_;
     // Check to see if we will push any boxes (i.e. we are adjacent)
     if(!left && boxLogic(i, LEFT)){
-      cout << "Pushing left " << i << endl;
       newBoxes[i] = curBoxes_[i].push(LEFT);
 	    Location newRob = curRobot_->push(LEFT);
 		  State child(*world_, newRob.getX(), newRob.getY(), newBoxes, this);
@@ -140,7 +135,6 @@ vector<State> State::expandState(){
 		  left = true;
     }
     if(!right && boxLogic(i, RIGHT)){
-      cout << "Pushing right " << i << endl;
       newBoxes[i] = curBoxes_[i].push(RIGHT);
 	    Location newRob = curRobot_->push(RIGHT);
 		  State child(*world_, newRob.getX(), newRob.getY(), newBoxes, this);
@@ -148,7 +142,6 @@ vector<State> State::expandState(){
 		  right = true;
     }
     if(!up && boxLogic(i, UP)){
-      cout << "Pushing up " << i << endl;
       newBoxes[i] = curBoxes_[i].push(UP);
 	    Location newRob = curRobot_->push(UP);
 		  State child(*world_, newRob.getX(), newRob.getY(), newBoxes, this);
@@ -156,7 +149,6 @@ vector<State> State::expandState(){
 		  up = true;
     }
     if(!down && boxLogic(i, DOWN)){
-      cout << "Pushing down "<< i << endl;
       newBoxes[i] = curBoxes_[i].push(DOWN);
 	    Location newRob = curRobot_->push(DOWN);
 		  State child(*world_, newRob.getX(), newRob.getY(), newBoxes, this);
@@ -171,32 +163,26 @@ vector<State> State::expandState(){
 		State child(*world_, newRob.getX(), newRob.getY(), curBoxes_, this);
 		expands.push_back(child);
   }
-  else
-    cout << "Cannot move left!" << left << endl;
+
 
   if(!right && freeToMove(*curRobot_, RIGHT)){
     Location newRob = curRobot_->push(RIGHT);
 		State child(*world_, newRob.getX(), newRob.getY(), curBoxes_, this);
 		expands.push_back(child);
   }
-  else
-    cout << "Cannot move right!" << right << endl;
+
 
   if(!up && freeToMove(*curRobot_, UP)){
     Location newRob = curRobot_->push(UP);
 		State child(*world_, newRob.getX(), newRob.getY(), curBoxes_, this);
 		expands.push_back(child);
   }
-  else
-    cout << "Cannot move up!" << up << endl;
 
   if(!down && freeToMove(*curRobot_, DOWN)){
     Location newRob = curRobot_->push(DOWN);
 		State child(*world_, newRob.getX(), newRob.getY(), curBoxes_, this);
 		expands.push_back(child);
   }
-  else
-    cout << "Cannot move down!"<< down << endl;
 
   return expands;
 }
@@ -265,9 +251,9 @@ void State::printState(const string& name){
 				case EMPTY: 		cout << setw(2) << "-"; break;
 				case BOX: 			cout << setw(2) <<"B"; break;
 				case TARGET: 		cout << setw(2) <<"T"; break;
-				case ROBOT: 		cout << setw(2) <<"S"; break;
+				case ROBOT: 		cout << setw(2) <<"R"; break;
 				case OCCUPIED: 		cout << setw(2) <<"1"; break;
-				case BOX+TARGET: 	cout << setw(2) <<"R"; break;
+				case BOX+TARGET: 	cout << setw(2) <<"G"; break;
 				default: 			cout << setw(2) <<"U"; break;
 			}
 		}

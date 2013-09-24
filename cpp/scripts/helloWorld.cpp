@@ -42,16 +42,16 @@ int main(){
   int pos;
   AStar astar(state);
 
-  cout << "------------------------------" << endl;
+  /*cout << "------------------------------" << endl;
   cout << "helloWorld: Output of AStar::printClosed()" << endl;
   astar.printClosed();
-  cout << "------------------------------" << endl;
+  cout << "------------------------------" << endl;*/
 
-  if(astar.isClosed(&state, &pos)) {
+  /*if(astar.isClosed(&state, &pos)) {
 	  cout << "helloWorld: state was already closed" << endl;
   } else {
 	  cout << "helloWorld: state was NOT closed" << endl;
-  }
+  }*/
 
   astar.solve();
   //vector<State> solution = astar.solve();

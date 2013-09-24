@@ -78,6 +78,7 @@ bool AStar::solve() {
 		//printOpen();
 		//cout << " ###########################" << endl;
 
+		cout << "!! Computed " << neighbors.size() << " neighbors !!" << endl;
 		/* Iterate over neighboring states */
 		for (int i = 0; i < neighbors.size(); i++) {
 			/* Compute tentative g-cost of neighbor 
@@ -110,6 +111,8 @@ bool AStar::solve() {
 				 */
 				/* Only add to open list, if it was not already in there */
 				if(!isOpen(&neighbors.at(i), &posi)) {
+					cout << "--- Adding the following neighbor to the open list ---" << endl;
+					neighbors.at(i).printState();
 					open_.push(neighbors.at(i));
 					openVector_.push_back(neighbors.at(i));
 				}
@@ -122,6 +125,7 @@ bool AStar::solve() {
 				 */
 			}
 		}
+		cout << "--- End neighbor iteration ---" << endl;
 	}
 
 	/* If the while loop terminates without calling extractSolution, then no
@@ -133,11 +137,14 @@ bool AStar::solve() {
 void AStar::extractSolution(State* solutionLeaf) {
 	State* tmp = solutionLeaf;
 
-	while(tmp->getParent() != NULL) {
+	/*while(tmp->getParent() != NULL) {
 		tmp->printState();
 		solution_.push_back(*tmp);
 		tmp = tmp->getParent();
-	}
+	}*/
+	tmp->printState();
+	tmp = tmp->getParent();
+	tmp->printState();
 
 	/* Since the solution goes from goal to initial state, reverse the vector
 	 * such that it goes from initial to final state */
