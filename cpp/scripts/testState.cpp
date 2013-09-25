@@ -9,7 +9,7 @@ using namespace std;
 
 int main(){
 
-  char* iwString = "../problems/problem1";
+  char* iwString = "../problems/problem3";
   FILE* iwFile = fopen(iwString,"r");
   Parser parser(iwString);
   Matrix map=parser.loadMap();

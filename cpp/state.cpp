@@ -47,9 +47,7 @@ bool State::isGoal(){
 				return false;
 		}
 	}
-
-	this->printState();
-  	return true;
+  return true;
 }
 
 bool State::isAtTargetLocation(Location loc) {
@@ -76,6 +74,10 @@ bool State::boxLogic(const int i, const Direction dir){
         || test.getX() >= world_->getSizeX() || test.getY() >= world_->getSizeY())
       return false;
 
+    Location pBox = curBoxes_[i].push(dir);
+    Matrix map = *world_->getMap();
+    if(map[pBox.getX()][pBox.getY()] == 16)
+      return false;
 
     return true;
   } // Robot is adjacent to box i and box i is not adjacent to any other of the boxes
