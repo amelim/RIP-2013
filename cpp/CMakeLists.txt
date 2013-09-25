@@ -6,7 +6,7 @@ set(helloFile "scripts/helloWorld.cpp")
 set(world "world.cpp")
 set(state "state.cpp")
 set(astar "a_star.cpp")
-
+set(parser "parser.cpp")
 # Does not compile due to subdir_srcs not being implemented
 #add_executable(helloWorld ${helloFile} ${subdir_srcs})
 
@@ -14,12 +14,12 @@ set(astar "a_star.cpp")
 add_library(libworld world.cpp)
 add_library(libstate state.cpp)
 add_library(libastar a_star.cpp)
-
+add_library(libparser parser.cpp)
 add_executable(helloWorld ${helloFile})
 target_link_libraries(helloWorld libworld libstate libastar)
 
 add_executable(planner ${planneroutput})
-target_link_libraries(planner libworld libstate libastar)
+target_link_libraries(planner libworld libstate libastar libparser)
 
 set(stateFile "scripts/testState.cpp")
 add_executable(testState ${stateFile} ${subdir_srcs})
