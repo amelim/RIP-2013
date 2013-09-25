@@ -9,30 +9,29 @@ using namespace std;
 
 int main(){
   /* Test world class */
-  int i,j;
   Matrix map;
   vector<int> tmp;
-  for (i = 0; i < 4; i++){
-    tmp.clear();
 
-    for (j = 0; j < 4; j++) {
+  for (int x = 0; x < 5; x++){
+    tmp.clear();
+    for (int y = 0; y < 4; y++) {// columns
       tmp.push_back(EMPTY);
     }
-
     map.push_back(tmp);
   }
+	
 
   vector<Location> boxes;
   vector<Location> targets;
 
-  for (i = 1; i < 2; i++) {
+  for (int i = 1; i < 2; i++) {
     boxes.push_back(Location(i,i));
-    targets.push_back(Location(i+1,i));
-    map.at(i).at(i) = BOX;
-    map.at(i+1).at(i) = TARGET;
+    targets.push_back(Location(i,i+1));
+    map[i][i] = BOX;
+    map[i][i+1] = TARGET;
   }
 
-  World world(&map, new Location(0,0), &boxes, &targets);
+  World world(&map, new Location(0,1), &boxes, &targets);
   //world.printWorld();
   //world.printConfig();
 

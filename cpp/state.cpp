@@ -13,6 +13,7 @@ State::State(State *parent) {
 	curRobot_ = parent->getRobot();
 	curBoxes_ = parent->getCurBoxes();
 	commands_ = parent->getCommands();
+  commands_.push_back(STAY);
 	g_ = computeGCost();
 	h_ = computeHCost();
 	f_ = g_ + h_;
@@ -87,7 +88,11 @@ bool State::freeToMove(Location &loc, const Direction dir, int ignore){
   for(unsigned int j = 0; j < curBoxes_.size(); j++){
     // If any other box is adjacent to the pushed box inthe direction, it's not free!
     if(j != ignore && loc.adjacent(curBoxes_[j], dir))
-      return false; 
+      return false;
+    Location newRobot = curRobot_->push(dir);
+    Matrix map = *world_->getMap();
+    if(map[newRobot.getX()][newRobot.getY()] == 16)
+      return false;
 	}
 	return true;
 }
@@ -111,8 +116,8 @@ vector<State> State::expandState(){
   	expands.push_back(State(this));
   	left = true;
 	}
-  
-  if(curRobot_->getX() == world_->getSizeX()-1){
+  // some weird settings regarind sizes here
+  if(curRobot_->getX() == world_->getSizeY()-1){
   	expands.push_back(State(this));
   	right = true;
 	}
@@ -122,7 +127,7 @@ vector<State> State::expandState(){
   	up = true;
 	}
   
-  if(curRobot_->getY() == world_->getSizeY()-1){
+  if(curRobot_->getY() == world_->getSizeX()-1){
   	expands.push_back(State(this));
   	down = true;
 	}
@@ -175,7 +180,6 @@ vector<State> State::expandState(){
 		expands.push_back(child);
   }
 
-
   if(!up && freeToMove(*curRobot_, UP)){
     Location newRob = curRobot_->push(UP);
 		State child(*world_, newRob.getX(), newRob.getY(), curBoxes_, this, UP);
@@ -193,77 +197,75 @@ vector<State> State::expandState(){
 
 /* Display functions */
 void State::printState(const string& name){
-	//cout << "State: " <<  name << endl;
-	//cout << "G Cost: " << g_ << endl;
-	//cout << "H Cost: " << h_ << endl;
-	//cout << "F Cost: " << f_ << endl;
   cout << "State ptr: "	 << this << endl;
 	cout << "Parent ptr: " << parent_ << endl;
 
-	int mapSizeX = world_->getSizeX();
-	int mapSizeY = world_->getSizeY();
+  int mapSizeX = world_->getSizeX();
+  int mapSizeY = world_->getSizeY();
 
-	/* Create temporary map for display purposes only */
-	Matrix mapTmp;
-	vector<int> tmp;
+  cout << "mapSizeX: " << mapSizeX << endl;
+  cout << "mapSizeY: " << mapSizeY << endl;
 
-	for (int x = 0; x < mapSizeX; x++) {
-		tmp.clear();
+  /* Create temporary map for display purposes only */
+  Matrix mapTmp;
+  vector<int> tmp;
 
-		for (int y = 0; y < mapSizeY; y++) {
-			tmp.push_back(EMPTY);
-		}
+  for (int x = 0; x < mapSizeX; x++) {
+    tmp.clear();
 
-		mapTmp.push_back(tmp);
-	}
+    for (int y = 0; y < mapSizeY; y++) {
+      tmp.push_back(EMPTY);
+    }
 
-	int robotX = curRobot_->getX();
-	int robotY = curRobot_->getY();
+    mapTmp.push_back(tmp);
+  }
 
-  	cout << "Robot position: " << robotX << " " << robotY << endl;
-	/* Add robot location */
-	mapTmp[robotX][robotY] = ROBOT;
+  int robotX = curRobot_->getX();
+  int robotY = curRobot_->getY();
 
-	/* Add boxes */
-	int i;
-	for (i = 0; i < curBoxes_.size(); i++) {
-		int boxX = curBoxes_.at(i).getX();
-		int boxY = curBoxes_.at(i).getY();
+  cout << "Robot position: " << robotX << " " << robotY << endl;
+  /* Add robot location */
+  mapTmp.at(robotY).at(robotX) = ROBOT;
 
-		if(mapTmp[boxX][boxY] == EMPTY) {
-			mapTmp[boxX][boxY] = BOX;
-		} else {
-			mapTmp[boxX][boxY] += BOX;
-		}
-	}
+  /* Add boxes */
+  int i;
+  for (i = 0; i < curBoxes_.size(); i++) {
+    int boxX = curBoxes_.at(i).getX();
+    int boxY = curBoxes_.at(i).getY();
 
-	/* Add targets */
-	for (i = 0; i < world_->getTargetBoxes()->size(); i++) {
-		int targetX = world_->getTargetBoxes()->at(i).getX();
-		int targetY = world_->getTargetBoxes()->at(i).getY();
+    if(mapTmp.at(boxY).at(boxX) == EMPTY) {
+      mapTmp.at(boxY).at(boxX) = BOX;
+    } else {
+      mapTmp.at(boxY).at(boxX) += BOX;
+    }
+  }
 
-		if(mapTmp[targetX][targetY] == EMPTY) {
-			mapTmp[targetX][targetY] = TARGET;
-		} else {
-			mapTmp[targetX][targetY] += TARGET;
-		}
-	}
-	
-	for (int x = 0; x < mapSizeX; x++) {
-		for (int y = 0; y < mapSizeY; y++) {
-			switch(mapTmp.at(y).at(x)) {
-				case EMPTY: 		cout << setw(2) << "-"; break;
-				case BOX: 			cout << setw(2) <<"B"; break;
-				case TARGET: 		cout << setw(2) <<"T"; break;
-				case ROBOT: 		cout << setw(2) <<"R"; break;
-				case OCCUPIED: 		cout << setw(2) <<"1"; break;
-				case BOX+TARGET: 	cout << setw(2) <<"G"; break;
-				default: 			cout << setw(2) <<"U"; break;
-			}
-		}
+  for (i = 0; i < world_->getTargetBoxes()->size(); i++) {
+    int targetX = world_->getTargetBoxes()->at(i).getX();
+    int targetY = world_->getTargetBoxes()->at(i).getY();
 
-		cout << endl;
-	}
+    if(mapTmp.at(targetY).at(targetX) == EMPTY) {
+      mapTmp.at(targetY).at(targetX) = TARGET;
+    } else {
+      mapTmp.at(targetY).at(targetX) += TARGET;
+    }
+  }
+
+  for (int x = 0; x < mapSizeY; x++) {
+    for (int y = 0; y < mapSizeX; y++) {
+      switch(mapTmp.at(y).at(x)) {
+        case EMPTY:     cout << setw(2) << "-"; break;
+        case BOX:       cout << setw(2) <<"B"; break;
+        case TARGET:    cout << setw(2) <<"T"; break;
+        case ROBOT:     cout << setw(2) <<"R"; break;
+        case OCCUPIED:    cout << setw(2) <<"#"; break;
+        case BOX+TARGET:  cout << setw(2) <<"G"; break;
+        default:      cout << setw(2) <<"U"; break;
+      }
+    }
+
+    cout << endl;
+  }
 }
 
 /* ---------------------- */

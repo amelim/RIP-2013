@@ -2,56 +2,51 @@
 #include "world.h"
 #include "state.h"
 #include "a_star.h"
-
+#include "parser.h"
 #include <iostream>
 
 using namespace std;
 
 int main(){
-	/* Test location class */
-	Location loc(1, 3);
-	loc.print();
 
-	/* Test world class */
-	int i,j;
-	Matrix map;
-	vector<int> tmp;
-	for (i = 0; i < 10; i++){
-		tmp.clear();
+  char* iwString = "../problems/problem1";
+  FILE* iwFile = fopen(iwString,"r");
+  Parser parser(iwString);
+  Matrix map=parser.loadMap();
+  int cols = parser.getRows();
+  int rows = parser.getColumns();
+  cout << "Rows: " << rows << endl;
+  cout << "Cols: " << cols << endl;
 
-		for (j = 0; j < 10; j++) {
-			tmp.push_back(EMPTY);
-		}
+  Location RobotInit;
+  vector<Location>BoxesInit;
+  vector<Location>BoxesTarget;
+  //Find Location Robot in Matrix
+  bool RobotExists=false;
+  for (int x=0; x<parser.getRows(); x++){
+	  for(int y=0; y<parser.getColumns(); y++){
 
-		map.push_back(tmp);
-	}
-
-	vector<Location> boxes;
-	vector<Location> targets;
-	for (i = 1; i < 5; i++) {
-		boxes.push_back(Location(i,i));
-		targets.push_back(Location(i+1,i));
-		map.at(i).at(i) = BOX;
-		map.at(i).at(i+1) = TARGET;
-	}
-
-	map.at(1).at(5) = ROBOT;
-
-	World world(&map, new Location(1,5), &boxes, &targets);
-	//world.printWorld();
-	//world.printConfig();
-
-	State state(world);
-	state.printState("Starting");
-	vector<State> expansion = state.expandState();
-	for(unsigned int i = 0; i < expansion.size(); i++){
-	  cout << "Expand: " << i << endl;
-	  expansion[i].printState();
+		  if(map[x][y] == BOX){
+		    cout << "Box at: " << x << ", " << y << endl;
+		    BoxesInit.push_back(Location(x,y));
+		  }
+		  else if(map[x][y] == TARGET){
+		    cout << "Target at: " << x <<  ", " << y << endl;
+			  BoxesTarget.push_back(Location(x,y));
+		  }
+		  else if (map[x][y] == ROBOT){
+		    cout << "Robot at: " << x << ", " << y << endl;
+			  RobotInit = Location(x,y);
+		  }
+	  }
   }
-  vector<State> exTwo = expansion[0].expandState();
-	exTwo[0].printState();
-	State copy(exTwo[0]);
-	copy.printState();
 
-  return 0;
+  World inputWorld(&map,&RobotInit,&BoxesInit,&BoxesTarget);
+  State state(inputWorld);
+  state.printState();
+
+  AStar astar(state);
+  astar.solve();
+
+
 }

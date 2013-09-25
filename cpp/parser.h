@@ -5,6 +5,7 @@
 #include "location.h"
 #include <vector>
 #include <fstream>
+#include <string>
 
 class Parser {
 	public:

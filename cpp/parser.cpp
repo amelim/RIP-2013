@@ -24,7 +24,9 @@ Matrix Parser::loadMap() {
 	for (i = 0; i < rows; i++) {
 		map[i].resize(columns);
 		for (j = 0; j < columns; j++) {
-			map[i][j] = readValue();			
+
+			map[i][j] = readValue();
+			cout << "i,j: " << i << ", " << j << " : " << map[i][j] << endl;			
 		}
 	}
 	return map;

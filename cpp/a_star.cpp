@@ -137,13 +137,15 @@ void AStar::extractSolution(State* solutionLeaf) {
 	State* tmp = solutionLeaf;
 
 	vector<Direction> solution = solutionLeaf->getCommands();
+	cout << "Solution size: " << solution.size() << endl;
 	cout << "Solution: ";
-	for(unsigned int i = solution.size()-1; i > 0; i--){
+	for(unsigned int i = 0; i < solution.size(); i++){
+		cout << i << endl;
 	  switch(solution[i]){
-      case LEFT: cout << "LEFT "; break;
-      case RIGHT: cout << "RIGHT "; break;
-      case UP: cout << "UP "; break;
-      case DOWN: cout << "DOWN "; break;
+      case LEFT: cout << "UP "; break;
+      case RIGHT: cout << "DOWN "; break;
+      case UP: cout << "LEFT "; break;
+      case DOWN: cout << "RIGHT "; break;
       default: cout << "STAY "; break;
     }
   }

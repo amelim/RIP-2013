@@ -3,9 +3,7 @@
 using namespace std;
 
 /* Constructors */
-World::World() {
-	// TODO: throw error
-}
+World::World() {}
 
 World::World(Matrix *map, Location *robot, vector<Location> *boxes, vector<Location> *targets) {
 	map_ = *map;
@@ -15,9 +13,8 @@ World::World(Matrix *map, Location *robot, vector<Location> *boxes, vector<Locat
 	boxesTarget_ = *targets;
 
 	if( boxesStart_.size() != boxesTarget_.size()) {
-		// TODO: throw error
 	}
-	
+
 	sizeX_ = map->at(0).size();
 	sizeY_ = map->size();
 	numberOfBoxes_ = boxes->size();
