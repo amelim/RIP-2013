@@ -71,7 +71,7 @@ bool State::boxLogic(const int i, const Direction dir){
     test.print();
     // Make sure you aren't pushing a box out of bounds
     if(test.getX() < 0 || test.getY() < 0 
-        || test.getX() >= world_->getSizeX() || test.getY() >= world_->getSizeY())
+        || test.getX() > world_->getSizeX() || test.getY() > world_->getSizeY())
       return false;
 
     Location pBox = curBoxes_[i].push(dir);
@@ -199,8 +199,8 @@ vector<State> State::expandState(){
 
 /* Display functions */
 void State::printState(const string& name){
-  cout << "State ptr: "	 << this << endl;
-	cout << "Parent ptr: " << parent_ << endl;
+  //cout << "State ptr: "	 << this << endl;
+	//cout << "Parent ptr: " << parent_ << endl;
 
   int mapSizeX = world_->getSizeX();
   int mapSizeY = world_->getSizeY();
@@ -210,13 +210,17 @@ void State::printState(const string& name){
 
   /* Create temporary map for display purposes only */
   Matrix mapTmp;
+  Matrix *worldTmp = world_->getMap();
   vector<int> tmp;
 
   for (int x = 0; x < mapSizeX; x++) {
     tmp.clear();
 
     for (int y = 0; y < mapSizeY; y++) {
-      tmp.push_back(EMPTY);
+      if(worldTmp->at(y).at(x) == OCCUPIED)
+        tmp.push_back(OCCUPIED);
+      else
+        tmp.push_back(EMPTY);
     }
 
     mapTmp.push_back(tmp);
