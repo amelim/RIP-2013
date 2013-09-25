@@ -4,12 +4,13 @@
 #include "a_star.h"
 #include "parser.h"
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
 int main(){
 
-  char* iwString = "../problems/problem1";
+  char* iwString = "../problems/challenge";
   FILE* iwFile = fopen(iwString,"r");
   Parser parser(iwString);
   Matrix map=parser.loadMap();
@@ -46,7 +47,10 @@ int main(){
   state.printState();
 
   AStar astar(state);
+  clock_t startTime = clock(); //Start timer
   astar.solve();
-
+  clock_t endTime = clock(); //Start timer
+  float t = ((float)(endTime - startTime))/CLOCKS_PER_SEC;
+  cout << "Solution took: " << t << " seconds" << endl;
 
 }

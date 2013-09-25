@@ -129,7 +129,7 @@ bool AStar::solve() {
 
 	/* If the while loop terminates without calling extractSolution, then no
 	 * solution has been found */
-	printOpen();
+	//printOpen();
 	cout << "Error AStar: No solution has been found." << endl;
 	return false;
 }

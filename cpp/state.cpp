@@ -64,11 +64,11 @@ bool State::boxLogic(const int i, const Direction dir){
   if(curRobot_->adjacent(curBoxes_[i], dir)){
     // Check to make sure you aren't going to push a box into another
     if(!freeToMove(curBoxes_[i], dir, i)){
-      cout << "not free to move!" << endl;
+      //cout << "not free to move!" << endl;
       return false;
     }
     Location test = curBoxes_[i].push(dir);
-    test.print();
+    //test.print();
     // Make sure you aren't pushing a box out of bounds
     if(test.getX() < 0 || test.getY() < 0 
         || test.getX() > world_->getSizeX() || test.getY() > world_->getSizeY())
@@ -302,7 +302,7 @@ int State::computeGCost() {
 	}
 
   // Add the number of commands
-  cost += commands_.size();
+  //cost += commands_.size();
 	return cost;
 }
 // Heuristic Cost

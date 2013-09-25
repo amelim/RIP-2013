@@ -177,13 +177,38 @@ semantic representation would be desirable.}
 \label{sec:problem_3}
 % ++++++++++++++++++++++++++++++++++++++++++++++++
 \begin{enumerate}
-  \item Give successful plans from your planner on the Sokoban problems in Figure 2 and any others.
-  \item Compare the performance of your planner to the PDDL planners you used in the previous
-problem. Which was faster? Why?
-  \item Prove that your planner was complete. Your instructor has a math background: a proof ”is
+  \item \textbf{Give successful plans from your planner on the Sokoban problems in Figure 2 and any others.} 
+  See the attached file \textbf{sokoban astar sols} for the solutions.
+ 
+  \item \textbf{Compare the performance of your planner to the PDDL planners you used in the previous
+problem. Which was faster? Why?} 
+Our results (see Table \ref{table:results2}) show that our current implementation of the A* algorithm could use improvement in order to improve the efficiency of our algorithm. While the code can solve the simple problems fairly efficiently, the time to find a solution grows quite significantly as the difficult of the problem grows. However, our solution does actually find high quality solutions on par with FF and Conformant-FF. \\
+
+    \begin{table}%[t!]
+    \label{table:results2}
+    \caption{Performance results of our A* algorithm (timing results in seconds).}
+    \begin{tabular*}{1.0\textwidth}{c|c|c}
+    \hline
+    \bfseries Problem Instance & \bfseries A* with action cost  & \bfseries A* without action cost \\
+    \hline\hline
+    % DATA
+    % ########################################################
+    Problem 2.1 [time] 		&  0.01 seconds &  0.0 seconds 	\\ \hline    
+    Problem 2.2 [time] 		&  0.16 seconds &  0.08 seconds 	\\ \hline
+    Problem 2.3 [time] 		&  3.24 seconds &  0.62 seconds 	\\ \hline
+    Problem Challenge [time] 	&  411.14 seconds &  5.45 seconds 	\\ \hline\hline
+    Problem 2.1 [steps]		&  14 steps &  14 steps 	\\ \hline
+    Problem 2.2 [steps]		&  32 steps &  36 steps 	\\ \hline
+    Problem 2.3 [steps]		&  93 steps &  102 steps 	\\ \hline
+    Problem Challenge [steps]	&  76 steps &  120 steps 	\\ \hline
+    % ########################################################
+    \hline
+    \end{tabular*}
+    \end{table}
+  \item \textbf{Prove that your planner was complete. Your instructor has a math background: a proof ”is
 a convincing argument.” Make sure you address each aspect of completeness and why your
-planner satisfies it. Pictures are always welcome.
-  \item What methods did you use to speed up the planning? Give a short description of each method and explain why it did or didn't help on each relevant problem.
+planner satisfies it. Pictures are always welcome.}
+  \item \textbf{What methods did you use to speed up the planning? Give a short description of each method and explain why it did or didn't help on each relevant problem.}
 \end{enumerate}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -211,6 +236,13 @@ This section summarizes the contribution of each team member.
   \item Matheus Svolenski
   \item Jarius Tillman
   \item Andrew Melim
+    \begin{itemize}
+     \item Wrote project build system
+     \item Implemented state class and expansion of states for Sokoban domain.
+     \item Code debugging and verification via unit testing for A* solver
+     \item Created PDDL description for problem 2
+    \end{itemize}
+
   \item Daniel Pickem
     \begin{itemize}
      \item Implemented the class structure of the planner from problem 3.
