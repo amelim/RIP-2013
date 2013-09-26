@@ -15,14 +15,19 @@ The input for the main program ./planner is the following:
 
 At minimum the input world is needed, the solution will be printed to the terminal solely.
 If the output file name is given as a parameter, the solution will be saved to this file as well for future reference.
+Example input files can be found in the problems directory
 
 
 InputWorld
 ===========
 -The input file for the world is expected to contain a 2-D matrix using tabs as horizontal delimeters and newlines as vertical delimeters
+
 -The world is composed of integer values which use bit flipping to determine the property of the world
+
 -For each flipped bit, that location has a specific characteristic.
+
 -The number created for a specific matrix index is the sum of the individual property values.
+
 	(0)-1 		-> Empty
 	--Currently unoccupied location
 	(1)-2 		-> Box Location
