@@ -154,7 +154,9 @@ make sense, why?} \newline
     \begin{itemize}
       \item \textbf{BlackBox (see \cite{Blackbox})}: BlackBox converts the PDDL description of the problem into a Boolean satisfiability problem and solves it using a variety of satisfiability engines. The front-end of BlackBox relies on the Graphplan system.
       \item \textbf{Fast Forward (see \cite{FastForward})}: FF is a forward chaining heuristic state space planner. The heuristic relaxes the task at hand into a simpler task by ignoring the delete list of all operators. That relaxed problem is solved using a GraphPlan-style algorithm and the solution to the relaxed problem is used as heuristic to guide the search. The relaxed plans are also used to prune the search space.
-%      FF is a forward chaining heuristic state space planner. The main heuristic principle was originally developed by Blai Bonet and Hector Geffner for the HSP system: to obtain a heuristic estimate, relax the task P at hand into a simpler task P+ by ignoring the delete lists of all operators. While HSP employs a technique that gives a rough estimate for the solution length of P+ , FF extracts an explicit solution to P+ , by using a GRAPHPLAN-style algorithm. The number of actions in the relaxed solutions is used as a goal distance estimate. These estimates control a novel local search strategy, enforced hill-climbing: this is a hill-climbing procedure that, in each intermediate state, uses breadth first search to find a strictly better, possibly indirect, successor. As a second important heuristic information, the relaxed plans can be used to prune the search space: usually, the actions that are really useful in a state are contained in the relaxed plan, so one can restrict the successors of any state to those produced by members of the respective relaxed solution. FF employs a slightly more elaborated form of this heuristic, which we call helpful actions pruning. The simple architecture described so far already solves most of the available benchmarks extremely efficiently. Problematic cases are when there are dead ends --- states from which the goals get unreachable --- or goal orderings. In the presence of the latter phenomenon, like in the Blocksworld, the local search sometimes proceeds too greedily, and gets trapped. To overcome this, we have integrated the Goal Agenda algorithm (first proposed by Jana Koehler), as well as a simple goal ordering technique of our own, based on the relaxed solutions. In order to deal with dead end states, which can cause the search to fail entirely, we have chosen a simple safety-net solution: if local search fails, then we skip everything done so far and switch to a complete best-first algorithm that simply expands all search nodes by increasing order of goal distance evaluation.
+%      FF is a forward chaining heuristic state space planner. The main heuristic principle was originally developed by Blai Bonet and Hector Geffner for the HSP system: to obtain a heuristic estimate, relax the task P at hand into a simpler task P+ by ignoring the delete lists of all operators. While HSP employs a technique that gives a rough estimate for the solution length of P+ , FF extracts an explicit solution to P+ , by using a GRAPHPLAN-style algorithm. The number of actions in the relaxed solutions is used as a goal distance estimate. These estimates control a novel local search strategy, enforced hill-climbing: this is a hill-climbing procedure that, in each intermediate state, uses breadth first search to find a strictly better, possibly indirect, successor. As a second important heuristic information, the relaxed plans can be used to prune the search space: usually, the actions that are really useful in a state are contained in the relaxed plan, so one can restrict the successors of any state to 
+those produced by members of the respective relaxed solution. FF employs a slightly more elaborated form of this heuristic, which we call helpful actions pruning. The simple architecture described so far already solves most of the available benchmarks extremely efficiently. Problematic cases are when there are dead ends --- states from which the goals get unreachable --- or goal orderings. In the presence of the latter phenomenon, like in the Blocksworld, the local search sometimes proceeds too greedily, and gets trapped. To overcome this, we have integrated the Goal Agenda algorithm (first proposed by Jana Koehler), as well as a simple goal ordering technique of our own, based on the relaxed solutions. In order to deal with dead end states, which can cause the search to fail entirely, we have chosen a simple safety-net solution: if local search fails, then we skip everything done so far and switch to a complete best-first algorithm that simply expands all search nodes by increasing order of goal distance 
+evaluation.
     \end{itemize}
     
     As expected (see Table \ref{table:results}), FF and Conformant-FF achieve much better results and generally solve the problems in much shorter times. BlackBox takes orders of magnitude longer and fails to compute plans for problems that take more than 25 steps to solve (i.e. the solver times out). The number of steps BlackBox can handle seems to be fairly low. The first up to 20 levels of the graph are computed fairly fast, but any level in the GraphPlan graph after that take on the order of seconds or minutes. Clearly the number of levels is too low to solve a Sokoban level like the ones shown in problem 2.2 to 2.4. \\
@@ -311,7 +313,7 @@ This section summarizes the contribution of each team member.
 \problem{2}{Project Part I: Sokoban PDDL - Successful Plans}
   All generated plans can be found in the attached .zip file, specifically in the results folder. The relatively short plans for problem 2.1 and problem 2.2 are shown below. 
   \begin{itemize}
-    \item Problem 2.1:
+    \item Problem 2.1 (\textit{sokoban\_problem\_2.1.txt}):
       \begin{enumerate}
 	\item: MOVE R S-3-3 S-3-4 UP
 	\item: MOVE R S-3-4 S-4-4 RIGHT
@@ -328,7 +330,7 @@ This section summarizes the contribution of each team member.
 	\item: PUSH R B1 S-3-5 S-3-4 S-3-3 DOWN
 	\item: PUSH R B1 S-3-4 S-3-3 S-3-2 DOWN
       \end{enumerate}
-    \item Problem 2.2:
+    \item Problem 2.2 (\textit{sokoban\_problem\_2.2.txt}):
       \begin{enumerate}
 	\item: MOVE R S-2-3 S-2-2 DOWN
 	\item: MOVE R S-2-2 S-3-2 RIGHT
@@ -363,8 +365,8 @@ This section summarizes the contribution of each team member.
 	\item: MOVE R S-4-3 S-4-2 DOWN
 	\item: PUSH R B1 S-4-2 S-3-2 S-2-2 LEFT
       \end{enumerate}
-    \item Problem 2.3: See attached .zip file.
-    \item Problem 2.4 Challenge: See attached .zip file.
+    \item Problem 2.3: See attached .zip file (\textit{sokoban\_problem\_2.3.txt}).
+    \item Problem 2.4 Challenge: See attached .zip file (\textit{sokoban\_problem\_challenge.txt}).
   \end{itemize}
 \problem{4}{Post-Project: Towers of Hanoi Revisited}
   \begin{itemize}
