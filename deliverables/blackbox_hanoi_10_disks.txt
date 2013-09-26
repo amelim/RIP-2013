@@ -1,0 +1,717 @@
+blackbox version 43
+command line:  ./RIP-2013-master/solvers/Blackbox44/bin/blackbox -o RIP-2013-master/pddl/hanoi/hanoi_domain.pddl -f RIP-2013-master/pddl/hanoi/hanoi_10_disks.pddl
+
+Begin solver specification
+    -maxint        0   -maxsec 10.000000  graphplan
+    -maxint        0   -maxsec 0.000000  chaff
+End solver specification
+Loading domain file: RIP-2013-master/pddl/hanoi/hanoi_domain.pddl
+Loading fact file: RIP-2013-master/pddl/hanoi/hanoi_10_disks.pddl
+Problem name: hanoi-2
+Facts loaded.
+time: 1, 101 facts and 6 exclusive pairs.
+time: 2, 104 facts and 17 exclusive pairs.
+time: 3, 108 facts and 35 exclusive pairs.
+time: 4, 113 facts and 63 exclusive pairs.
+time: 5, 119 facts and 103 exclusive pairs.
+time: 6, 126 facts and 157 exclusive pairs.
+time: 7, 134 facts and 227 exclusive pairs.
+time: 8, 143 facts and 315 exclusive pairs.
+time: 9, 153 facts and 423 exclusive pairs.
+time: 10, 164 facts and 553 exclusive pairs.
+Goals reachable at 10 steps but mutually exclusive.
+time: 11, 173 facts and 651 exclusive pairs.
+Goals first reachable in 11 steps.
+4644 nodes created.
+
+####################################################
+goals at time 12:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 2
+
+----------------------------------------------------
+Can't solve in 11 steps
+time: 12, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 13:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 55
+
+----------------------------------------------------
+Can't solve in 12 steps
+time: 13, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 14:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 119
+
+----------------------------------------------------
+Can't solve in 13 steps
+time: 14, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 15:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 583
+
+----------------------------------------------------
+Can't solve in 14 steps
+time: 15, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 16:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 1002
+
+----------------------------------------------------
+Can't solve in 15 steps
+time: 16, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 17:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 2826
+
+----------------------------------------------------
+Can't solve in 16 steps
+time: 17, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 18:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 4334
+
+----------------------------------------------------
+Can't solve in 17 steps
+time: 18, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 19:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 10043
+
+----------------------------------------------------
+Can't solve in 18 steps
+time: 19, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 20:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 14551
+
+----------------------------------------------------
+Can't solve in 19 steps
+time: 20, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 21:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 29299
+
+----------------------------------------------------
+Can't solve in 20 steps
+time: 21, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 22:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 40829
+
+----------------------------------------------------
+Can't solve in 21 steps
+time: 22, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 23:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 71889
+
+----------------------------------------------------
+Can't solve in 22 steps
+time: 23, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 24:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 93650
+
+----------------------------------------------------
+Can't solve in 23 steps
+time: 24, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 25:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 147192
+
+----------------------------------------------------
+Can't solve in 24 steps
+time: 25, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 26:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 187768
+
+----------------------------------------------------
+Can't solve in 25 steps
+time: 26, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 27:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 283290
+
+----------------------------------------------------
+Can't solve in 26 steps
+time: 27, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 28:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 361052
+
+----------------------------------------------------
+Can't solve in 27 steps
+time: 28, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 29:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 538700
+
+----------------------------------------------------
+Can't solve in 28 steps
+time: 29, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 30:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 684155
+
+----------------------------------------------------
+Can't solve in 29 steps
+time: 30, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 31:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 982586
+
+----------------------------------------------------
+Can't solve in 30 steps
+time: 31, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 32:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 1206180
+
+----------------------------------------------------
+Can't solve in 31 steps
+time: 32, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 33:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 1627584
+
+----------------------------------------------------
+Can't solve in 32 steps
+time: 33, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 34:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 1923994
+
+----------------------------------------------------
+Can't solve in 33 steps
+time: 34, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 35:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 2469701
+
+----------------------------------------------------
+Can't solve in 34 steps
+time: 35, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 36:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 2861285
+
+----------------------------------------------------
+Can't solve in 35 steps
+time: 36, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 37:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 3590067
+
+----------------------------------------------------
+Can't solve in 36 steps
+time: 37, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 38:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 4154856
+
+----------------------------------------------------
+Can't solve in 37 steps
+time: 38, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 39:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 5218705
+
+----------------------------------------------------
+Can't solve in 38 steps
+time: 39, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 40:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 6086278
+
+----------------------------------------------------
+Can't solve in 39 steps
+time: 40, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 41:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 7711539
+
+----------------------------------------------------
+Can't solve in 40 steps
+time: 41, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 42:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 9025712
+
+----------------------------------------------------
+Can't solve in 41 steps
+time: 42, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 43:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 11388494
+
+----------------------------------------------------
+Can't solve in 42 steps
+time: 43, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 44:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 13240051
+
+----------------------------------------------------
+Can't solve in 43 steps
+time: 44, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 45:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 16477738
+
+----------------------------------------------------
+Can't solve in 44 steps
+time: 45, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 46:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 18950729
+
+----------------------------------------------------
+Can't solve in 45 steps
+time: 46, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 47:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 23143217
+
+----------------------------------------------------
+Can't solve in 46 steps
+time: 47, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 48:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 26260171
+
+----------------------------------------------------
+Can't solve in 47 steps
+time: 48, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 49:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 31383033
+
+----------------------------------------------------
+Can't solve in 48 steps
+time: 49, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 50:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 35089612
+
+----------------------------------------------------
+Can't solve in 49 steps
+time: 50, 173 facts and 615 exclusive pairs.
+916 new nodes added.
+
+####################################################
+goals at time 51:
+  on_d1_d2 on_d2_d3 on_d3_d4 on_d4_d5 on_d5_d6 
+on_d6_d7 on_d7_d8 on_d8_d9 on_d9_d10 on_d10_p1 
+
+
+
+----------------------------------------------------
+Invoking solver graphplan
+Result is Unsat
+Iteration was 41047275
+
+----------------------------------------------------
+Can't solve in 50 steps
+
+----------------------------------------------------
+NO SOLUTION
+Problem not solvable: no solution exists in alloted time
+    Search halted after 50 steps
+    3308700 entries in hash table and 8041556 hits
+    avg set size 32
+----------------------------------------------------
+
+####################################################
+Total elapsed time:   25 minutes, 19 seconds
+Time in milliseconds: 1519753
+
+####################################################
