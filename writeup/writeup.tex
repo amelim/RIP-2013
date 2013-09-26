@@ -110,7 +110,7 @@ To test the Towers of Hanoi problem, we compared two diferent planners, named Bl
       \item \textbf{Fast Forward (see \cite{FastForward})}: FF relies in a forward search in the state space, guided by a heuristic that estimates goal distances by ignoring delete lists. It uses an enforced hill-climbing search, that searches for the direct successors of a path, until finding a value that is better than the one it started with. It performs a complete breadth first search (BFS) for a state with strictly better evaluation. However, this method depends on the structure of the problem. If a local search fails, FF will skip everything done so far and switch to a complete best-first algorithm that simply expands all search nodes by increasing order of goal distance evaluation. This was the case in the Towers of Hanoi problem.
  \end{itemize}
  \item  \textbf{Which planner was fastest?} \newline
-The fastest planner was the Fast Forward (FF). Its performance can be analysed through Table \ref{table:results1}, that shows how long it took for each solution to be found and in how many steps this happend. In most cases, BlackBox was not able to find a solution, giving up after 50 iterations. The outputs are all included in the .zip file that accompains the project.
+The fastest planner was the Fast Forward (FF). Its performance can be analysed through Table 1, that shows how long it took for each solution to be found and in how many steps this happened. In most cases, BlackBox was not able to find a solution, giving up after 50 iterations. The outputs are all included in the .zip file that accompains the project.
 
    \begin{table}%[t!]
     \label{table:results1}
@@ -149,7 +149,7 @@ A big difference between the planners is that FF uses a good heuristic function 
  \item \textbf{Compare the performance of two planners on this domain. Which one works better? Does this
 make sense, why?} \newline
     %
-    An overview of the numerical results is given in Table \ref{table:results}. We compared three planners, namely Fast Forward (FF), Conformant-FF, and BlackBox. FF and Conformant-FF seem to use a very similar underlying architecture while BlackBox relies on a different representation of the problem as a satisfiability problem.
+    An overview of the numerical results is given in Table 2. We compared three planners, namely Fast Forward (FF), Conformant-FF, and BlackBox. FF and Conformant-FF seem to use a very similar underlying architecture while BlackBox relies on a different representation of the problem as a satisfiability problem.
     
     \begin{itemize}
       \item \textbf{BlackBox (see \cite{Blackbox})}: BlackBox converts the PDDL description of the problem into a Boolean satisfiability problem and solves it using a variety of satisfiability engines. The front-end of BlackBox relies on the Graphplan system.
@@ -159,7 +159,7 @@ those produced by members of the respective relaxed solution. FF employs a sligh
 evaluation.
     \end{itemize}
     
-    As expected (see Table \ref{table:results}), FF and Conformant-FF achieve much better results and generally solve the problems in much shorter times. BlackBox takes orders of magnitude longer and fails to compute plans for problems that take more than 25 steps to solve (i.e. the solver times out). The number of steps BlackBox can handle seems to be fairly low. The first up to 20 levels of the graph are computed fairly fast, but any level in the GraphPlan graph after that take on the order of seconds or minutes. Clearly the number of levels is too low to solve a Sokoban level like the ones shown in problem 2.2 to 2.4. \\
+    As expected (see Table 2), FF and Conformant-FF achieve much better results and generally solve the problems in much shorter times. BlackBox takes orders of magnitude longer and fails to compute plans for problems that take more than 25 steps to solve (i.e. the solver times out). The number of steps BlackBox can handle seems to be fairly low. The first up to 20 levels of the graph are computed fairly fast, but any level in the GraphPlan graph after that take on the order of seconds or minutes. Clearly the number of levels is too low to solve a Sokoban level like the ones shown in problem 2.2 to 2.4. \\
     It seems that, unlike FF, BlackBox does not use any heuristic to prune the search tree or search in a more goal-directed fashion. FF prunes large parts of the search space using the heuristic described above, which allows FF to handle much larger problem instances and compute a plan much faster. 
     
     \begin{table}%[t!]
