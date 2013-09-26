@@ -181,8 +181,10 @@ semantic representation would be desirable.}
   See the attached file \textbf{sokoban astar sols} for the solutions.
  
   \item \textbf{Compare the performance of your planner to the PDDL planners you used in the previous
-problem. Which was faster? Why?} 
-Our results (see Table \ref{table:results2}) show that our current implementation of the A* algorithm could use improvement in order to improve the efficiency of our algorithm. While the code can solve the simple problems fairly efficiently, the time to find a solution grows quite significantly as the difficult of the problem grows. However, our solution does actually find high quality solutions on par with FF and Conformant-FF. \\
+problem. Which was faster? Why?} \\
+Our results (see Table \ref{table:results2}) shows two different cost functions for our A* implementation. The column on the left shows utlizes the cost of the actions already taken by the robot in addition to the Manhattan distance of boxes from their starting location. The column on the right compares with just using the box movement cost. \\\\
+The results are quite illuminating in that we can see the trade off between efficiency and plan quality. With the action cost included, while the code can solve the simple problems fairly efficiently, the time to find a solution grows quite significantly as the difficult of the problem grows. This approach does actually find high quality solutions on par with FF and Conformant-FF. \\\\
+On the other hand, we found significant speed up in computation time when ignoring the robot action cost with the trade off of longer plans. This makes conceptual sense as it's easy to realize that a method which ignores robot movement could take extra steps to reduce box movement.  Furthermore, the expansion of the search space is reduced since the algorithm runs the box quickly to the goal, ignoring better possible paths. However, we still were not able to match FF's combination of efficiency and solution quality.
 
     \begin{table}%[t!]
     \label{table:results2}
@@ -207,8 +209,12 @@ Our results (see Table \ref{table:results2}) show that our current implementatio
     \end{table}
   \item \textbf{Prove that your planner was complete. Your instructor has a math background: a proof ”is
 a convincing argument.” Make sure you address each aspect of completeness and why your
-planner satisfies it. Pictures are always welcome.}
-  \item \textbf{What methods did you use to speed up the planning? Give a short description of each method and explain why it did or didn't help on each relevant problem.}
+planner satisfies it. Pictures are always welcome.}\\
+Our A* implementation keeps track of an open and closed set of expanded states. Each iteration we expand all possible states from the current state with the lowest cost from the open set. For all possible expansions we check to see if the same state configuration already exists in the closed set (that is, the set of states already expanded), if not it's added to the open set with it's cost. If an expanded state results in a goal condition, the algorithm returns the state and all actions taken to get to that state.\\
+The process of searching the open set will check all feasible state configurations. The closed set guarantees that no state will be expanded multiple times. Therefore, assuming a bounded world which will not expand off into infinity, once the open set is exhausted the algorithm will terminate. This shows that the algorithm is complete since it is guaranteed to exhauste the open set or find a solution given a bounded world.
+
+  \item \textbf{What methods did you use to speed up the planning? Give a short description of each method and explain why it did or didn't help on each relevant problem.}\\
+  As mentioned above, the use of different cost functions found a trade off between efficiency and solution quality. A bi-directional A* search, where two simultaneous searchs start from both the initial state and a goal state, would improve the planning speed. It's possible that a bi-directional A* with a cost function including action costs could improve the efficiency while maintaining the better solutions found in our slower results.
 \end{enumerate}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++

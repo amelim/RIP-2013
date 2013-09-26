@@ -297,12 +297,12 @@ int State::computeGCost() {
 	vector<Location> inits = *world_->getInitBoxes();
 
 	// For each box, compute the distance from the boxes current location and it's starting point
-	for(unsigned int i = 0; i < world_->getNumberOfBoxes(); i++){
+	/*for(unsigned int i = 0; i < world_->getNumberOfBoxes(); i++){
 		cost += distanceBetween(inits[i], curBoxes_[i]);
-	}
+	}*/
 
   // Add the number of commands
-  //cost += commands_.size();
+  cost += commands_.size();
 	return cost;
 }
 // Heuristic Cost
