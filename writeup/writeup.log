@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.9.25)  25 SEP 2013 20:51
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.9.25)  25 SEP 2013 23:47
 entering extended mode
 **C:/Users/mss32/Documents/GitHub/RIP-2013/writeup/writeup.tex
 (C:/Users/mss32/Documents/GitHub/RIP-2013/writeup/writeup.tex
@@ -323,36 +323,31 @@ Underfull \hbox (badness 10000) in alignment at lines 118--134
 [][][][][]
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
-
- []
-
 [1
 Non-PDF special ignored!
 
 {C:/Users/mss32/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
-Package caption Warning: \label without proper \caption on input line 163.
+Package caption Warning: \label without proper \caption on input line 164.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:results' on page 2 undefined on input line 151.
+LaTeX Warning: Reference `table:results' on page 2 undefined on input line 152.
 
 
 
-Package caption Warning: \label without proper \caption on input line 163.
+Package caption Warning: \label without proper \caption on input line 164.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:results' on page 2 undefined on input line 159.
+LaTeX Warning: Reference `table:results' on page 2 undefined on input line 160.
 
 
 
 Overfull \vbox (9.0pt too high) has occurred while \output is active []
 
  [2]
-Underfull \hbox (badness 10000) in alignment at lines 165--181
+Underfull \hbox (badness 10000) in alignment at lines 166--182
 [][][][][]
  []
 
@@ -361,25 +356,28 @@ Overfull \vbox (9.0pt too high) has occurred while \output is active []
 
  [3]
 
-Package caption Warning: \label without proper \caption on input line 219.
+Package caption Warning: \label without proper \caption on input line 220.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `table:results2' on page 4 undefined on input line 214
+LaTeX Warning: Reference `table:results2' on page 4 undefined on input line 215
 .
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--217
+Underfull \hbox (badness 10000) in paragraph at lines 214--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--217
+Underfull \hbox (badness 10000) in paragraph at lines 214--218
 
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 221--237
+Overfull \vbox (9.0pt too high) has occurred while \output is active []
+
+ [4]
+Underfull \hbox (badness 10000) in alignment at lines 222--238
 [][][]
  []
 
@@ -390,9 +388,6 @@ Missing character: There is no â in font cmbx12!
 Missing character: There is no € in font cmbx12!
 Missing character: There is no  in font cmbx12!
 
-Overfull \vbox (9.0pt too high) has occurred while \output is active []
-
- [4]
 Overfull \vbox (9.0pt too high) has occurred while \output is active []
 
  [5]
@@ -433,7 +428,7 @@ es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmti12.pfb>
-Output written on writeup.pdf (11 pages, 107174 bytes).
+Output written on writeup.pdf (11 pages, 107618 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
