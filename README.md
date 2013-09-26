@@ -1,4 +1,4 @@
-RIP-2013 Project 1 - Andrew Melim, Daniel Pickem, Mattheus Svolenski, Jarius Tillman
+RIP-2013 Project 1 - Andrew Melim, Daniel Pickem, Matheus Svolenski, Jarius Tillman
 ========
 In oder to build this project, the following packages are required.
 1) cmake

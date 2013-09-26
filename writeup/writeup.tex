@@ -103,9 +103,38 @@ Deliverables include the following:
 \label{sec:problem_1}
 % ++++++++++++++++++++++++++++++++++++++++++++++++
 \begin{enumerate}
- \item Explain the method by which each of the two planners ﬁnds a solution.
- \item Which planner was fastest?
- \item Explain why the winning planner might be more effective on this problem.
+ \item  \textbf{Explain the method by which each of the two planners ﬁnds a solution.} \newline
+To test the Towers of Hanoi problem, we compared two diferent planners, named BlackBox and Fast Forward (FF).
+ \begin{itemize}
+      \item \textbf{BlackBox (see \cite{Blackbox})}: BlackBox is a planning system that works by converting problems specified in STRIPS notation into Boolean satisfiability problems. It employs a graph plan system, later converted, that is solved by any of a variety of fast SAT engines.
+      \item \textbf{Fast Forward (see \cite{FastForward})}: FF relies in a forward search in the state space, guided by a heuristic that estimates goal distances by ignoring delete lists. It uses an enforced hill-climbing search, that searches for the direct successors of a path, until finding a value that is better than the one it started with. It performs a complete breadth first search (BFS) for a state with strictly better evaluation. However, this method depends on the structure of the problem. If a local search fails, FF will skip everything done so far and switch to a complete best-first algorithm that simply expands all search nodes by increasing order of goal distance evaluation. This was the case in the Towers of Hanoi problem.
+ \end{itemize}
+ \item  \textbf{Which planner was fastest?} \newline
+The fastest planner was the Fast Forward (FF). Its performance can be analysed through \ref{table:results1}, that shows how long it took for each solution to be found and in how many steps this happend. In most cases, BlackBox was not able to find a solution, giving up after 50 iterations. The outputs are all included in the .zip file that accompains the project.
+
+   \begin{table}%[t!]
+    \label{table:results1}
+    \caption{Performance Comparison of BlackBox and FF (timing results in seconds).}
+    \begin{tabular*}{1.0\textwidth}{c|c|c|c|c}
+    \hline
+    \bfseries Problem Instance & \bfseries Fast Forward & \bfseries BlackBox \\
+    \hline\hline
+    % DATA
+    % ########################################################
+    Hanoi 3 Disks [time] 		&  0.00 	& 0.01	\\ \hline    
+    Hanoi 6 Disks [time] 		&  0.01	& -	\\ \hline
+    Hanoi 6 (other team) Disks [time] 		&  0.01 	& -	\\ \hline
+    Hanoi 10 Disks [time] 	&  0.89  & -	\\ \hline\hline
+    Hanoi 3 Disks [steps]		&  7 	& 7 	\\ \hline
+    Hanoi 6 Disks [steps]		&  63  	& - 	\\ \hline
+    Hanoi 6 (other team) Disks [steps]		&  63 	& - 	\\ \hline
+    Hanoi 10 Disks [steps]	&  1023 	& - 	\\ \hline
+    % ########################################################
+    \hline
+    \end{tabular*}
+    \end{table}
+
+ \item  \textbf{Explain why the winning planner might be more effective on this problem.} \newline
 \end{enumerate}
 
 % ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -240,6 +269,11 @@ This section summarizes the contribution of each team member.
 
 \begin{enumerate}
   \item Matheus Svolenski
+    \begin{itemize}
+     \item Implemented the parser class to properly extract the Sokoban world information.
+     \item Ran BlackBox and FF planners on the Towers of Hanoi problems.
+    \end{itemize}
+
   \item Jarius Tillman
   \item Andrew Melim
     \begin{itemize}
