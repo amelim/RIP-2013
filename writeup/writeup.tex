@@ -214,7 +214,7 @@ semantic representation would be desirable.}
  
   \item \textbf{Compare the performance of your planner to the PDDL planners you used in the previous
 problem. Which was faster? Why?} \\
-Our results (see Table \ref{table:results2}) shows two different cost functions for our A* implementation. The column on the left shows utlizes the cost of the actions already taken by the robot in addition to the Manhattan distance of boxes from their starting location. The column on the right compares with just using the box movement cost. \\\\
+Our results (see Table 3) shows two different cost functions for our A* implementation. The column on the left shows utlizes the cost of the actions already taken by the robot in addition to the Manhattan distance of boxes from their starting location. The column on the right compares with just using the box movement cost. \\\\
 The results are quite illuminating in that we can see the trade off between efficiency and plan quality. With the action cost included, while the code can solve the simple problems fairly efficiently, the time to find a solution grows quite significantly as the difficult of the problem grows. This approach does actually find high quality solutions on par with FF and Conformant-FF. \\\\
 On the other hand, we found significant speed up in computation time when ignoring the robot action cost with the trade off of longer plans. This makes conceptual sense as it's easy to realize that a method which ignores robot movement could take extra steps to reduce box movement.  Furthermore, the expansion of the search space is reduced since the algorithm runs the box quickly to the goal, ignoring better possible paths. However, we still were not able to match FF's combination of efficiency and solution quality.
 
@@ -279,6 +279,12 @@ This section summarizes the contribution of each team member.
     \end{itemize}
 
   \item Jarius Tillman
+   \begin{itemize}
+     \item Tested FF on 6 and 10 disk Hanoi
+     \item Wrote code to combine the libraries of the other members into final program
+     \item Performed minor code debugging
+     \item Created PDDL description for problem 2
+    \end{itemize}
   \item Andrew Melim
     \begin{itemize}
      \item Wrote project build system
